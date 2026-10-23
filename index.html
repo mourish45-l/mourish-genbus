@@ -31,7 +31,7 @@
       main { max-width: 900px !important; }
     }
 
-    /* ============ PDF RENDER MODE — forces true A4 everywhere ============ */
+    /* PDF RENDER MODE */
     .pdf-render-mode {
       position: fixed !important;
       left: -10000px !important;
@@ -60,37 +60,13 @@
       min-height: 1123px !important;
       box-sizing: border-box !important;
     }
-    .pdf-render-mode .a4-header {
-      display: flex !important;
-      flex-direction: row !important;
-      justify-content: space-between !important;
-      align-items: flex-start !important;
-    }
-    .pdf-render-mode .a4-footer {
-      flex-direction: row !important;
-      display: flex !important;
-    }
-    .pdf-render-mode .a4-footer > .footer-cell.left {
-      flex: 1 1 54% !important;
-      border-right: 1px dashed #e2e8f0 !important;
-      border-bottom: none !important;
-      padding-right: 12px !important;
-      padding-bottom: 0 !important;
-      width: auto !important;
-    }
-    .pdf-render-mode .a4-footer > .footer-cell.right {
-      flex: 1 1 46% !important;
-      padding-left: 6px !important;
-      width: auto !important;
-    }
-    .pdf-render-mode .a4-qr-box {
-      display: flex !important;
-    }
+    .pdf-render-mode .a4-header { display: flex !important; flex-direction: row !important; justify-content: space-between !important; align-items: flex-start !important; }
+    .pdf-render-mode .a4-footer { flex-direction: row !important; display: flex !important; }
+    .pdf-render-mode .a4-footer > .footer-cell.left { flex: 1 1 54% !important; border-right: 1px dashed #e2e8f0 !important; border-bottom: none !important; padding-right: 12px !important; padding-bottom: 0 !important; width: auto !important; }
+    .pdf-render-mode .a4-footer > .footer-cell.right { flex: 1 1 46% !important; padding-left: 6px !important; width: auto !important; }
+    .pdf-render-mode .a4-qr-box { display: flex !important; }
     .pdf-render-mode .a4-qr-box .qr-canvas canvas,
-    .pdf-render-mode .a4-qr-box .qr-canvas img {
-      width: 58px !important;
-      height: 58px !important;
-    }
+    .pdf-render-mode .a4-qr-box .qr-canvas img { width: 58px !important; height: 58px !important; }
 
     .a4-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding-bottom: 12px; border-bottom: 2px solid #0f172a; }
     .a4-header .org-block { flex: 1; min-width: 0; max-width: 62%; }
@@ -490,6 +466,7 @@
           <div><label class="font-bold text-slate-400 uppercase text-[9px] block mb-1">Date</label><input type="date" id="doc-date" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2 text-white font-medium focus:outline-none"></div>
           <div><label class="font-bold text-slate-400 uppercase text-[9px] block mb-1" id="lbl-doc-duedate">Due Date</label><input type="date" id="doc-duedate" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2 text-white font-medium focus:outline-none"></div>
         </div>
+        <div><label class="font-bold text-slate-400 uppercase text-[9px] block mb-1">Custom Document Title (Optional)</label><input type="text" id="doc-title-override" data-capitalize="words" placeholder="e.g. SERVICE BILL, PROFORMA INVOICE" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2 text-white focus:outline-none"></div>
         <div><label class="font-bold text-slate-400 uppercase text-[9px] block mb-1">Subject / Title (Optional)</label><input type="text" id="doc-subject" placeholder="e.g. Quotation for Modular Recovery" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2 text-white focus:outline-none"></div>
         <div><label class="font-bold text-slate-400 uppercase text-[9px] block mb-1">Place of Supply</label><input type="text" id="doc-place-of-supply" placeholder="e.g. Tamil Nadu (33)" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2 text-white focus:outline-none"></div>
         <div><label class="font-bold text-slate-400 uppercase text-[9px] block mb-1">Billing Address &amp; Phone</label><textarea id="doc-client-address" rows="3" placeholder="Street, City, PIN, Phone" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2 text-white resize-none focus:outline-none"></textarea></div>
@@ -690,7 +667,7 @@
       <div class="w-14 h-14 mx-auto rounded-2xl bg-blue-500/20 text-blue-400 flex items-center justify-center text-2xl mb-3">
         <i class="fa-solid fa-file-pdf fa-spin"></i>
       </div>
-      <h3 class="font-black text-sm">Generating PDF</h3>
+      <h3 class="font-black text-sm">Generating High-Quality PDF</h3>
       <p id="pdf-progress-msg" class="text-[11px] text-slate-400 mt-2">Starting…</p>
       <div id="pdf-progress-steps" class="mt-3 space-y-1 text-left"></div>
     </div>
@@ -842,6 +819,7 @@
           <div class="flex rounded-xl bg-slate-100 p-1 text-[11px] font-bold">
             <button type="button" id="itm-tab-good" onclick="setItemType('GOOD')" class="flex-1 py-2 rounded-lg bg-white shadow-sm text-blue-600 transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-box"></i> Good</button>
             <button type="button" id="itm-tab-service" onclick="setItemType('SERVICE')" class="flex-1 py-2 rounded-lg text-slate-500 transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-screwdriver-wrench"></i> Service</button>
+            <button type="button" id="itm-tab-exempt" onclick="setItemType('EXEMPT')" class="flex-1 py-2 rounded-lg text-slate-500 transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-shield-halved"></i> Exempt</button>
           </div>
           <input type="hidden" id="item-type" value="GOOD">
         </div>
@@ -936,6 +914,12 @@
     const UNITS_ALL = [...new Set([...UNITS_GOOD, ...UNITS_SERVICE])];
     const DEFAULT_NUMBERING = { invoice: { prefix: 'INV-', next: 1 }, quotation: { prefix: 'QT-', next: 1 }, challan: { prefix: 'DC-', next: 1 }, includeFY: false };
 
+    // HIGH QUALITY PDF
+    const PDF_SCALE = 3;
+    const PDF_JPEG_QUALITY = 0.95;
+    const PREVIEW_WIDTH = 900;
+    const PREVIEW_JPEG_QUALITY = 0.9;
+
     let state = {
       org: JSON.parse(localStorage.getItem('erp_org') || '{}'),
       customers: JSON.parse(localStorage.getItem('erp_customers') || '[]'),
@@ -962,6 +946,7 @@
     let activeSigMode = 'draw';
     let _cachedPdfBlob = null;
     let _cachedPdfName = '';
+    let _cachedPageImages = [];
 
     function findCatalogDesc(n) { if(!n) return ''; const m=state.items.find(i=>(i.name||'').trim().toLowerCase()===n.trim().toLowerCase()); return m?(m.desc||''):''; }
     function escapeHtml(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
@@ -1110,6 +1095,7 @@
         docNumber: document.getElementById('doc-number').value,
         date: document.getElementById('doc-date').value,
         dueDate: document.getElementById('doc-duedate').value,
+        docTitleOverride: document.getElementById('doc-title-override').value,
         clientAddress: document.getElementById('doc-client-address').value,
         clientGstin: document.getElementById('doc-client-gstin').value,
         placeOfSupply: document.getElementById('doc-place-of-supply').value,
@@ -1191,6 +1177,7 @@
       document.getElementById('doc-number').value = x.docNumber || '';
       document.getElementById('doc-date').value = x.date || '';
       document.getElementById('doc-duedate').value = x.dueDate || '';
+      document.getElementById('doc-title-override').value = x.docTitleOverride || '';
       document.getElementById('doc-client-address').value = x.clientAddress || '';
       document.getElementById('doc-client-gstin').value = x.clientGstin || '';
       document.getElementById('doc-place-of-supply').value = x.placeOfSupply || '';
@@ -1335,7 +1322,7 @@
       function move(e) { if (!isSigDrawing) return; e.preventDefault(); const p = getP(e); sigCtx.lineTo(p.x, p.y); sigCtx.stroke(); }
       function stop() { isSigDrawing = false; }
       sigCanvas.onmousedown = start; sigCanvas.onmousemove = move; window.onmouseup = stop;
-      sigCanvas.ontouchstart = start; sigCanvas.ontouchmove = move; window.ontouchend = stop;
+      sigCanvas.ontouchstart = start; sigCanvas.ontouchmove = move; sigCanvas.ontouchend = stop;
       if (state.signature && activeSigMode === 'draw') { const img = new Image(); img.onload = () => sigCtx.drawImage(img,0,0); img.src = state.signature; }
     }
     function clearSignatureCanvas() { if (!sigCtx) return; sigCtx.clearRect(0,0,sigCanvas.width,sigCanvas.height); tempSigBase64 = null; }
@@ -1352,7 +1339,7 @@
     }
 
     /* ============================================================
-       PDF — MULTIPLE A4 PAGES, TRUE A4 SIZING, NO OVERLAP
+       PDF — HIGH QUALITY, MULTI-PAGE, OPENS IN DEFAULT VIEWER
        ============================================================ */
     function setPdfProgress(msg, steps) {
       const msgEl = document.getElementById('pdf-progress-msg');
@@ -1374,28 +1361,21 @@
       if (typeof html2canvas === 'undefined') throw new Error('html2canvas not loaded — check internet');
       if (typeof window.jspdf === 'undefined') throw new Error('jsPDF not loaded — check internet');
 
-      // Isolated wrapper with .pdf-render-mode class that overrides mobile CSS
+      _cachedPageImages = [];
+
       const wrapper = document.createElement('div');
       wrapper.className = 'pdf-render-mode';
-      // inline-style backup in case class doesn't apply
-      wrapper.style.setProperty('position', 'fixed', 'important');
-      wrapper.style.setProperty('left', '-10000px', 'important');
-      wrapper.style.setProperty('top', '0', 'important');
-      wrapper.style.setProperty('width', '794px', 'important');
-      wrapper.style.setProperty('background', '#ffffff', 'important');
-      wrapper.style.setProperty('z-index', '-1', 'important');
+      wrapper.style.cssText = 'position:fixed;left:-10000px;top:0;width:794px;background:#fff;z-index:-1;';
 
       const clone = source.cloneNode(true);
       clone.removeAttribute('id');
-      // Hard-force inline styles too (belt and suspenders)
       clone.style.setProperty('width', '794px', 'important');
       clone.style.setProperty('min-width', '794px', 'important');
       clone.style.setProperty('max-width', '794px', 'important');
-      clone.style.setProperty('min-height', '1123px', 'important');
+      clone.style.setProperty('min-height', 'auto', 'important');
       clone.style.setProperty('height', 'auto', 'important');
       clone.style.setProperty('margin', '0', 'important');
       clone.style.setProperty('box-shadow', 'none', 'important');
-      clone.style.setProperty('border-radius', '0', 'important');
       clone.style.setProperty('transform', 'none', 'important');
       clone.style.setProperty('overflow', 'visible', 'important');
 
@@ -1405,14 +1385,27 @@
       wrapper.appendChild(clone);
       document.body.appendChild(wrapper);
 
-      // Wait for fonts, QR codes, images to fully render
       await new Promise(r => setTimeout(r, 500));
+
+      const breakSelectors = [
+        '.a4-table tbody tr', '.a4-client-block', '.a4-words',
+        '.a4-tax-summary', '.a4-subject', '.a4-footer', '.a4-footer-strip'
+      ].join(',');
+
+      const breakPointsCss = [0];
+      clone.querySelectorAll(breakSelectors).forEach(el => {
+        const bottom = el.offsetTop + el.offsetHeight;
+        if (bottom > 0) breakPointsCss.push(bottom);
+      });
+      breakPointsCss.push(clone.scrollHeight);
+      breakPointsCss.sort((a, b) => a - b);
 
       let canvas;
       try {
         const contentH = Math.max(clone.scrollHeight, wrapper.scrollHeight, 1123);
+        // scale: 3 for HIGH QUALITY
         canvas = await html2canvas(clone, {
-          scale: 2,
+          scale: PDF_SCALE,
           useCORS: true,
           allowTaint: true,
           backgroundColor: '#ffffff',
@@ -1427,51 +1420,75 @@
       } finally {
         if (wrapper.parentNode) wrapper.parentNode.removeChild(wrapper);
       }
+      if (!canvas || !canvas.width || !canvas.height) throw new Error('Canvas render failed');
 
-      if (!canvas || !canvas.width || !canvas.height) throw new Error('Canvas render failed — check images');
-
-      // -------- Slice the tall canvas into A4-page-sized chunks --------
       const { jsPDF } = window.jspdf;
-      const pdf = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+      const pdf = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait', compress: true });
 
       const pdfW = 210;
       const pdfH = 297;
+      const scaleFactor = canvas.width / 794;
+      const pageHeightPx = Math.floor((pdfH / pdfW) * canvas.width);
 
-      // Height of one A4 page in canvas pixels (canvas is rendered at 2x, but ratio stays same)
-      // canvas.width corresponds to 794 CSS px → we want to slice such that slice height / canvas.width = 297/210
-      const pageHeightPx = Math.floor(canvas.width * (pdfH / pdfW));
+      const breakPointsPx = [...new Set(breakPointsCss.map(b => Math.round(b * scaleFactor)))]
+        .sort((a, b) => a - b);
 
       let y = 0;
       let pageIdx = 0;
 
-      while (y < canvas.height) {
-        const remaining = canvas.height - y;
-        const sliceH = Math.min(pageHeightPx, remaining);
+      while (y < canvas.height - 2) {
+        const idealEnd = y + pageHeightPx;
+        let pageEnd;
 
-        // Create a temp canvas the size of one A4 page
+        if (idealEnd >= canvas.height) {
+          pageEnd = canvas.height;
+        } else {
+          const candidates = breakPointsPx.filter(b => b > y + 50 && b <= idealEnd);
+          pageEnd = candidates.length > 0 ? candidates[candidates.length - 1] : idealEnd;
+        }
+
+        const sliceH = pageEnd - y;
+        if (sliceH <= 0) break;
+
         const pageCanvas = document.createElement('canvas');
         pageCanvas.width = canvas.width;
         pageCanvas.height = pageHeightPx;
         const ctx = pageCanvas.getContext('2d');
-        // Fill with white first (so any leftover area at the bottom is white, not transparent)
         ctx.fillStyle = '#ffffff';
         ctx.fillRect(0, 0, pageCanvas.width, pageCanvas.height);
-        // Draw the slice
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
         ctx.drawImage(canvas, 0, y, canvas.width, sliceH, 0, 0, canvas.width, sliceH);
 
-        const imgData = pageCanvas.toDataURL('image/jpeg', 0.92);
+        // Preview for modal
+        const previewCanvas = document.createElement('canvas');
+        const previewW = PREVIEW_WIDTH;
+        const previewH = Math.round(previewW * pageHeightPx / canvas.width);
+        previewCanvas.width = previewW;
+        previewCanvas.height = previewH;
+        const pctx = previewCanvas.getContext('2d');
+        pctx.fillStyle = '#ffffff';
+        pctx.fillRect(0, 0, previewW, previewH);
+        pctx.imageSmoothingEnabled = true;
+        pctx.imageSmoothingQuality = 'high';
+        pctx.drawImage(pageCanvas, 0, 0, pageCanvas.width, pageCanvas.height, 0, 0, previewW, previewH);
+        _cachedPageImages.push(previewCanvas.toDataURL('image/jpeg', PREVIEW_JPEG_QUALITY));
+
+        // HIGH-QUALITY JPEG for the actual PDF
+        const imgData = pageCanvas.toDataURL('image/jpeg', PDF_JPEG_QUALITY);
 
         if (pageIdx > 0) pdf.addPage();
-        pdf.addImage(imgData, 'JPEG', 0, 0, pdfW, pdfH);
+        pdf.addImage(imgData, 'JPEG', 0, 0, pdfW, pdfH, undefined, 'FAST');
 
-        y += pageHeightPx;
+        y = pageEnd;
         pageIdx++;
       }
 
+      console.log(`✅ PDF generated — ${pageIdx} page(s) @ ${PDF_SCALE}x scale`);
       return pdf.output('blob');
     }
 
-    /* MAIN PDF BUTTON — generates PDF, opens in viewer, saves to Downloads */
+    /* MAIN PDF BUTTON */
     async function downloadDocumentPDF() {
       const btn = document.getElementById('btn-download-pdf');
       const btnText = document.getElementById('btn-download-pdf-text');
@@ -1486,7 +1503,7 @@
 
       try {
         await new Promise(r => setTimeout(r, 80));
-        setPdfProgress('Rendering document to canvas…', ['✓ Step 1 / 4', '✓ Step 2 / 4 — html2canvas']);
+        setPdfProgress('Rendering at high quality (3× resolution)…', ['✓ Step 1 / 4', '✓ Step 2 / 4 — html2canvas']);
         await new Promise(r => setTimeout(r, 80));
 
         _cachedPdfBlob = await generatePdfBlob();
@@ -1508,14 +1525,14 @@
       }
     }
 
-    /* OPEN PDF IN DEFAULT VIEWER — with auto-download fallback */
+    /* OPEN PDF — multiple attempts to hand off to default PDF viewer */
     function openPdfInViewer() {
       if (!_cachedPdfBlob) { showToast('Build PDF first', 'warn'); return; }
 
       const url = URL.createObjectURL(_cachedPdfBlob);
       window._currentPdfUrl = url;
 
-      // Auto-download the file to device (works everywhere)
+      // 1. Auto-download (so the file is on the device regardless)
       try {
         const dl = document.createElement('a');
         dl.href = url;
@@ -1527,18 +1544,57 @@
         setTimeout(() => { if (dl.parentNode) dl.parentNode.removeChild(dl); }, 200);
       } catch (e) { console.warn('Auto-download failed:', e); }
 
-      // Try to open in new tab / default PDF viewer
-      let opened = false;
-      try {
-        const win = window.open(url, '_blank');
-        if (win && !win.closed && typeof win.closed !== 'undefined') opened = true;
-      } catch (e) { console.warn('window.open failed:', e); }
-
-      // Show the modal so user can also download / share explicitly
+      // 2. Show the modal with previews + big OPEN button
       showPdfViewer();
 
-      if (opened) showToast('PDF opened • Also saved to Downloads ✓');
-      else showToast('PDF saved to Downloads ✓');
+      // 3. Try to open in new tab — Android hands PDF to default viewer app
+      setTimeout(() => {
+        try {
+          const win = window.open(url, '_blank');
+          if (!win) console.warn('Popup blocked — user can tap "OPEN PDF" button in modal');
+        } catch (e) { console.warn('window.open failed:', e); }
+      }, 400);
+
+      showToast('PDF saved • opening in viewer…');
+    }
+
+    /* Force-open PDF via Web Share API (best on Android — user picks PDF app) */
+    async function forceOpenPdf() {
+      if (!_cachedPdfBlob) { showToast('Build PDF first', 'warn'); return; }
+
+      const file = new File([_cachedPdfBlob], _cachedPdfName, { type: 'application/pdf' });
+
+      // Method 1: Web Share API — Android shows "Open with" + all apps
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        try {
+          await navigator.share({
+            files: [file],
+            title: _cachedPdfName.replace('.pdf', '')
+          });
+          showToast('Choose your PDF app from the menu');
+          return;
+        } catch (err) {
+          if (err.name === 'AbortError') return;
+          console.warn('Web Share failed:', err);
+        }
+      }
+
+      // Method 2: window.open with blob URL
+      try {
+        const win = window.open(window._currentPdfUrl, '_blank');
+        if (win) {
+          showToast('Opening in PDF viewer…');
+          return;
+        }
+      } catch (e) {}
+
+      // Method 3: navigate current tab
+      try {
+        window.location.href = window._currentPdfUrl;
+        return;
+      } catch (e) {}
+
+      showToast('Could not auto-open — file is in your Downloads folder', 'warn');
     }
 
     /* PDF VIEWER MODAL */
@@ -1551,29 +1607,35 @@
       const url = window._currentPdfUrl || URL.createObjectURL(_cachedPdfBlob);
       window._currentPdfUrl = url;
 
+      const pageCount = _cachedPageImages.length;
+      const previewHTML = _cachedPageImages.length > 0
+        ? _cachedPageImages.map((img, i) => `
+            <div style="position:relative;margin-bottom:14px;border-radius:8px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.5);background:#fff;">
+              <div style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,.75);color:#fff;padding:3px 9px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.05em;">PAGE ${i + 1} / ${pageCount}</div>
+              <img src="${img}" alt="Page ${i + 1}" style="display:block;width:100%;height:auto;">
+            </div>
+          `).join('')
+        : `<div style="text-align:center;color:#94a3b8;font-size:12px;padding:60px 20px;">No preview available. Tap Download to open the PDF.</div>`;
+
       const modal = document.createElement('div');
       modal.id = 'pdf-viewer-modal';
       modal.style.cssText = 'position:fixed;inset:0;background:rgba(2,6,23,.97);z-index:9999;display:flex;flex-direction:column;padding:10px;gap:8px;';
 
       modal.innerHTML = `
-        <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 4px;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;flex-wrap:wrap;gap:6px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 4px;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;flex-wrap:wrap;gap:6px;flex-shrink:0;">
           <div style="min-width:0;flex:1;">
             <div style="font-weight:900;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">📄 ${_cachedPdfName}</div>
-            <div style="font-size:10px;color:#94a3b8;font-family:'JetBrains Mono',monospace;margin-top:2px;">${(_cachedPdfBlob.size/1024).toFixed(1)} KB • A4 PDF</div>
+            <div style="font-size:10px;color:#94a3b8;font-family:'JetBrains Mono',monospace;margin-top:2px;">${(_cachedPdfBlob.size/1024).toFixed(1)} KB • A4 • HQ ${pageCount} page${pageCount === 1 ? '' : 's'}</div>
           </div>
           <div style="display:flex;gap:6px;flex-wrap:wrap;">
-            <a id="pdf-open-link"
-               href="${url}"
-               target="_blank"
-               rel="noopener"
-               style="background:#6366f1;color:#fff;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:800;font-size:12px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;">
-              <i class="fa-solid fa-up-right-from-square"></i> Open in Viewer
-            </a>
+            <button onclick="forceOpenPdf()" style="background:#6366f1;color:#fff;border:0;padding:10px 16px;border-radius:12px;font-weight:900;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;box-shadow:0 4px 14px rgba(99,102,241,.4);">
+              <i class="fa-solid fa-up-right-from-square"></i> OPEN PDF
+            </button>
             <a id="pdf-download-link"
                href="${url}"
                download="${_cachedPdfName}"
                style="background:#2563eb;color:#fff;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:800;font-size:12px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;">
-              <i class="fa-solid fa-download"></i> Download
+              <i class="fa-solid fa-download"></i> Save
             </a>
             <button onclick="sharePdfNativeFromViewer()" style="background:#25D366;color:#fff;border:0;padding:10px 14px;border-radius:12px;font-weight:800;font-size:12px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;">
               <i class="fa-brands fa-whatsapp"></i> Share
@@ -1581,9 +1643,11 @@
             <button onclick="closePdfViewer()" style="background:#334155;color:#fff;border:0;padding:10px 14px;border-radius:12px;font-weight:800;font-size:12px;cursor:pointer;white-space:nowrap;">✕ Close</button>
           </div>
         </div>
-        <iframe src="${url}#toolbar=1&navpanes=0&view=FitH" style="flex:1;width:100%;border:0;border-radius:12px;background:#fff;min-height:0;"></iframe>
-        <div style="text-align:center;font-size:10px;color:#64748b;padding:4px;">
-          💡 <b>Open in Viewer</b> opens the PDF in your default PDF app. <b>Download</b> saves it to your Downloads folder.
+        <div style="flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:10px 4px;background:#0f172a;border-radius:12px;">
+          ${previewHTML}
+        </div>
+        <div style="text-align:center;font-size:10px;color:#64748b;padding:4px;flex-shrink:0;">
+          💡 Tap <b>OPEN PDF</b> to launch your PDF app, or <b>Save</b> to save the file to Downloads.
         </div>
       `;
       document.body.appendChild(modal);
@@ -1593,7 +1657,7 @@
       const m = document.getElementById('pdf-viewer-modal');
       if (m) m.remove();
       if (window._currentPdfUrl) {
-        setTimeout(() => { try { URL.revokeObjectURL(window._currentPdfUrl); } catch(e){} }, 30000);
+        setTimeout(() => { try { URL.revokeObjectURL(window._currentPdfUrl); } catch(e){} }, 60000);
         window._currentPdfUrl = null;
       }
     }
@@ -1792,13 +1856,29 @@
     }
     function setItemType(type) {
       currentItemType = type;
-      document.getElementById('item-type').value = type;
-      const tg = document.getElementById('itm-tab-good'), ts = document.getElementById('itm-tab-service');
-      const a = "flex-1 py-2 rounded-lg bg-white shadow-sm text-blue-600 transition flex items-center justify-center gap-1.5";
-      const i = "flex-1 py-2 rounded-lg text-slate-500 transition flex items-center justify-center gap-1.5";
-      if (type === 'SERVICE') { ts.className = a; tg.className = i; document.getElementById('lbl-item-hsn').innerText = 'SAC Code'; }
-      else { tg.className = a; ts.className = i; document.getElementById('lbl-item-hsn').innerText = 'HSN Code'; }
-      populateUnitSelect(document.getElementById('item-unit'), type);
+      document.getElementById('item-type').value = type === 'EXEMPT' ? 'SERVICE' : type;
+      
+      const tg = document.getElementById('itm-tab-good');
+      const ts = document.getElementById('itm-tab-service');
+      const te = document.getElementById('itm-tab-exempt');
+      const activeCls = "flex-1 py-2 rounded-lg bg-white shadow-sm text-blue-600 transition flex items-center justify-center gap-1.5";
+      const idleCls = "flex-1 py-2 rounded-lg text-slate-500 transition flex items-center justify-center gap-1.5";
+
+      if (type === 'GOOD') {
+        tg.className = activeCls; ts.className = idleCls; te.className = idleCls;
+        document.getElementById('lbl-item-hsn').innerText = 'HSN Code';
+        document.getElementById('item-tax').disabled = false;
+      } else if (type === 'SERVICE') {
+        ts.className = activeCls; tg.className = idleCls; te.className = idleCls;
+        document.getElementById('lbl-item-hsn').innerText = 'SAC Code';
+        document.getElementById('item-tax').disabled = false;
+      } else { // EXEMPT
+        te.className = activeCls; tg.className = idleCls; ts.className = idleCls;
+        document.getElementById('lbl-item-hsn').innerText = 'SAC / Code';
+        document.getElementById('item-tax').value = '0';
+        document.getElementById('item-tax').disabled = true;
+      }
+      populateUnitSelect(document.getElementById('item-unit'), type === 'EXEMPT' ? 'SERVICE' : type);
     }
     function handleSaveItem(e) {
       e.preventDefault();
@@ -1897,6 +1977,7 @@
         document.getElementById('doc-number').value = existingDoc.docNumber || '';
         document.getElementById('doc-date').value = existingDoc.date || '';
         document.getElementById('doc-duedate').value = existingDoc.dueDate || '';
+        document.getElementById('doc-title-override').value = existingDoc.docTitleOverride || '';
         document.getElementById('doc-client-address').value = existingDoc.clientAddress || '';
         document.getElementById('doc-client-gstin').value = existingDoc.clientGstin || '';
         document.getElementById('doc-place-of-supply').value = existingDoc.placeOfSupply || '';
@@ -1933,6 +2014,7 @@
         document.getElementById('doc-number').value = peekNextNumber(type);
         document.getElementById('doc-date').value = new Date().toISOString().split('T')[0];
         document.getElementById('doc-duedate').value = new Date(Date.now() + 14 * 86400000).toISOString().split('T')[0];
+        document.getElementById('doc-title-override').value = '';
         document.getElementById('doc-client-address').value = '';
         document.getElementById('doc-client-gstin').value = '';
         document.getElementById('doc-place-of-supply').value = '';
@@ -2073,6 +2155,7 @@
         clientAddress: document.getElementById('doc-client-address').value.trim(),
         clientGstin: document.getElementById('doc-client-gstin').value.trim(),
         placeOfSupply: document.getElementById('doc-place-of-supply').value.trim(),
+        docTitleOverride: document.getElementById('doc-title-override').value.trim(),
         subject: document.getElementById('doc-subject').value.trim(),
         date: document.getElementById('doc-date').value,
         dueDate: document.getElementById('doc-duedate').value,
@@ -2178,10 +2261,18 @@
       const lb = document.getElementById('live-logo-box'), li = document.getElementById('live-logo-img');
       if (state.org.logoBase64) { li.src = state.org.logoBase64; lb.classList.remove('hidden'); } else lb.classList.add('hidden');
       const dt = directDoc ? directDoc.type : currentEditorType;
+      
+      // Custom Title Logic
+      const customTitle = (directDoc ? directDoc.docTitleOverride : document.getElementById('doc-title-override').value) || '';
       const dT = document.getElementById('live-doc-title');
-      if (dt === 'CHALLAN') dT.innerText = 'DELIVERY CHALLAN';
-      else if (dt === 'QUOTATION') dT.innerText = 'QUOTATION';
-      else dT.innerText = 'TAX INVOICE';
+      if (customTitle.trim()) {
+        dT.innerText = customTitle.trim().toUpperCase();
+      } else {
+        if (dt === 'CHALLAN') dT.innerText = 'DELIVERY CHALLAN';
+        else if (dt === 'QUOTATION') dT.innerText = 'QUOTATION';
+        else dT.innerText = 'TAX INVOICE';
+      }
+
       const dN = directDoc ? directDoc.docNumber : document.getElementById('doc-number').value;
       document.getElementById('live-doc-num').innerText = dN;
       document.getElementById('live-footer-docno').innerText = dN;
@@ -2272,7 +2363,7 @@
         const pN = encodeURIComponent(state.org.name || 'Merchant');
         const u = `upi://pay?pa=${uI}&pn=${pN}&am=${totals.grandTotal.toFixed(2)}&cu=INR&tn=Invoice%20Payment`;
         qT.innerHTML = '';
-        try { new QRCode(qT, { text: u, width: 58, height: 58, colorDark: "#0f172a", colorLight: "#ffffff", correctLevel: QRCode.CorrectLevel.M }); } catch(e) {}
+        try { new QRCode(qT, { text: u, width: 100, height: 100, colorDark: "#0f172a", colorLight: "#ffffff", correctLevel: QRCode.CorrectLevel.M }); } catch(e) {}
       } else { qC.style.display = 'none'; qT.innerHTML = ''; }
       const sS2 = document.getElementById('live-signature-stamp');
       if (state.signature) { sS2.src = state.signature; sS2.style.display = 'block'; } else sS2.style.display = 'none';
@@ -2766,7 +2857,7 @@
         if (typeof html2canvas === 'undefined' || typeof window.jspdf === 'undefined') {
           console.warn('⚠️ PDF libraries failed to load — check internet');
         } else {
-          console.log('✅ PDF libraries ready');
+          console.log('✅ PDF libraries ready (HQ mode: 3× scale)');
         }
       }, 1000);
     });
