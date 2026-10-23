@@ -20,7 +20,7 @@
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     .modal-scroll { max-height: 94vh; overflow-y: auto; -webkit-overflow-scrolling: touch; }
 
-    .a4-sheet { background: #fff; color: #0f172a; font-family: 'Plus Jakarta Sans', Arial, sans-serif; line-height: 1.4; font-size: 11px; width: 210mm; min-height: 297mm; height: auto; margin: 0 auto; box-sizing: border-box; position: relative; overflow: visible; box-shadow: 0 10px 25px -5px rgba(0,0,0,.3); }
+    .a4-sheet { background: #fff; color: #0f172a; font-family: 'Plus Jakarta Sans', Arial, sans-serif; line-height: 1.4; font-size: 11px; width: 210mm; min-height: 297mm; height: auto; margin: 0 auto; box-sizing: border-box; position: relative; overflow: visible; box-shadow: 0 10px 25px -5px rgba(0,0,0,.1); }
     .a4-inner { padding: 12mm 10mm 12mm; box-sizing: border-box; display: flex; flex-direction: column; min-height: 297mm; }
     @media (max-width: 820px) {
       .a4-sheet { width: 100% !important; min-height: auto; box-shadow: none; }
@@ -68,6 +68,7 @@
     .pdf-render-mode .a4-qr-box .qr-canvas canvas,
     .pdf-render-mode .a4-qr-box .qr-canvas img { width: 58px !important; height: 58px !important; }
 
+    /* A4 DOCUMENT STYLES */
     .a4-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding-bottom: 12px; border-bottom: 2px solid #0f172a; }
     .a4-header .org-block { flex: 1; min-width: 0; max-width: 62%; }
     .a4-header .org-name { font-size: 19px; font-weight: 800; color: #0f172a; margin-bottom: 4px; line-height: 1.15; word-wrap: break-word; }
@@ -140,7 +141,8 @@
     .a4-signature-line { border-top: 1.5px solid #94a3b8; padding-top: 3px; padding-left: 14px; padding-right: 14px; text-align: center; font-size: 8px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; color: #64748b; }
     .a4-footer-strip { margin-top: auto; padding-top: 12px; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; font-size: 8px; color: #94a3b8; font-family: 'JetBrains Mono', monospace; flex-wrap: wrap; gap: 4px; }
 
-    .line-row { background: #020617; border: 1px solid #1e293b; border-radius: 16px; padding: 10px; display: flex; flex-direction: column; gap: 8px; overflow: hidden; }
+    /* UI COMPONENTS - LIGHT MODE */
+    .line-row { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; padding: 10px; display: flex; flex-direction: column; gap: 8px; overflow: hidden; }
     .line-row .desc-row { display: flex; gap: 6px; width: 100%; min-width: 0; }
     .line-row .desc-row .row-desc { flex: 1 1 auto; min-width: 0; width: 100%; }
     .line-row .desc-row .del-btn { flex: 0 0 34px; width: 34px; }
@@ -165,21 +167,21 @@
     #toast-box { position: fixed; bottom: 92px; left: 50%; transform: translateX(-50%) translateY(20px); opacity: 0; transition: all .3s ease; z-index: 60; pointer-events: none; }
     #toast-box.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-    .tool-card { background: linear-gradient(160deg, #0f172a, #0b1220); border: 1px solid #1e293b; border-radius: 18px; padding: 14px; transition: all .2s; }
-    .tool-card:hover { border-color: #334155; }
-    .tool-input { width: 100%; background: #020617; border: 1px solid #1e293b; border-radius: 10px; padding: 8px 10px; color: #fff; font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+    .tool-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 18px; padding: 14px; transition: all .2s; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    .tool-card:hover { border-color: #cbd5e1; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+    .tool-input { width: 100%; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 10px; padding: 8px 10px; color: #0f172a; font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 13px; }
     .tool-input:focus { outline: none; border-color: #2563eb; }
-    .tool-result { background: rgba(37,99,235,.1); border: 1px solid rgba(37,99,235,.35); border-radius: 12px; padding: 10px 12px; }
-    .tool-result .val { font-family: 'JetBrains Mono', monospace; font-weight: 900; color: #60a5fa; font-size: 16px; }
+    .tool-result { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 12px; padding: 10px 12px; }
+    .tool-result .val { font-family: 'JetBrains Mono', monospace; font-weight: 900; color: #1d4ed8; font-size: 16px; }
 
-    .status-paid { background: #065f46; color: #d1fae5; }
-    .status-unpaid { background: #7c2d12; color: #fed7aa; }
-    .status-partial { background: #713f12; color: #fde68a; }
+    .status-paid { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+    .status-unpaid { background: #fff7ed; color: #9a3412; border: 1px solid #fed7aa; }
+    .status-partial { background: #fefce8; color: #854d0e; border: 1px solid #fde68a; }
 
-    .search-bar { width: 100%; background: #020617; border: 1px solid #1e293b; border-radius: 12px; padding: 9px 12px 9px 34px; color: #fff; font-size: 12px; }
-    .search-bar:focus { outline: none; border-color: #2563eb; }
+    .search-bar { width: 100%; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 9px 12px 9px 34px; color: #0f172a; font-size: 12px; }
+    .search-bar:focus { outline: none; border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
     .stat-pill { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 999px; font-size: 9px; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; }
-    .progress-step { padding: 3px 8px; border-radius: 6px; background: rgba(37,99,235,.15); color: #93c5fd; font-size: 10px; font-weight: 700; display: inline-block; margin: 2px 0; }
+    .progress-step { padding: 3px 8px; border-radius: 6px; background: #eff6ff; color: #1d4ed8; font-size: 10px; font-weight: 700; display: inline-block; margin: 2px 0; border: 1px solid #bfdbfe; }
 
     @media print {
       * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
@@ -192,47 +194,47 @@
     }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased min-h-screen pb-24 select-none">
+<body class="bg-slate-50 text-slate-900 antialiased min-h-screen pb-24 select-none">
 
   <!-- LAUNCH -->
-  <div id="screen-launch" class="fixed inset-0 bg-slate-950 flex flex-col items-center justify-between text-white z-50 p-6 transition-opacity duration-500">
+  <div id="screen-launch" class="fixed inset-0 bg-slate-50 flex flex-col items-center justify-between text-slate-900 z-50 p-6 transition-opacity duration-500">
     <div class="my-auto text-center space-y-5 max-w-xs">
-      <div class="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-tr from-blue-600 to-indigo-500 text-white text-3xl shadow-2xl shadow-blue-500/30 animate-pulse">
+      <div class="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-tr from-blue-600 to-indigo-500 text-white text-3xl shadow-xl shadow-blue-500/20 animate-pulse">
         <i class="fa-solid fa-shapes"></i>
       </div>
       <div>
-        <h1 class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">Mourish GenBus</h1>
-        <p class="text-slate-400 text-xs mt-1">Enterprise Billing &amp; Signature Studio</p>
+        <h1 class="text-2xl font-extrabold tracking-tight text-slate-900">Mourish GenBus</h1>
+        <p class="text-slate-500 text-xs mt-1">Enterprise Billing &amp; Signature Studio</p>
       </div>
-      <button onclick="dismissLaunchScreen()" class="w-full py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 active:scale-95 text-white font-bold rounded-2xl text-xs transition shadow-xl shadow-blue-600/30 flex items-center justify-center gap-2">
+      <button onclick="dismissLaunchScreen()" class="w-full py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 active:scale-95 text-white font-bold rounded-2xl text-xs transition shadow-lg shadow-blue-600/30 flex items-center justify-center gap-2">
         <span>Enter App</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
       </button>
     </div>
-    <p class="text-[10px] text-slate-500 font-mono-code">100% LocalStorage • Smart Drafts • Business Tools</p>
+    <p class="text-[10px] text-slate-400 font-mono-code">100% LocalStorage • Smart Drafts • Business Tools</p>
   </div>
 
   <!-- TOP BAR -->
-  <header class="no-print sticky top-0 z-30 bg-slate-900/90 backdrop-blur-xl border-b border-slate-800/80 px-4 py-3 flex items-center justify-between">
+  <header class="no-print sticky top-0 z-30 bg-white/90 backdrop-blur-xl border-b border-slate-200 px-4 py-3 flex items-center justify-between">
     <div class="flex items-center gap-2.5">
-      <div id="topbar-logo-box" class="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-xs overflow-hidden shadow-md shadow-blue-500/20 flex-shrink-0">
+      <div id="topbar-logo-box" class="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-xs overflow-hidden shadow-sm flex-shrink-0">
         <i id="topbar-default-icon" class="fa-solid fa-receipt"></i>
         <img id="topbar-custom-logo" src="" alt="Logo" class="hidden w-full h-full object-contain bg-white">
       </div>
       <div>
-        <h2 id="topbar-org-name" class="text-xs font-bold text-white truncate max-w-[170px] leading-tight">Mourish GenBus</h2>
-        <span class="text-[9px] text-emerald-400 font-mono-code flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> Live Workspace
+        <h2 id="topbar-org-name" class="text-xs font-bold text-slate-900 truncate max-w-[170px] leading-tight">Mourish GenBus</h2>
+        <span class="text-[9px] text-emerald-600 font-mono-code flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span> Live Workspace
         </span>
       </div>
     </div>
     <div class="flex items-center gap-2">
-      <button onclick="openDraftsView()" class="relative w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/40 text-amber-400 flex items-center justify-center active:scale-95 text-xs" title="Drafts">
+      <button onclick="openDraftsView()" class="relative w-8 h-8 rounded-xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center active:scale-95 text-xs" title="Drafts">
         <i class="fa-solid fa-file-pen"></i>
         <span id="draft-badge" class="hidden absolute -top-1 -right-1 min-w-[16px] h-4 px-1 rounded-full draft-ribbon text-white text-[9px] font-black flex items-center justify-center">0</span>
       </button>
-      <button onclick="openNumberingModal()" class="w-8 h-8 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 flex items-center justify-center active:scale-95 text-xs"><i class="fa-solid fa-hashtag"></i></button>
-      <button onclick="openOrgModal()" class="w-8 h-8 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 flex items-center justify-center active:scale-95 text-xs"><i class="fa-solid fa-sliders"></i></button>
-      <button onclick="openSignatureModal()" class="w-8 h-8 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 flex items-center justify-center active:scale-95 text-xs"><i class="fa-solid fa-signature text-blue-400"></i></button>
+      <button onclick="openNumberingModal()" class="w-8 h-8 rounded-xl bg-white border border-slate-200 text-slate-600 shadow-sm flex items-center justify-center active:scale-95 text-xs"><i class="fa-solid fa-hashtag"></i></button>
+      <button onclick="openOrgModal()" class="w-8 h-8 rounded-xl bg-white border border-slate-200 text-slate-600 shadow-sm flex items-center justify-center active:scale-95 text-xs"><i class="fa-solid fa-sliders"></i></button>
+      <button onclick="openSignatureModal()" class="w-8 h-8 rounded-xl bg-white border border-slate-200 text-slate-600 shadow-sm flex items-center justify-center active:scale-95 text-xs"><i class="fa-solid fa-signature text-blue-600"></i></button>
     </div>
   </header>
 
@@ -240,89 +242,89 @@
 
     <!-- DASHBOARD -->
     <section id="view-dashboard" class="space-y-5">
-      <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950 p-5 rounded-3xl border border-slate-800/80 shadow-2xl relative overflow-hidden">
+      <div class="bg-gradient-to-br from-blue-50 via-white to-indigo-50 p-5 rounded-3xl border border-blue-100 shadow-sm relative overflow-hidden">
         <div class="flex justify-between items-start">
           <div>
-            <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Net Cash Balance</span>
-            <h3 id="stat-net" class="text-3xl font-black text-white mt-0.5 tracking-tight">₹0.00</h3>
+            <span class="text-[10px] uppercase font-bold tracking-wider text-slate-500">Net Cash Balance</span>
+            <h3 id="stat-net" class="text-3xl font-black text-slate-900 mt-0.5 tracking-tight">₹0.00</h3>
           </div>
-          <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30" id="stat-fy">FY 2026-27</span>
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 border border-blue-200" id="stat-fy">FY 2026-27</span>
         </div>
-        <div class="grid grid-cols-2 gap-2 mt-4 pt-4 border-t border-slate-800">
-          <div><span class="text-[9px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1"><i class="fa-solid fa-arrow-down text-emerald-400 text-[8px]"></i> Total Income</span><p id="stat-income" class="text-sm font-black text-emerald-400 mt-0.5">₹0.00</p></div>
-          <div><span class="text-[9px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1"><i class="fa-solid fa-arrow-up text-rose-400 text-[8px]"></i> Expenses</span><p id="stat-expense" class="text-sm font-black text-rose-400 mt-0.5">₹0.00</p></div>
+        <div class="grid grid-cols-2 gap-2 mt-4 pt-4 border-t border-blue-100">
+          <div><span class="text-[9px] font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1"><i class="fa-solid fa-arrow-down text-emerald-500 text-[8px]"></i> Total Income</span><p id="stat-income" class="text-sm font-black text-emerald-600 mt-0.5">₹0.00</p></div>
+          <div><span class="text-[9px] font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1"><i class="fa-solid fa-arrow-up text-rose-500 text-[8px]"></i> Expenses</span><p id="stat-expense" class="text-sm font-black text-rose-600 mt-0.5">₹0.00</p></div>
         </div>
       </div>
 
       <div class="grid grid-cols-3 gap-2">
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-3 text-center"><div class="text-blue-400 text-lg font-black font-mono-code" id="stat-inv-count">0</div><div class="text-[9px] text-slate-400 font-bold uppercase mt-0.5">Invoices</div></div>
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-3 text-center"><div class="text-indigo-400 text-lg font-black font-mono-code" id="stat-quo-count">0</div><div class="text-[9px] text-slate-400 font-bold uppercase mt-0.5">Quotes</div></div>
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-3 text-center"><div class="text-emerald-400 text-lg font-black font-mono-code" id="stat-chl-count">0</div><div class="text-[9px] text-slate-400 font-bold uppercase mt-0.5">Challans</div></div>
+        <div class="bg-white border border-slate-200 shadow-sm rounded-2xl p-3 text-center"><div class="text-blue-600 text-lg font-black font-mono-code" id="stat-inv-count">0</div><div class="text-[9px] text-slate-500 font-bold uppercase mt-0.5">Invoices</div></div>
+        <div class="bg-white border border-slate-200 shadow-sm rounded-2xl p-3 text-center"><div class="text-indigo-600 text-lg font-black font-mono-code" id="stat-quo-count">0</div><div class="text-[9px] text-slate-500 font-bold uppercase mt-0.5">Quotes</div></div>
+        <div class="bg-white border border-slate-200 shadow-sm rounded-2xl p-3 text-center"><div class="text-emerald-600 text-lg font-black font-mono-code" id="stat-chl-count">0</div><div class="text-[9px] text-slate-500 font-bold uppercase mt-0.5">Challans</div></div>
       </div>
 
       <div class="grid grid-cols-2 gap-2">
-        <div class="bg-gradient-to-br from-amber-950/60 to-slate-900 border border-amber-900/50 rounded-2xl p-3">
-          <div class="flex items-center gap-1.5 mb-1"><i class="fa-solid fa-hourglass-half text-amber-400 text-[10px]"></i><span class="text-[9px] text-amber-400 font-bold uppercase tracking-wide">Pending</span></div>
-          <p id="stat-pending" class="text-lg font-black text-white font-mono-code">₹0.00</p>
+        <div class="bg-amber-50 border border-amber-200 shadow-sm rounded-2xl p-3">
+          <div class="flex items-center gap-1.5 mb-1"><i class="fa-solid fa-hourglass-half text-amber-500 text-[10px]"></i><span class="text-[9px] text-amber-700 font-bold uppercase tracking-wide">Pending</span></div>
+          <p id="stat-pending" class="text-lg font-black text-slate-900 font-mono-code">₹0.00</p>
           <p id="stat-pending-count" class="text-[9px] text-slate-500 mt-0.5">0 invoices</p>
         </div>
-        <div class="bg-gradient-to-br from-emerald-950/60 to-slate-900 border border-emerald-900/50 rounded-2xl p-3">
-          <div class="flex items-center gap-1.5 mb-1"><i class="fa-solid fa-circle-check text-emerald-400 text-[10px]"></i><span class="text-[9px] text-emerald-400 font-bold uppercase tracking-wide">Collected</span></div>
-          <p id="stat-paid" class="text-lg font-black text-white font-mono-code">₹0.00</p>
+        <div class="bg-emerald-50 border border-emerald-200 shadow-sm rounded-2xl p-3">
+          <div class="flex items-center gap-1.5 mb-1"><i class="fa-solid fa-circle-check text-emerald-500 text-[10px]"></i><span class="text-[9px] text-emerald-700 font-bold uppercase tracking-wide">Collected</span></div>
+          <p id="stat-paid" class="text-lg font-black text-slate-900 font-mono-code">₹0.00</p>
           <p id="stat-paid-count" class="text-[9px] text-slate-500 mt-0.5">0 invoices</p>
         </div>
       </div>
 
-      <div id="draft-banner" class="hidden bg-gradient-to-r from-amber-900/40 to-red-900/30 border border-amber-500/40 p-4 rounded-2xl">
+      <div id="draft-banner" class="hidden bg-orange-50 border border-orange-200 p-4 rounded-2xl shadow-sm">
         <div class="flex items-start gap-3">
-          <div class="w-9 h-9 rounded-xl bg-amber-500/25 text-amber-400 flex items-center justify-center text-sm flex-shrink-0"><i class="fa-solid fa-file-pen draft-pulse"></i></div>
+          <div class="w-9 h-9 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center text-sm flex-shrink-0"><i class="fa-solid fa-file-pen draft-pulse"></i></div>
           <div class="flex-1 min-w-0">
-            <p class="text-[11px] font-black text-amber-300 uppercase tracking-wide">Unfinished Draft</p>
-            <p id="draft-banner-text" class="text-xs text-slate-300 mt-0.5 truncate">Untitled document</p>
+            <p class="text-[11px] font-black text-orange-800 uppercase tracking-wide">Unfinished Draft</p>
+            <p id="draft-banner-text" class="text-xs text-slate-700 mt-0.5 truncate">Untitled document</p>
             <p id="draft-banner-time" class="text-[9px] text-slate-500 font-mono-code mt-0.5"></p>
           </div>
         </div>
         <div class="flex gap-2 mt-3">
-          <button onclick="resumeLatestDraft()" class="flex-1 py-2 bg-amber-500 text-white font-bold rounded-xl text-[11px] active:scale-95"><i class="fa-solid fa-play text-[9px]"></i> Resume</button>
-          <button onclick="openDraftsView()" class="px-3 py-2 bg-slate-800 text-slate-300 font-bold rounded-xl text-[11px] active:scale-95">All Drafts</button>
+          <button onclick="resumeLatestDraft()" class="flex-1 py-2 bg-orange-500 text-white font-bold rounded-xl text-[11px] active:scale-95 shadow-sm"><i class="fa-solid fa-play text-[9px]"></i> Resume</button>
+          <button onclick="openDraftsView()" class="px-3 py-2 bg-white border border-slate-200 text-slate-600 font-bold rounded-xl text-[11px] active:scale-95 shadow-sm">All Drafts</button>
         </div>
       </div>
 
       <div class="grid grid-cols-4 gap-2 text-center text-[10px] font-bold">
-        <button onclick="openDocEditor('INVOICE')" class="p-3 bg-slate-900 border border-slate-800 rounded-2xl flex flex-col items-center gap-1.5 active:scale-95 transition"><div class="w-8 h-8 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center text-xs"><i class="fa-solid fa-file-invoice"></i></div><span>+ Invoice</span></button>
-        <button onclick="openDocEditor('QUOTATION')" class="p-3 bg-slate-900 border border-slate-800 rounded-2xl flex flex-col items-center gap-1.5 active:scale-95 transition"><div class="w-8 h-8 rounded-xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center text-xs"><i class="fa-solid fa-file-lines"></i></div><span>+ Quote</span></button>
-        <button onclick="openIncomeModal()" class="p-3 bg-slate-900 border border-slate-800 rounded-2xl flex flex-col items-center gap-1.5 active:scale-95 transition"><div class="w-8 h-8 rounded-xl bg-emerald-600/20 text-emerald-400 flex items-center justify-center text-xs"><i class="fa-solid fa-hand-holding-dollar"></i></div><span>+ Income</span></button>
-        <button onclick="openDocEditor('CHALLAN')" class="p-3 bg-slate-900 border border-slate-800 rounded-2xl flex flex-col items-center gap-1.5 active:scale-95 transition"><div class="w-8 h-8 rounded-xl bg-amber-600/20 text-amber-400 flex items-center justify-center text-xs"><i class="fa-solid fa-truck-fast"></i></div><span>+ Challan</span></button>
+        <button onclick="openDocEditor('INVOICE')" class="p-3 bg-white border border-slate-200 shadow-sm rounded-2xl flex flex-col items-center gap-1.5 active:scale-95 transition hover:bg-slate-50"><div class="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xs"><i class="fa-solid fa-file-invoice"></i></div><span class="text-slate-700">+ Invoice</span></button>
+        <button onclick="openDocEditor('QUOTATION')" class="p-3 bg-white border border-slate-200 shadow-sm rounded-2xl flex flex-col items-center gap-1.5 active:scale-95 transition hover:bg-slate-50"><div class="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xs"><i class="fa-solid fa-file-lines"></i></div><span class="text-slate-700">+ Quote</span></button>
+        <button onclick="openIncomeModal()" class="p-3 bg-white border border-slate-200 shadow-sm rounded-2xl flex flex-col items-center gap-1.5 active:scale-95 transition hover:bg-slate-50"><div class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs"><i class="fa-solid fa-hand-holding-dollar"></i></div><span class="text-slate-700">+ Income</span></button>
+        <button onclick="openDocEditor('CHALLAN')" class="p-3 bg-white border border-slate-200 shadow-sm rounded-2xl flex flex-col items-center gap-1.5 active:scale-95 transition hover:bg-slate-50"><div class="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xs"><i class="fa-solid fa-truck-fast"></i></div><span class="text-slate-700">+ Challan</span></button>
       </div>
 
-      <div class="bg-gradient-to-br from-indigo-950/70 to-slate-900 border border-indigo-900/50 p-4 rounded-2xl">
+      <div class="bg-gradient-to-br from-indigo-50 to-white border border-indigo-100 p-4 rounded-2xl shadow-sm">
         <div class="flex items-center justify-between mb-3">
           <div class="flex items-center gap-2">
-            <div class="w-8 h-8 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-xs"><i class="fa-solid fa-toolbox"></i></div>
-            <div><span class="text-white font-black text-xs block">Business Tools</span><span class="text-[10px] text-slate-400">Calculators & Utilities</span></div>
+            <div class="w-8 h-8 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs"><i class="fa-solid fa-toolbox"></i></div>
+            <div><span class="text-slate-900 font-black text-xs block">Business Tools</span><span class="text-[10px] text-slate-500">Calculators & Utilities</span></div>
           </div>
-          <button onclick="navigate('tools')" class="text-[11px] text-indigo-400 font-bold hover:underline">Open &rarr;</button>
+          <button onclick="navigate('tools')" class="text-[11px] text-indigo-600 font-bold hover:underline">Open &rarr;</button>
         </div>
         <div class="grid grid-cols-4 gap-2">
-          <button onclick="navigate('tools'); setTimeout(()=>openTool('gst'),100)" class="p-2 bg-slate-900/70 rounded-xl flex flex-col items-center gap-1 active:scale-95"><i class="fa-solid fa-percent text-emerald-400 text-xs"></i><span class="text-[9px] font-bold text-slate-300">GST</span></button>
-          <button onclick="navigate('tools'); setTimeout(()=>openTool('emi'),100)" class="p-2 bg-slate-900/70 rounded-xl flex flex-col items-center gap-1 active:scale-95"><i class="fa-solid fa-building-columns text-blue-400 text-xs"></i><span class="text-[9px] font-bold text-slate-300">EMI</span></button>
-          <button onclick="navigate('tools'); setTimeout(()=>openTool('discount'),100)" class="p-2 bg-slate-900/70 rounded-xl flex flex-col items-center gap-1 active:scale-95"><i class="fa-solid fa-tag text-rose-400 text-xs"></i><span class="text-[9px] font-bold text-slate-300">Disc</span></button>
-          <button onclick="navigate('tools'); setTimeout(()=>openTool('words'),100)" class="p-2 bg-slate-900/70 rounded-xl flex flex-col items-center gap-1 active:scale-95"><i class="fa-solid fa-font text-amber-400 text-xs"></i><span class="text-[9px] font-bold text-slate-300">Words</span></button>
+          <button onclick="navigate('tools'); setTimeout(()=>openTool('gst'),100)" class="p-2 bg-white border border-slate-200 shadow-sm rounded-xl flex flex-col items-center gap-1 active:scale-95"><i class="fa-solid fa-percent text-emerald-500 text-xs"></i><span class="text-[9px] font-bold text-slate-600">GST</span></button>
+          <button onclick="navigate('tools'); setTimeout(()=>openTool('emi'),100)" class="p-2 bg-white border border-slate-200 shadow-sm rounded-xl flex flex-col items-center gap-1 active:scale-95"><i class="fa-solid fa-building-columns text-blue-500 text-xs"></i><span class="text-[9px] font-bold text-slate-600">EMI</span></button>
+          <button onclick="navigate('tools'); setTimeout(()=>openTool('discount'),100)" class="p-2 bg-white border border-slate-200 shadow-sm rounded-xl flex flex-col items-center gap-1 active:scale-95"><i class="fa-solid fa-tag text-rose-500 text-xs"></i><span class="text-[9px] font-bold text-slate-600">Disc</span></button>
+          <button onclick="navigate('tools'); setTimeout(()=>openTool('words'),100)" class="p-2 bg-white border border-slate-200 shadow-sm rounded-xl flex flex-col items-center gap-1 active:scale-95"><i class="fa-solid fa-font text-amber-500 text-xs"></i><span class="text-[9px] font-bold text-slate-600">Words</span></button>
         </div>
       </div>
 
-      <div class="bg-slate-900 p-4 rounded-2xl border border-slate-800 flex justify-between items-center text-xs">
+      <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex justify-between items-center text-xs">
         <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xs"><i class="fa-solid fa-file-invoice-dollar"></i></div>
-          <div><span class="text-slate-400 text-[10px] block">Total Billed Invoiced</span><span id="stat-invoiced" class="text-sm font-black text-white">₹0.00</span></div>
+          <div class="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xs"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+          <div><span class="text-slate-500 text-[10px] block">Total Billed Invoiced</span><span id="stat-invoiced" class="text-sm font-black text-slate-900">₹0.00</span></div>
         </div>
-        <button onclick="navigate('invoices')" class="text-[11px] text-blue-400 font-bold hover:underline">View All &rarr;</button>
+        <button onclick="navigate('invoices')" class="text-[11px] text-blue-600 font-bold hover:underline">View All &rarr;</button>
       </div>
 
       <div class="space-y-3">
         <div class="flex justify-between items-center text-xs font-bold px-1">
-          <span class="text-slate-400 uppercase tracking-wider text-[10px]">Recent Activity</span>
-          <button onclick="navigate('invoices')" class="text-blue-400 hover:underline text-[10px]">See More</button>
+          <span class="text-slate-500 uppercase tracking-wider text-[10px]">Recent Activity</span>
+          <button onclick="navigate('invoices')" class="text-blue-600 hover:underline text-[10px]">See More</button>
         </div>
         <div id="dash-recent-feed" class="space-y-2"></div>
       </div>
@@ -331,16 +333,16 @@
     <!-- INVOICES -->
     <section id="view-invoices" class="hidden space-y-4">
       <div class="flex justify-between items-center">
-        <div><h2 class="text-lg font-black text-white">Tax Invoices</h2><p class="text-[10px] text-slate-400">Generate, edit, track payments &amp; share</p></div>
-        <button onclick="openDocEditor('INVOICE')" class="px-3 py-1.5 bg-blue-600 text-white rounded-xl text-xs font-bold active:scale-95">+ New</button>
+        <div><h2 class="text-lg font-black text-slate-900">Tax Invoices</h2><p class="text-[10px] text-slate-500">Generate, edit, track payments &amp; share</p></div>
+        <button onclick="openDocEditor('INVOICE')" class="px-3 py-1.5 bg-blue-600 text-white rounded-xl text-xs font-bold active:scale-95 shadow-sm">+ New</button>
       </div>
-      <div class="relative"><i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i><input type="text" id="search-invoices" oninput="refreshAllViews()" placeholder="Search by client, doc #, amount…" class="search-bar"></div>
+      <div class="relative"><i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i><input type="text" id="search-invoices" oninput="refreshAllViews()" placeholder="Search by client, doc #, amount…" class="search-bar"></div>
       <div class="flex gap-1.5 overflow-x-auto no-scrollbar pb-1">
-        <button onclick="setDocFilter('invoices','all')" data-inv-filter="all" class="inv-filter-btn px-3 py-1.5 rounded-full text-[10px] font-bold bg-blue-600 text-white whitespace-nowrap">All</button>
-        <button onclick="setDocFilter('invoices','paid')" data-inv-filter="paid" class="inv-filter-btn px-3 py-1.5 rounded-full text-[10px] font-bold bg-slate-800 text-slate-300 whitespace-nowrap">Paid</button>
-        <button onclick="setDocFilter('invoices','unpaid')" data-inv-filter="unpaid" class="inv-filter-btn px-3 py-1.5 rounded-full text-[10px] font-bold bg-slate-800 text-slate-300 whitespace-nowrap">Unpaid</button>
-        <button onclick="setDocFilter('invoices','partial')" data-inv-filter="partial" class="inv-filter-btn px-3 py-1.5 rounded-full text-[10px] font-bold bg-slate-800 text-slate-300 whitespace-nowrap">Partial</button>
-        <button onclick="setDocFilter('invoices','overdue')" data-inv-filter="overdue" class="inv-filter-btn px-3 py-1.5 rounded-full text-[10px] font-bold bg-slate-800 text-slate-300 whitespace-nowrap">Overdue</button>
+        <button onclick="setDocFilter('invoices','all')" data-inv-filter="all" class="inv-filter-btn px-3 py-1.5 rounded-full text-[10px] font-bold bg-blue-600 text-white whitespace-nowrap shadow-sm">All</button>
+        <button onclick="setDocFilter('invoices','paid')" data-inv-filter="paid" class="inv-filter-btn px-3 py-1.5 rounded-full text-[10px] font-bold bg-white border border-slate-200 text-slate-600 whitespace-nowrap shadow-sm">Paid</button>
+        <button onclick="setDocFilter('invoices','unpaid')" data-inv-filter="unpaid" class="inv-filter-btn px-3 py-1.5 rounded-full text-[10px] font-bold bg-white border border-slate-200 text-slate-600 whitespace-nowrap shadow-sm">Unpaid</button>
+        <button onclick="setDocFilter('invoices','partial')" data-inv-filter="partial" class="inv-filter-btn px-3 py-1.5 rounded-full text-[10px] font-bold bg-white border border-slate-200 text-slate-600 whitespace-nowrap shadow-sm">Partial</button>
+        <button onclick="setDocFilter('invoices','overdue')" data-inv-filter="overdue" class="inv-filter-btn px-3 py-1.5 rounded-full text-[10px] font-bold bg-white border border-slate-200 text-slate-600 whitespace-nowrap shadow-sm">Overdue</button>
       </div>
       <div id="invoices-card-list" class="space-y-2.5"></div>
     </section>
@@ -348,45 +350,45 @@
     <!-- QUOTES -->
     <section id="view-quotes" class="hidden space-y-4">
       <div class="flex justify-between items-center">
-        <div><h2 class="text-lg font-black text-white">Quotations &amp; Estimates</h2><p class="text-[10px] text-slate-400">Draft freely • finalize • convert to invoice</p></div>
-        <button onclick="openDocEditor('QUOTATION')" class="px-3 py-1.5 bg-blue-600 text-white rounded-xl text-xs font-bold active:scale-95">+ New</button>
+        <div><h2 class="text-lg font-black text-slate-900">Quotations &amp; Estimates</h2><p class="text-[10px] text-slate-500">Draft freely • finalize • convert to invoice</p></div>
+        <button onclick="openDocEditor('QUOTATION')" class="px-3 py-1.5 bg-blue-600 text-white rounded-xl text-xs font-bold active:scale-95 shadow-sm">+ New</button>
       </div>
-      <div class="relative"><i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i><input type="text" id="search-quotes" oninput="refreshAllViews()" placeholder="Search quotes…" class="search-bar"></div>
+      <div class="relative"><i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i><input type="text" id="search-quotes" oninput="refreshAllViews()" placeholder="Search quotes…" class="search-bar"></div>
       <div id="quotes-card-list" class="space-y-2.5"></div>
     </section>
 
     <!-- CUSTOMERS -->
     <section id="view-customers" class="hidden space-y-4">
       <div class="flex justify-between items-center">
-        <div><h2 class="text-lg font-black text-white">Customer CRM</h2><p class="text-[10px] text-slate-400">B2B/B2C client directory • edit • contact</p></div>
-        <button onclick="openCustomerModal()" class="px-3 py-1.5 bg-blue-600 text-white rounded-xl text-xs font-bold active:scale-95">+ Add Client</button>
+        <div><h2 class="text-lg font-black text-slate-900">Customer CRM</h2><p class="text-[10px] text-slate-500">B2B/B2C client directory • edit • contact</p></div>
+        <button onclick="openCustomerModal()" class="px-3 py-1.5 bg-blue-600 text-white rounded-xl text-xs font-bold active:scale-95 shadow-sm">+ Add Client</button>
       </div>
-      <div class="relative"><i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i><input type="text" id="search-customers" oninput="refreshAllViews()" placeholder="Search clients…" class="search-bar"></div>
+      <div class="relative"><i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i><input type="text" id="search-customers" oninput="refreshAllViews()" placeholder="Search clients…" class="search-bar"></div>
       <div id="customers-card-list" class="space-y-2.5"></div>
     </section>
 
     <!-- ITEMS -->
     <section id="view-items" class="hidden space-y-4">
       <div class="flex justify-between items-center">
-        <div><h2 class="text-lg font-black text-white">Product Master</h2><p class="text-[10px] text-slate-400">Goods &amp; services • HSN/SAC • GST • Discounts</p></div>
-        <button onclick="openItemModal()" class="px-3 py-1.5 bg-blue-600 text-white rounded-xl text-xs font-bold active:scale-95">+ Add Item</button>
+        <div><h2 class="text-lg font-black text-slate-900">Product Master</h2><p class="text-[10px] text-slate-500">Goods &amp; services • HSN/SAC • GST • Discounts</p></div>
+        <button onclick="openItemModal()" class="px-3 py-1.5 bg-blue-600 text-white rounded-xl text-xs font-bold active:scale-95 shadow-sm">+ Add Item</button>
       </div>
-      <div class="relative"><i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i><input type="text" id="search-items" oninput="refreshAllViews()" placeholder="Search products…" class="search-bar"></div>
+      <div class="relative"><i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i><input type="text" id="search-items" oninput="refreshAllViews()" placeholder="Search products…" class="search-bar"></div>
       <div id="items-card-list" class="space-y-2.5"></div>
     </section>
 
     <!-- TRANSACTIONS -->
     <section id="view-transactions" class="hidden space-y-4">
       <div class="flex justify-between items-center">
-        <div><h2 class="text-lg font-black text-white">Cashflow Tracker</h2><p class="text-[10px] text-slate-400">Daily receipts and spending</p></div>
+        <div><h2 class="text-lg font-black text-slate-900">Cashflow Tracker</h2><p class="text-[10px] text-slate-500">Daily receipts and spending</p></div>
         <div class="flex gap-2">
-          <button onclick="openIncomeModal()" class="px-2.5 py-1 bg-emerald-600 text-white rounded-xl text-[10px] font-bold">+ Income</button>
-          <button onclick="openExpenseModal()" class="px-2.5 py-1 bg-rose-600 text-white rounded-xl text-[10px] font-bold">+ Expense</button>
+          <button onclick="openIncomeModal()" class="px-2.5 py-1 bg-emerald-600 text-white rounded-xl text-[10px] font-bold shadow-sm">+ Income</button>
+          <button onclick="openExpenseModal()" class="px-2.5 py-1 bg-rose-600 text-white rounded-xl text-[10px] font-bold shadow-sm">+ Expense</button>
         </div>
       </div>
       <div class="grid grid-cols-2 gap-2">
-        <div class="bg-slate-900 border border-emerald-900/50 rounded-2xl p-3"><span class="text-[9px] text-emerald-400 font-bold uppercase">Income</span><p id="tx-stat-income" class="text-sm font-black text-white font-mono-code mt-0.5">₹0.00</p></div>
-        <div class="bg-slate-900 border border-rose-900/50 rounded-2xl p-3"><span class="text-[9px] text-rose-400 font-bold uppercase">Expense</span><p id="tx-stat-expense" class="text-sm font-black text-white font-mono-code mt-0.5">₹0.00</p></div>
+        <div class="bg-white border border-slate-200 shadow-sm rounded-2xl p-3"><span class="text-[9px] text-emerald-600 font-bold uppercase">Income</span><p id="tx-stat-income" class="text-sm font-black text-slate-900 font-mono-code mt-0.5">₹0.00</p></div>
+        <div class="bg-white border border-slate-200 shadow-sm rounded-2xl p-3"><span class="text-[9px] text-rose-600 font-bold uppercase">Expense</span><p id="tx-stat-expense" class="text-sm font-black text-slate-900 font-mono-code mt-0.5">₹0.00</p></div>
       </div>
       <div id="transactions-card-list" class="space-y-2"></div>
     </section>
@@ -394,192 +396,192 @@
     <!-- CHALLANS -->
     <section id="view-challans" class="hidden space-y-4">
       <div class="flex justify-between items-center">
-        <div><h2 class="text-lg font-black text-white">Delivery Challans</h2><p class="text-[10px] text-slate-400">Transport gate passes • vehicle • E-Way</p></div>
-        <button onclick="openDocEditor('CHALLAN')" class="px-3 py-1.5 bg-emerald-600 text-white rounded-xl text-xs font-bold active:scale-95">+ New Challan</button>
+        <div><h2 class="text-lg font-black text-slate-900">Delivery Challans</h2><p class="text-[10px] text-slate-500">Transport gate passes • vehicle • E-Way</p></div>
+        <button onclick="openDocEditor('CHALLAN')" class="px-3 py-1.5 bg-emerald-600 text-white rounded-xl text-xs font-bold active:scale-95 shadow-sm">+ New Challan</button>
       </div>
-      <div class="relative"><i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i><input type="text" id="search-challans" oninput="refreshAllViews()" placeholder="Search by client, vehicle, E-way…" class="search-bar"></div>
+      <div class="relative"><i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i><input type="text" id="search-challans" oninput="refreshAllViews()" placeholder="Search by client, vehicle, E-way…" class="search-bar"></div>
       <div id="challans-card-list" class="space-y-2.5"></div>
     </section>
 
     <!-- DRAFTS -->
     <section id="view-drafts" class="hidden space-y-4">
       <div class="flex justify-between items-center">
-        <div><h2 class="text-lg font-black text-white">Drafts</h2><p class="text-[10px] text-slate-400">Unfinished documents saved locally</p></div>
-        <button onclick="clearAllDrafts()" class="px-3 py-1.5 bg-rose-600/20 border border-rose-500/40 text-rose-400 rounded-xl text-[11px] font-bold active:scale-95"><i class="fa-solid fa-trash text-[9px]"></i> Clear All</button>
+        <div><h2 class="text-lg font-black text-slate-900">Drafts</h2><p class="text-[10px] text-slate-500">Unfinished documents saved locally</p></div>
+        <button onclick="clearAllDrafts()" class="px-3 py-1.5 bg-rose-50 border border-rose-200 text-rose-600 rounded-xl text-[11px] font-bold active:scale-95 shadow-sm"><i class="fa-solid fa-trash text-[9px]"></i> Clear All</button>
       </div>
       <div id="drafts-card-list" class="space-y-2.5"></div>
     </section>
 
     <!-- TOOLS -->
     <section id="view-tools" class="hidden space-y-4">
-      <div class="flex justify-between items-center"><div><h2 class="text-lg font-black text-white">Business Tools</h2><p class="text-[10px] text-slate-400">Calculators &amp; utilities for daily business</p></div></div>
+      <div class="flex justify-between items-center"><div><h2 class="text-lg font-black text-slate-900">Business Tools</h2><p class="text-[10px] text-slate-500">Calculators &amp; utilities for daily business</p></div></div>
       <div class="grid grid-cols-3 gap-2">
-        <button onclick="openTool('gst')" class="tool-card flex flex-col items-center gap-2 py-3"><i class="fa-solid fa-percent text-emerald-400 text-lg"></i><span class="text-[10px] font-bold text-white">GST Calc</span></button>
-        <button onclick="openTool('emi')" class="tool-card flex flex-col items-center gap-2 py-3"><i class="fa-solid fa-building-columns text-blue-400 text-lg"></i><span class="text-[10px] font-bold text-white">EMI</span></button>
-        <button onclick="openTool('discount')" class="tool-card flex flex-col items-center gap-2 py-3"><i class="fa-solid fa-tag text-rose-400 text-lg"></i><span class="text-[10px] font-bold text-white">Discount</span></button>
-        <button onclick="openTool('words')" class="tool-card flex flex-col items-center gap-2 py-3"><i class="fa-solid fa-font text-amber-400 text-lg"></i><span class="text-[10px] font-bold text-white"># to Words</span></button>
-        <button onclick="openTool('interest')" class="tool-card flex flex-col items-center gap-2 py-3"><i class="fa-solid fa-chart-line text-purple-400 text-lg"></i><span class="text-[10px] font-bold text-white">Interest</span></button>
-        <button onclick="openTool('age')" class="tool-card flex flex-col items-center gap-2 py-3"><i class="fa-solid fa-cake-candles text-pink-400 text-lg"></i><span class="text-[10px] font-bold text-white">Age/Date</span></button>
-        <button onclick="openTool('unit')" class="tool-card flex flex-col items-center gap-2 py-3"><i class="fa-solid fa-ruler-combined text-cyan-400 text-lg"></i><span class="text-[10px] font-bold text-white">Units</span></button>
-        <button onclick="openTool('backup')" class="tool-card flex flex-col items-center gap-2 py-3"><i class="fa-solid fa-database text-slate-300 text-lg"></i><span class="text-[10px] font-bold text-white">Backup</span></button>
-        <button onclick="openTool('quickcalc')" class="tool-card flex flex-col items-center gap-2 py-3"><i class="fa-solid fa-calculator text-lime-400 text-lg"></i><span class="text-[10px] font-bold text-white">Calc</span></button>
+        <button onclick="openTool('gst')" class="tool-card flex flex-col items-center gap-2 py-3"><i class="fa-solid fa-percent text-emerald-500 text-lg"></i><span class="text-[10px] font-bold text-slate-700">GST Calc</span></button>
+        <button onclick="openTool('emi')" class="tool-card flex flex-col items-center gap-2 py-3"><i class="fa-solid fa-building-columns text-blue-500 text-lg"></i><span class="text-[10px] font-bold text-slate-700">EMI</span></button>
+        <button onclick="openTool('discount')" class="tool-card flex flex-col items-center gap-2 py-3"><i class="fa-solid fa-tag text-rose-500 text-lg"></i><span class="text-[10px] font-bold text-slate-700">Discount</span></button>
+        <button onclick="openTool('words')" class="tool-card flex flex-col items-center gap-2 py-3"><i class="fa-solid fa-font text-amber-500 text-lg"></i><span class="text-[10px] font-bold text-slate-700"># to Words</span></button>
+        <button onclick="openTool('interest')" class="tool-card flex flex-col items-center gap-2 py-3"><i class="fa-solid fa-chart-line text-purple-500 text-lg"></i><span class="text-[10px] font-bold text-slate-700">Interest</span></button>
+        <button onclick="openTool('age')" class="tool-card flex flex-col items-center gap-2 py-3"><i class="fa-solid fa-cake-candles text-pink-500 text-lg"></i><span class="text-[10px] font-bold text-slate-700">Age/Date</span></button>
+        <button onclick="openTool('unit')" class="tool-card flex flex-col items-center gap-2 py-3"><i class="fa-solid fa-ruler-combined text-cyan-500 text-lg"></i><span class="text-[10px] font-bold text-slate-700">Units</span></button>
+        <button onclick="openTool('backup')" class="tool-card flex flex-col items-center gap-2 py-3"><i class="fa-solid fa-database text-slate-500 text-lg"></i><span class="text-[10px] font-bold text-slate-700">Backup</span></button>
+        <button onclick="openTool('quickcalc')" class="tool-card flex flex-col items-center gap-2 py-3"><i class="fa-solid fa-calculator text-lime-500 text-lg"></i><span class="text-[10px] font-bold text-slate-700">Calc</span></button>
       </div>
-      <div id="tool-panel" class="bg-slate-900 border border-slate-800 rounded-2xl p-4">
-        <div class="text-center py-8"><div class="w-16 h-16 mx-auto rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-center text-slate-600 text-2xl mb-3"><i class="fa-solid fa-toolbox"></i></div><p class="text-xs text-slate-500 italic">Pick a tool above to get started</p></div>
+      <div id="tool-panel" class="bg-white border border-slate-200 shadow-sm rounded-2xl p-4">
+        <div class="text-center py-8"><div class="w-16 h-16 mx-auto rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-400 text-2xl mb-3"><i class="fa-solid fa-toolbox"></i></div><p class="text-xs text-slate-500 italic">Pick a tool above to get started</p></div>
       </div>
     </section>
 
     <!-- EDITOR -->
     <section id="view-document-editor" class="hidden space-y-4">
-      <div class="bg-slate-900 p-4 rounded-3xl border border-slate-800 space-y-4 text-xs">
-        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+      <div class="bg-white p-4 rounded-3xl border border-slate-200 shadow-sm space-y-4 text-xs">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
           <div class="flex items-center gap-2">
-            <button onclick="handleEditorBack()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-arrow-left"></i></button>
-            <h3 id="editor-heading" class="font-bold text-white text-sm">Create Document</h3>
+            <button onclick="handleEditorBack()" class="text-slate-500 hover:text-slate-900"><i class="fa-solid fa-arrow-left"></i></button>
+            <h3 id="editor-heading" class="font-bold text-slate-900 text-sm">Create Document</h3>
           </div>
           <div class="flex items-center gap-1.5">
-            <span id="editor-draft-pill" class="hidden text-[9px] font-black uppercase px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/40 flex items-center gap-1"><span class="draft-dot"></span> Draft</span>
-            <span id="editor-edit-badge" class="hidden text-[9px] font-black uppercase px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">Editing</span>
-            <button onclick="previewCurrentDocument()" class="px-3 py-1 bg-blue-600 text-white rounded-xl font-bold flex items-center gap-1 active:scale-95"><i class="fa-solid fa-eye text-[10px]"></i> Live A4</button>
+            <span id="editor-draft-pill" class="hidden text-[9px] font-black uppercase px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 border border-amber-200 flex items-center gap-1"><span class="draft-dot"></span> Draft</span>
+            <span id="editor-edit-badge" class="hidden text-[9px] font-black uppercase px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 border border-blue-200">Editing</span>
+            <button onclick="previewCurrentDocument()" class="px-3 py-1 bg-blue-600 text-white rounded-xl font-bold flex items-center gap-1 active:scale-95 shadow-sm"><i class="fa-solid fa-eye text-[10px]"></i> Live A4</button>
           </div>
         </div>
-        <div id="autosave-bar" class="flex items-center justify-between text-[10px] px-3 py-2 bg-slate-950 rounded-xl border border-slate-800">
+        <div id="autosave-bar" class="flex items-center justify-between text-[10px] px-3 py-2 bg-slate-50 rounded-xl border border-slate-200">
           <span class="text-slate-500 flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-emerald-500 text-[9px]"></i><span id="autosave-text">Auto-save ready</span></span>
-          <button type="button" onclick="saveDraftManually()" class="text-amber-400 font-bold hover:underline"><i class="fa-solid fa-floppy-disk text-[9px]"></i> Save Draft Now</button>
+          <button type="button" onclick="saveDraftManually()" class="text-amber-600 font-bold hover:underline"><i class="fa-solid fa-floppy-disk text-[9px]"></i> Save Draft Now</button>
         </div>
         <div>
-          <label class="font-bold text-slate-400 uppercase text-[9px] block mb-1">Pick Existing Client</label>
-          <select id="editor-customer-dropdown" onchange="applyCustomerToEditor(this.value)" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-white focus:outline-none"><option value="">-- Choose Client --</option></select>
+          <label class="font-bold text-slate-500 uppercase text-[9px] block mb-1">Pick Existing Client</label>
+          <select id="editor-customer-dropdown" onchange="applyCustomerToEditor(this.value)" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-slate-900 focus:outline-none focus:border-blue-500"><option value="">-- Choose Client --</option></select>
         </div>
         <div class="grid grid-cols-2 gap-2">
-          <div><label class="font-bold text-slate-400 uppercase text-[9px] block mb-1">Contact Name *</label><input type="text" id="doc-client-name" data-capitalize="words" placeholder="Client Name" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2 text-white font-bold focus:outline-none"></div>
-          <div><label class="font-bold text-slate-400 uppercase text-[9px] block mb-1">Business Name</label><input type="text" id="doc-client-biz" data-capitalize="words" placeholder="Entity Name" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2 text-white font-bold focus:outline-none"></div>
+          <div><label class="font-bold text-slate-500 uppercase text-[9px] block mb-1">Contact Name *</label><input type="text" id="doc-client-name" data-capitalize="words" placeholder="Client Name" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 font-bold focus:outline-none focus:border-blue-500"></div>
+          <div><label class="font-bold text-slate-500 uppercase text-[9px] block mb-1">Business Name</label><input type="text" id="doc-client-biz" data-capitalize="words" placeholder="Entity Name" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 font-bold focus:outline-none focus:border-blue-500"></div>
         </div>
         <div class="grid grid-cols-3 gap-2">
           <div>
-            <label class="font-bold text-slate-400 uppercase text-[9px] block mb-1" id="lbl-doc-number">Doc #</label>
+            <label class="font-bold text-slate-500 uppercase text-[9px] block mb-1" id="lbl-doc-number">Doc #</label>
             <div class="flex gap-1">
-              <input type="text" id="doc-number" data-uppercase="true" class="flex-1 min-w-0 bg-slate-950 border border-slate-800 rounded-xl p-2 text-white font-mono-code font-bold focus:outline-none">
-              <button type="button" onclick="regenerateDocNumber()" class="px-1.5 bg-slate-800 border border-slate-700 text-blue-400 rounded-xl active:scale-95 flex-shrink-0"><i class="fa-solid fa-rotate text-[10px]"></i></button>
+              <input type="text" id="doc-number" data-uppercase="true" class="flex-1 min-w-0 bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 font-mono-code font-bold focus:outline-none focus:border-blue-500">
+              <button type="button" onclick="regenerateDocNumber()" class="px-1.5 bg-slate-100 border border-slate-200 text-blue-600 rounded-xl active:scale-95 flex-shrink-0"><i class="fa-solid fa-rotate text-[10px]"></i></button>
             </div>
           </div>
-          <div><label class="font-bold text-slate-400 uppercase text-[9px] block mb-1">Date</label><input type="date" id="doc-date" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2 text-white font-medium focus:outline-none"></div>
-          <div><label class="font-bold text-slate-400 uppercase text-[9px] block mb-1" id="lbl-doc-duedate">Due Date</label><input type="date" id="doc-duedate" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2 text-white font-medium focus:outline-none"></div>
+          <div><label class="font-bold text-slate-500 uppercase text-[9px] block mb-1">Date</label><input type="date" id="doc-date" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 font-medium focus:outline-none focus:border-blue-500"></div>
+          <div><label class="font-bold text-slate-500 uppercase text-[9px] block mb-1" id="lbl-doc-duedate">Due Date</label><input type="date" id="doc-duedate" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 font-medium focus:outline-none focus:border-blue-500"></div>
         </div>
-        <div><label class="font-bold text-slate-400 uppercase text-[9px] block mb-1">Custom Document Title (Optional)</label><input type="text" id="doc-title-override" data-capitalize="words" placeholder="e.g. SERVICE BILL, PROFORMA INVOICE" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2 text-white focus:outline-none"></div>
-        <div><label class="font-bold text-slate-400 uppercase text-[9px] block mb-1">Subject / Title (Optional)</label><input type="text" id="doc-subject" placeholder="e.g. Quotation for Modular Recovery" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2 text-white focus:outline-none"></div>
-        <div><label class="font-bold text-slate-400 uppercase text-[9px] block mb-1">Place of Supply</label><input type="text" id="doc-place-of-supply" placeholder="e.g. Tamil Nadu (33)" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2 text-white focus:outline-none"></div>
-        <div><label class="font-bold text-slate-400 uppercase text-[9px] block mb-1">Billing Address &amp; Phone</label><textarea id="doc-client-address" rows="3" placeholder="Street, City, PIN, Phone" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2 text-white resize-none focus:outline-none"></textarea></div>
-        <div><label class="font-bold text-slate-400 uppercase text-[9px] block mb-1">Client Tax ID / GSTIN</label><input type="text" id="doc-client-gstin" data-uppercase="true" placeholder="33AAAAA0000A1Z5" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2 text-white font-mono-code focus:outline-none"></div>
-        <div class="p-3 bg-slate-950 rounded-2xl border border-slate-800 space-y-2">
+        <div><label class="font-bold text-slate-500 uppercase text-[9px] block mb-1">Custom Document Title (Optional)</label><input type="text" id="doc-title-override" data-capitalize="words" placeholder="e.g. SERVICE BILL, PROFORMA INVOICE" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 focus:outline-none focus:border-blue-500"></div>
+        <div><label class="font-bold text-slate-500 uppercase text-[9px] block mb-1">Subject / Title (Optional)</label><input type="text" id="doc-subject" placeholder="e.g. Quotation for Modular Recovery" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 focus:outline-none focus:border-blue-500"></div>
+        <div><label class="font-bold text-slate-500 uppercase text-[9px] block mb-1">Place of Supply</label><input type="text" id="doc-place-of-supply" placeholder="e.g. Tamil Nadu (33)" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 focus:outline-none focus:border-blue-500"></div>
+        <div><label class="font-bold text-slate-500 uppercase text-[9px] block mb-1">Billing Address &amp; Phone</label><textarea id="doc-client-address" rows="3" placeholder="Street, City, PIN, Phone" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 resize-none focus:outline-none focus:border-blue-500"></textarea></div>
+        <div><label class="font-bold text-slate-500 uppercase text-[9px] block mb-1">Client Tax ID / GSTIN</label><input type="text" id="doc-client-gstin" data-uppercase="true" placeholder="33AAAAA0000A1Z5" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 font-mono-code focus:outline-none focus:border-blue-500"></div>
+        <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
           <div class="flex items-center justify-between">
-            <label class="font-bold text-slate-300 text-xs flex items-center gap-1.5"><i class="fa-solid fa-qrcode text-blue-400"></i> Enable UPI QR Payment</label>
+            <label class="font-bold text-slate-700 text-xs flex items-center gap-1.5"><i class="fa-solid fa-qrcode text-blue-600"></i> Enable UPI QR Payment</label>
             <input type="checkbox" id="doc-enable-qr" onchange="toggleEditorQrField()" class="w-4 h-4 accent-blue-600 rounded cursor-pointer">
           </div>
-          <div id="doc-qr-input-box" class="hidden pt-1"><input type="text" id="doc-custom-upi" placeholder="Enter UPI ID (e.g. yourname@okaxis)" class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2 text-white font-bold text-xs"></div>
+          <div id="doc-qr-input-box" class="hidden pt-1"><input type="text" id="doc-custom-upi" placeholder="Enter UPI ID (e.g. yourname@okaxis)" class="w-full bg-white border border-slate-200 rounded-xl p-2 text-slate-900 font-bold text-xs focus:outline-none focus:border-blue-500"></div>
         </div>
-        <div id="challan-transport-fields" class="hidden p-3 bg-slate-950 rounded-2xl border border-slate-800 space-y-2">
+        <div id="challan-transport-fields" class="hidden p-3 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
           <div class="grid grid-cols-2 gap-2">
-            <input type="text" id="doc-challan-vehicle" data-uppercase="true" placeholder="Vehicle # (TN-59-AB-1234)" class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2 text-white font-mono-code">
-            <input type="text" id="doc-challan-eway" data-uppercase="true" placeholder="E-Way Bill #" class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2 text-white font-mono-code">
+            <input type="text" id="doc-challan-vehicle" data-uppercase="true" placeholder="Vehicle # (TN-59-AB-1234)" class="w-full bg-white border border-slate-200 rounded-xl p-2 text-slate-900 font-mono-code focus:outline-none focus:border-blue-500">
+            <input type="text" id="doc-challan-eway" data-uppercase="true" placeholder="E-Way Bill #" class="w-full bg-white border border-slate-200 rounded-xl p-2 text-slate-900 font-mono-code focus:outline-none focus:border-blue-500">
           </div>
-          <select id="doc-challan-reason" class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2 text-white">
+          <select id="doc-challan-reason" class="w-full bg-white border border-slate-200 rounded-xl p-2 text-slate-900 focus:outline-none focus:border-blue-500">
             <option value="Supply of Goods">Supply of Goods</option><option value="Job Work">Job Work</option><option value="Exhibition">Exhibition</option><option value="Own Use">Own Use</option><option value="Return">Return</option><option value="Repair">Repair</option>
           </select>
         </div>
-        <div class="space-y-2 pt-2 border-t border-slate-800">
-          <div class="flex justify-between items-center"><span class="font-bold text-slate-400 uppercase text-[10px]">Line Items</span><button type="button" onclick="addEditorLineRow()" class="text-blue-400 font-bold hover:underline">+ Add Row</button></div>
+        <div class="space-y-2 pt-2 border-t border-slate-100">
+          <div class="flex justify-between items-center"><span class="font-bold text-slate-500 uppercase text-[10px]">Line Items</span><button type="button" onclick="addEditorLineRow()" class="text-blue-600 font-bold hover:underline">+ Add Row</button></div>
           <div class="flex gap-2">
-            <select id="editor-quickpick" onchange="quickAddCatalogItem(this.value)" class="flex-1 min-w-0 bg-slate-950 border border-blue-900/60 text-blue-300 rounded-xl p-2 text-[11px] font-bold focus:outline-none"><option value="">⚡ Auto-fill product from catalog…</option></select>
-            <button type="button" onclick="openItemModal()" class="px-2.5 bg-slate-800 border border-slate-700 text-slate-300 rounded-xl text-[11px] font-bold active:scale-95 flex-shrink-0"><i class="fa-solid fa-plus"></i></button>
+            <select id="editor-quickpick" onchange="quickAddCatalogItem(this.value)" class="flex-1 min-w-0 bg-blue-50 border border-blue-200 text-blue-700 rounded-xl p-2 text-[11px] font-bold focus:outline-none"><option value="">⚡ Auto-fill product from catalog…</option></select>
+            <button type="button" onclick="openItemModal()" class="px-2.5 bg-slate-100 border border-slate-200 text-slate-600 rounded-xl text-[11px] font-bold active:scale-95 flex-shrink-0"><i class="fa-solid fa-plus"></i></button>
           </div>
           <datalist id="catalog-namelist"></datalist>
           <div id="editor-items-container" class="space-y-2.5"></div>
         </div>
-        <div class="p-3 bg-slate-950 rounded-2xl border border-slate-800 space-y-3 text-xs">
+        <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200 space-y-3 text-xs">
           <div>
-            <label class="font-bold text-slate-400 uppercase text-[9px] block mb-1.5">Tax Mode</label>
+            <label class="font-bold text-slate-500 uppercase text-[9px] block mb-1.5">Tax Mode</label>
             <div class="grid grid-cols-4 gap-1">
-              <button type="button" data-taxmode="NONE" onclick="setTaxMode('NONE')" class="tax-mode-btn py-1.5 rounded-lg border border-slate-800 text-[10px] font-bold text-slate-400">None</button>
-              <button type="button" data-taxmode="GST" onclick="setTaxMode('GST')" class="tax-mode-btn py-1.5 rounded-lg border border-slate-800 text-[10px] font-bold text-slate-400">GST</button>
-              <button type="button" data-taxmode="CGST_SGST" onclick="setTaxMode('CGST_SGST')" class="tax-mode-btn py-1.5 rounded-lg border border-slate-800 text-[10px] font-bold text-slate-400">CGST+SGST</button>
-              <button type="button" data-taxmode="IGST" onclick="setTaxMode('IGST')" class="tax-mode-btn py-1.5 rounded-lg border border-slate-800 text-[10px] font-bold text-slate-400">IGST</button>
+              <button type="button" data-taxmode="NONE" onclick="setTaxMode('NONE')" class="tax-mode-btn py-1.5 rounded-lg border border-slate-200 text-[10px] font-bold text-slate-500 bg-white">None</button>
+              <button type="button" data-taxmode="GST" onclick="setTaxMode('GST')" class="tax-mode-btn py-1.5 rounded-lg border border-slate-200 text-[10px] font-bold text-slate-500 bg-white">GST</button>
+              <button type="button" data-taxmode="CGST_SGST" onclick="setTaxMode('CGST_SGST')" class="tax-mode-btn py-1.5 rounded-lg border border-slate-200 text-[10px] font-bold text-slate-500 bg-white">CGST+SGST</button>
+              <button type="button" data-taxmode="IGST" onclick="setTaxMode('IGST')" class="tax-mode-btn py-1.5 rounded-lg border border-slate-200 text-[10px] font-bold text-slate-500 bg-white">IGST</button>
             </div>
             <input type="hidden" id="doc-tax-mode" value="GST">
           </div>
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-1.5">
-              <span class="text-slate-400">Default Tax Rate:</span>
-              <input type="number" id="doc-tax-rate" min="0" max="100" value="18" oninput="applyDefaultTaxToAllRows()" class="w-14 bg-slate-900 border border-slate-800 rounded-lg px-1.5 py-0.5 text-right text-white font-bold"><span class="text-slate-400">%</span>
-              <button type="button" onclick="applyDefaultTaxToAllRows()" class="ml-1 text-[9px] font-bold text-blue-400 hover:underline">Apply to all</button>
+              <span class="text-slate-500">Default Tax Rate:</span>
+              <input type="number" id="doc-tax-rate" min="0" max="100" value="18" oninput="applyDefaultTaxToAllRows()" class="w-14 bg-white border border-slate-200 rounded-lg px-1.5 py-0.5 text-right text-slate-900 font-bold focus:outline-none"><span class="text-slate-500">%</span>
+              <button type="button" onclick="applyDefaultTaxToAllRows()" class="ml-1 text-[9px] font-bold text-blue-600 hover:underline">Apply to all</button>
             </div>
           </div>
-          <div class="flex items-center justify-between pt-1 border-t border-slate-800/70">
-            <label class="font-bold text-slate-300 flex items-center gap-1.5 text-[11px]"><i class="fa-solid fa-receipt text-blue-400"></i> Show Total GST Summary</label>
+          <div class="flex items-center justify-between pt-1 border-t border-slate-200">
+            <label class="font-bold text-slate-700 flex items-center gap-1.5 text-[11px]"><i class="fa-solid fa-receipt text-blue-600"></i> Show Total GST Summary</label>
             <input type="checkbox" id="doc-show-total-gst" checked class="w-4 h-4 accent-blue-600 rounded cursor-pointer">
           </div>
-          <div class="pt-2 border-t border-slate-800/70 space-y-2">
+          <div class="pt-2 border-t border-slate-200 space-y-2">
             <div class="flex justify-between items-center">
-              <span class="font-bold text-slate-400 uppercase text-[9px]">Additional Overall Discount</span>
-              <div class="flex rounded-lg bg-slate-900 p-0.5 border border-slate-800 text-[10px] font-bold">
-                <button type="button" id="disc-tab-pct" onclick="setDiscountMode('PERCENT')" class="px-2.5 py-1 rounded-md bg-blue-600 text-white transition">%</button>
-                <button type="button" id="disc-tab-amt" onclick="setDiscountMode('AMOUNT')" class="px-2.5 py-1 rounded-md text-slate-400 transition">₹</button>
+              <span class="font-bold text-slate-500 uppercase text-[9px]">Additional Overall Discount</span>
+              <div class="flex rounded-lg bg-white p-0.5 border border-slate-200 text-[10px] font-bold">
+                <button type="button" id="disc-tab-pct" onclick="setDiscountMode('PERCENT')" class="px-2.5 py-1 rounded-md bg-blue-600 text-white transition shadow-sm">%</button>
+                <button type="button" id="disc-tab-amt" onclick="setDiscountMode('AMOUNT')" class="px-2.5 py-1 rounded-md text-slate-500 transition">₹</button>
               </div>
             </div>
             <input type="hidden" id="doc-discount-mode" value="PERCENT">
             <div class="flex items-center gap-2">
-              <input type="number" id="doc-discount" min="0" step="any" value="0" oninput="calculateEditorMath()" class="flex-1 min-w-0 bg-slate-900 border border-slate-800 rounded-xl px-2.5 py-2 text-right text-white font-bold">
-              <span id="disc-suffix" class="text-slate-400 font-bold w-6 text-center flex-shrink-0">%</span>
-              <span id="editor-lbl-discount" class="text-slate-400 font-mono-code text-[11px] w-24 text-right flex-shrink-0">- 0.00</span>
+              <input type="number" id="doc-discount" min="0" step="any" value="0" oninput="calculateEditorMath()" class="flex-1 min-w-0 bg-white border border-slate-200 rounded-xl px-2.5 py-2 text-right text-slate-900 font-bold focus:outline-none">
+              <span id="disc-suffix" class="text-slate-500 font-bold w-6 text-center flex-shrink-0">%</span>
+              <span id="editor-lbl-discount" class="text-slate-500 font-mono-code text-[11px] w-24 text-right flex-shrink-0">- 0.00</span>
             </div>
           </div>
-          <div class="pt-2 border-t border-slate-800/70 space-y-2">
+          <div class="pt-2 border-t border-slate-200 space-y-2">
             <div class="flex items-center justify-between">
-              <label class="font-bold text-slate-300 flex items-center gap-1.5 text-[11px]"><i class="fa-solid fa-truck text-blue-400"></i> Add Shipping / Freight</label>
+              <label class="font-bold text-slate-700 flex items-center gap-1.5 text-[11px]"><i class="fa-solid fa-truck text-blue-600"></i> Add Shipping / Freight</label>
               <input type="checkbox" id="doc-enable-shipping" onchange="toggleShippingField()" class="w-4 h-4 accent-blue-600 rounded cursor-pointer">
             </div>
             <div id="doc-shipping-box" class="hidden space-y-2">
               <div class="flex items-center gap-2">
-                <input type="text" id="doc-shipping-label" value="Freight &amp; Shipping" placeholder="Shipping label" class="flex-1 min-w-0 bg-slate-900 border border-slate-800 rounded-xl px-2.5 py-2 text-white text-[11px] font-bold">
-                <input type="number" id="doc-shipping" min="0" step="any" value="0" oninput="calculateEditorMath()" placeholder="0.00" class="w-24 flex-shrink-0 bg-slate-900 border border-slate-800 rounded-xl px-2.5 py-2 text-right text-white font-bold">
+                <input type="text" id="doc-shipping-label" value="Freight &amp; Shipping" placeholder="Shipping label" class="flex-1 min-w-0 bg-white border border-slate-200 rounded-xl px-2.5 py-2 text-slate-900 text-[11px] font-bold focus:outline-none">
+                <input type="number" id="doc-shipping" min="0" step="any" value="0" oninput="calculateEditorMath()" placeholder="0.00" class="w-24 flex-shrink-0 bg-white border border-slate-200 rounded-xl px-2.5 py-2 text-right text-slate-900 font-bold focus:outline-none">
               </div>
-              <div class="flex items-center justify-between text-[10px] text-slate-400">
+              <div class="flex items-center justify-between text-[10px] text-slate-500">
                 <label class="flex items-center gap-1.5"><input type="checkbox" id="doc-shipping-taxable" checked onchange="calculateEditorMath()" class="w-3.5 h-3.5 accent-blue-600 rounded"> Apply GST on shipping</label>
-                <span id="editor-lbl-shipping-tax" class="font-mono-code text-slate-500">Tax: ₹0.00</span>
+                <span id="editor-lbl-shipping-tax" class="font-mono-code text-slate-400">Tax: ₹0.00</span>
               </div>
             </div>
           </div>
         </div>
-        <div class="p-3 bg-slate-950 rounded-2xl border border-slate-800 space-y-1.5 text-xs">
-          <div class="flex justify-between text-slate-400"><span>Subtotal (Net):</span><span id="editor-lbl-subtotal" class="font-bold text-white font-mono-code">₹0.00</span></div>
-          <div class="flex justify-between text-slate-400"><span>Overall Discount:</span><span id="editor-lbl-discount-2" class="font-semibold text-rose-400 font-mono-code">- ₹0.00</span></div>
-          <div id="editor-tax-breakdown" class="space-y-1 pt-1 border-t border-slate-800/60"></div>
-          <div id="editor-shipping-row" class="hidden flex justify-between text-slate-400 pt-1 border-t border-slate-800/60"><span id="editor-lbl-shipping-name">Shipping:</span><span id="editor-lbl-shipping" class="font-semibold text-white font-mono-code">₹0.00</span></div>
-          <div class="flex justify-between pt-2 mt-1 border-t border-slate-800 text-sm font-black text-white"><span>Grand Total:</span><span id="editor-lbl-grandtotal" class="text-blue-400 text-base font-mono-code">0.00</span></div>
+        <div class="p-3 bg-white rounded-2xl border border-slate-200 shadow-sm space-y-1.5 text-xs">
+          <div class="flex justify-between text-slate-500"><span>Subtotal (Net):</span><span id="editor-lbl-subtotal" class="font-bold text-slate-900 font-mono-code">₹0.00</span></div>
+          <div class="flex justify-between text-slate-500"><span>Overall Discount:</span><span id="editor-lbl-discount-2" class="font-semibold text-rose-600 font-mono-code">- ₹0.00</span></div>
+          <div id="editor-tax-breakdown" class="space-y-1 pt-1 border-t border-slate-100"></div>
+          <div id="editor-shipping-row" class="hidden flex justify-between text-slate-500 pt-1 border-t border-slate-100"><span id="editor-lbl-shipping-name">Shipping:</span><span id="editor-lbl-shipping" class="font-semibold text-slate-900 font-mono-code">₹0.00</span></div>
+          <div class="flex justify-between pt-2 mt-1 border-t border-slate-200 text-sm font-black text-slate-900"><span>Grand Total:</span><span id="editor-lbl-grandtotal" class="text-blue-600 text-base font-mono-code">0.00</span></div>
         </div>
-        <div><label class="font-bold text-slate-400 uppercase text-[9px] block mb-1">Terms, Notes &amp; Scope</label><textarea id="doc-terms" rows="6" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2 text-white resize-none focus:outline-none text-[11px] leading-relaxed"></textarea></div>
+        <div><label class="font-bold text-slate-500 uppercase text-[9px] block mb-1">Terms, Notes &amp; Scope</label><textarea id="doc-terms" rows="6" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 resize-none focus:outline-none focus:border-blue-500 text-[11px] leading-relaxed"></textarea></div>
         <div class="grid grid-cols-2 gap-2 pt-2">
-          <button type="button" onclick="saveDraftAndExit()" class="py-3 bg-amber-600 rounded-xl font-bold text-white active:scale-95 flex items-center justify-center gap-1.5"><i class="fa-solid fa-floppy-disk text-xs"></i> Save Draft</button>
-          <button type="button" onclick="saveDocument('Final'); previewCurrentDocument();" class="py-3 bg-blue-600 rounded-xl font-bold text-white active:scale-95 flex items-center justify-center gap-1.5"><i class="fa-solid fa-check text-xs"></i> Finalize &amp; View</button>
+          <button type="button" onclick="saveDraftAndExit()" class="py-3 bg-amber-100 border border-amber-200 text-amber-700 rounded-xl font-bold active:scale-95 flex items-center justify-center gap-1.5 shadow-sm"><i class="fa-solid fa-floppy-disk text-xs"></i> Save Draft</button>
+          <button type="button" onclick="saveDocument('Final'); previewCurrentDocument();" class="py-3 bg-blue-600 rounded-xl font-bold text-white active:scale-95 flex items-center justify-center gap-1.5 shadow-md shadow-blue-600/20"><i class="fa-solid fa-check text-xs"></i> Finalize &amp; View</button>
         </div>
       </div>
     </section>
 
     <!-- A4 PREVIEW -->
     <section id="view-document-preview" class="hidden space-y-4">
-      <div class="no-print bg-slate-900 p-3 rounded-2xl border border-slate-800 flex items-center justify-between gap-2 text-xs">
-        <button onclick="navigate('document-editor')" class="text-slate-400 hover:text-white px-2"><i class="fa-solid fa-arrow-left"></i></button>
+      <div class="no-print bg-white p-3 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between gap-2 text-xs">
+        <button onclick="navigate('document-editor')" class="text-slate-500 hover:text-slate-900 px-2"><i class="fa-solid fa-arrow-left"></i></button>
         <div class="flex items-center gap-1.5 flex-wrap justify-end">
-          <select id="preview-template-style" onchange="changeTemplateStyle(this.value)" class="bg-slate-950 border border-slate-800 text-white rounded-lg px-2 py-1 text-[11px]">
+          <select id="preview-template-style" onchange="changeTemplateStyle(this.value)" class="bg-slate-50 border border-slate-200 text-slate-900 rounded-lg px-2 py-1 text-[11px] focus:outline-none">
             <option value="tpl-modern">Modern</option><option value="tpl-minimal">Minimal</option><option value="tpl-boldbar">Bold Bar</option><option value="tpl-classic">Classic</option>
           </select>
-          <button id="btn-download-pdf" onclick="downloadDocumentPDF()" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl flex items-center gap-1 active:scale-95 shadow-md">
+          <button id="btn-download-pdf" onclick="downloadDocumentPDF()" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl flex items-center gap-1 active:scale-95 shadow-sm">
             <i class="fa-solid fa-file-arrow-down"></i> <span id="btn-download-pdf-text">PDF</span>
           </button>
-          <button onclick="downloadDocumentPDF()" class="px-3 py-1.5 bg-[#25D366] hover:bg-[#1faa52] text-white font-bold rounded-xl flex items-center gap-1 active:scale-95">
+          <button onclick="downloadDocumentPDF()" class="px-3 py-1.5 bg-[#25D366] hover:bg-[#1faa52] text-white font-bold rounded-xl flex items-center gap-1 active:scale-95 shadow-sm">
             <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
           </button>
-          <button onclick="window.print()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl flex items-center gap-1 active:scale-95 border border-slate-700">
+          <button onclick="window.print()" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl flex items-center gap-1 active:scale-95 border border-slate-200">
             <i class="fa-solid fa-print"></i> Print
           </button>
         </div>
@@ -659,66 +661,66 @@
     </section>
   </main>
 
-  <div id="toast-box"><div class="px-4 py-2.5 bg-slate-800 border border-slate-700 text-white text-xs font-bold rounded-2xl shadow-2xl flex items-center gap-2"><i id="toast-icon" class="fa-solid fa-circle-check text-emerald-400"></i><span id="toast-msg">Saved</span></div></div>
+  <div id="toast-box"><div class="px-4 py-2.5 bg-slate-900 border border-slate-700 text-white text-xs font-bold rounded-2xl shadow-xl flex items-center gap-2"><i id="toast-icon" class="fa-solid fa-circle-check text-emerald-400"></i><span id="toast-msg">Saved</span></div></div>
 
   <!-- PDF PROGRESS MODAL -->
-  <div id="modal-pdf-progress" class="fixed inset-0 bg-slate-950/85 backdrop-blur-md hidden flex items-center justify-center p-4 z-[80]">
-    <div class="bg-slate-900 text-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border border-slate-800 text-center">
-      <div class="w-14 h-14 mx-auto rounded-2xl bg-blue-500/20 text-blue-400 flex items-center justify-center text-2xl mb-3">
+  <div id="modal-pdf-progress" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4 z-[80]">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-sm w-full p-6 shadow-2xl border border-slate-200 text-center">
+      <div class="w-14 h-14 mx-auto rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-3">
         <i class="fa-solid fa-file-pdf fa-spin"></i>
       </div>
       <h3 class="font-black text-sm">Generating High-Quality PDF</h3>
-      <p id="pdf-progress-msg" class="text-[11px] text-slate-400 mt-2">Starting…</p>
+      <p id="pdf-progress-msg" class="text-[11px] text-slate-500 mt-2">Starting…</p>
       <div id="pdf-progress-steps" class="mt-3 space-y-1 text-left"></div>
     </div>
   </div>
 
   <!-- PAYMENT MODAL -->
-  <div id="modal-payment" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4 z-50 overflow-y-auto">
-    <div class="bg-white text-slate-900 rounded-3xl max-w-sm w-full p-5 shadow-2xl text-xs my-auto modal-scroll no-scrollbar">
-      <div class="flex justify-between items-center pb-2 border-b border-slate-100"><h3 class="font-bold text-sm">Record Payment</h3><button onclick="closeModal('modal-payment')" class="text-slate-400"><i class="fa-solid fa-xmark"></i></button></div>
+  <div id="modal-payment" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50 overflow-y-auto">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-sm w-full p-5 shadow-2xl border border-slate-200 text-xs my-auto modal-scroll no-scrollbar">
+      <div class="flex justify-between items-center pb-2 border-b border-slate-100"><h3 class="font-bold text-sm">Record Payment</h3><button onclick="closeModal('modal-payment')" class="text-slate-400 hover:text-slate-700"><i class="fa-solid fa-xmark"></i></button></div>
       <form onsubmit="handleSavePayment(event)" class="space-y-3 mt-3">
         <input type="hidden" id="pay-doc-id">
-        <div class="bg-blue-50 rounded-2xl p-3 border border-blue-100"><p class="text-[10px] text-blue-900 font-bold uppercase">Invoice</p><p id="pay-doc-info" class="font-black text-slate-900 text-sm mt-0.5"></p><p id="pay-doc-total" class="font-mono-code text-blue-700 font-bold mt-1"></p></div>
-        <div><label class="text-[9px] font-bold text-slate-500 uppercase block mb-1">Amount Received *</label><input type="number" step="any" min="0" id="pay-amount" required class="w-full border border-slate-300 rounded-xl p-2.5 font-mono-code font-bold"></div>
+        <div class="bg-blue-50 rounded-2xl p-3 border border-blue-100"><p class="text-[10px] text-blue-800 font-bold uppercase">Invoice</p><p id="pay-doc-info" class="font-black text-slate-900 text-sm mt-0.5"></p><p id="pay-doc-total" class="font-mono-code text-blue-700 font-bold mt-1"></p></div>
+        <div><label class="text-[9px] font-bold text-slate-500 uppercase block mb-1">Amount Received *</label><input type="number" step="any" min="0" id="pay-amount" required class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 font-mono-code font-bold text-slate-900 focus:outline-none focus:border-blue-500"></div>
         <div class="grid grid-cols-2 gap-2">
-          <div><label class="text-[9px] font-bold text-slate-500 uppercase block mb-1">Date</label><input type="date" id="pay-date" required class="w-full border border-slate-300 rounded-xl p-2"></div>
-          <div><label class="text-[9px] font-bold text-slate-500 uppercase block mb-1">Mode</label><select id="pay-mode" class="w-full border border-slate-300 rounded-xl p-2 bg-white"><option>UPI</option><option>Bank</option><option>Cash</option><option>Cheque</option><option>Card</option></select></div>
+          <div><label class="text-[9px] font-bold text-slate-500 uppercase block mb-1">Date</label><input type="date" id="pay-date" required class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 focus:outline-none focus:border-blue-500"></div>
+          <div><label class="text-[9px] font-bold text-slate-500 uppercase block mb-1">Mode</label><select id="pay-mode" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 focus:outline-none focus:border-blue-500"><option>UPI</option><option>Bank</option><option>Cash</option><option>Cheque</option><option>Card</option></select></div>
         </div>
-        <input type="text" id="pay-ref" data-uppercase="true" placeholder="Ref / Txn ID" class="w-full border border-slate-300 rounded-xl p-2">
-        <input type="text" id="pay-note" placeholder="Note (optional)" class="w-full border border-slate-300 rounded-xl p-2">
-        <button type="submit" class="w-full py-3 bg-emerald-600 text-white font-bold rounded-xl active:scale-95">Save Payment</button>
+        <input type="text" id="pay-ref" data-uppercase="true" placeholder="Ref / Txn ID" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 focus:outline-none focus:border-blue-500">
+        <input type="text" id="pay-note" placeholder="Note (optional)" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 focus:outline-none focus:border-blue-500">
+        <button type="submit" class="w-full py-3 bg-emerald-600 text-white font-bold rounded-xl active:scale-95 shadow-md">Save Payment</button>
       </form>
     </div>
   </div>
 
   <!-- NUMBERING MODAL -->
-  <div id="modal-numbering" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4 z-50 overflow-y-auto">
-    <div class="bg-white text-slate-900 rounded-3xl max-w-sm w-full p-5 shadow-2xl text-xs my-auto modal-scroll no-scrollbar">
+  <div id="modal-numbering" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50 overflow-y-auto">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-sm w-full p-5 shadow-2xl border border-slate-200 text-xs my-auto modal-scroll no-scrollbar">
       <div class="flex justify-between items-center pb-2 border-b border-slate-100">
-        <div><h3 class="font-bold text-sm text-slate-900 flex items-center gap-1.5"><i class="fa-solid fa-hashtag text-blue-600"></i> Document Numbering</h3><p class="text-[10px] text-slate-400">Customize prefixes and next numbers</p></div>
-        <button onclick="closeModal('modal-numbering')" class="text-slate-400"><i class="fa-solid fa-xmark"></i></button>
+        <div><h3 class="font-bold text-sm text-slate-900 flex items-center gap-1.5"><i class="fa-solid fa-hashtag text-blue-600"></i> Document Numbering</h3><p class="text-[10px] text-slate-500">Customize prefixes and next numbers</p></div>
+        <button onclick="closeModal('modal-numbering')" class="text-slate-400 hover:text-slate-700"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <form onsubmit="handleSaveNumbering(event)" class="space-y-3 mt-3">
         <div class="p-3 bg-blue-50 rounded-2xl border border-blue-100">
-          <p class="text-[10px] text-blue-900 font-bold mb-2"><i class="fa-solid fa-file-invoice text-blue-500"></i> INVOICE</p>
+          <p class="text-[10px] text-blue-800 font-bold mb-2"><i class="fa-solid fa-file-invoice text-blue-500"></i> INVOICE</p>
           <div class="grid grid-cols-2 gap-2">
-            <input type="text" id="num-inv-prefix" data-uppercase="true" placeholder="INV-" class="w-full border border-slate-300 rounded-xl p-2 font-mono-code font-bold">
-            <input type="number" id="num-inv-next" min="1" class="w-full border border-slate-300 rounded-xl p-2 font-mono-code font-bold">
+            <input type="text" id="num-inv-prefix" data-uppercase="true" placeholder="INV-" class="w-full bg-white border border-slate-200 rounded-xl p-2 font-mono-code font-bold text-slate-900 focus:outline-none focus:border-blue-500">
+            <input type="number" id="num-inv-next" min="1" class="w-full bg-white border border-slate-200 rounded-xl p-2 font-mono-code font-bold text-slate-900 focus:outline-none focus:border-blue-500">
           </div>
         </div>
         <div class="p-3 bg-indigo-50 rounded-2xl border border-indigo-100">
-          <p class="text-[10px] text-indigo-900 font-bold mb-2"><i class="fa-solid fa-file-lines text-indigo-500"></i> QUOTATION</p>
+          <p class="text-[10px] text-indigo-800 font-bold mb-2"><i class="fa-solid fa-file-lines text-indigo-500"></i> QUOTATION</p>
           <div class="grid grid-cols-2 gap-2">
-            <input type="text" id="num-quo-prefix" data-uppercase="true" placeholder="QT-" class="w-full border border-slate-300 rounded-xl p-2 font-mono-code font-bold">
-            <input type="number" id="num-quo-next" min="1" class="w-full border border-slate-300 rounded-xl p-2 font-mono-code font-bold">
+            <input type="text" id="num-quo-prefix" data-uppercase="true" placeholder="QT-" class="w-full bg-white border border-slate-200 rounded-xl p-2 font-mono-code font-bold text-slate-900 focus:outline-none focus:border-blue-500">
+            <input type="number" id="num-quo-next" min="1" class="w-full bg-white border border-slate-200 rounded-xl p-2 font-mono-code font-bold text-slate-900 focus:outline-none focus:border-blue-500">
           </div>
         </div>
         <div class="p-3 bg-emerald-50 rounded-2xl border border-emerald-100">
-          <p class="text-[10px] text-emerald-900 font-bold mb-2"><i class="fa-solid fa-truck-fast text-emerald-500"></i> CHALLAN</p>
+          <p class="text-[10px] text-emerald-800 font-bold mb-2"><i class="fa-solid fa-truck-fast text-emerald-500"></i> CHALLAN</p>
           <div class="grid grid-cols-2 gap-2">
-            <input type="text" id="num-chl-prefix" data-uppercase="true" placeholder="DC-" class="w-full border border-slate-300 rounded-xl p-2 font-mono-code font-bold">
-            <input type="number" id="num-chl-next" min="1" class="w-full border border-slate-300 rounded-xl p-2 font-mono-code font-bold">
+            <input type="text" id="num-chl-prefix" data-uppercase="true" placeholder="DC-" class="w-full bg-white border border-slate-200 rounded-xl p-2 font-mono-code font-bold text-slate-900 focus:outline-none focus:border-blue-500">
+            <input type="number" id="num-chl-next" min="1" class="w-full bg-white border border-slate-200 rounded-xl p-2 font-mono-code font-bold text-slate-900 focus:outline-none focus:border-blue-500">
           </div>
         </div>
         <div class="flex items-center justify-between p-3 bg-slate-50 rounded-2xl border border-slate-200">
@@ -731,29 +733,29 @@
   </div>
 
   <!-- SIGNATURE MODAL -->
-  <div id="modal-signature" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4 z-50 overflow-y-auto">
-    <div class="bg-white text-slate-900 rounded-3xl max-w-sm w-full p-5 shadow-2xl text-xs my-auto">
+  <div id="modal-signature" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50 overflow-y-auto">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-sm w-full p-5 shadow-2xl text-xs my-auto border border-slate-200">
       <div class="flex justify-between items-center pb-3 border-b border-slate-100">
-        <div><h3 class="font-bold text-slate-900 text-sm flex items-center gap-1.5"><i class="fa-solid fa-signature text-blue-600"></i> Authorised Signature</h3><p class="text-[10px] text-slate-400">Sign on canvas or upload scanned stamp</p></div>
-        <button onclick="closeModal('modal-signature')" class="text-slate-400 p-1"><i class="fa-solid fa-xmark"></i></button>
+        <div><h3 class="font-bold text-slate-900 text-sm flex items-center gap-1.5"><i class="fa-solid fa-signature text-blue-600"></i> Authorised Signature</h3><p class="text-[10px] text-slate-500">Sign on canvas or upload scanned stamp</p></div>
+        <button onclick="closeModal('modal-signature')" class="text-slate-400 p-1 hover:text-slate-700"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="flex rounded-xl bg-slate-100 p-1 my-3 text-[11px] font-bold">
         <button type="button" id="tab-sig-draw" onclick="switchSigMode('draw')" class="flex-1 py-1.5 rounded-lg bg-white shadow-sm text-blue-600 transition">Draw on Screen</button>
-        <button type="button" id="tab-sig-upload" onclick="switchSigMode('upload')" class="flex-1 py-1.5 rounded-lg text-slate-500 transition">Upload File</button>
+        <button type="button" id="tab-sig-upload" onclick="switchSigMode('upload')" class="flex-1 py-1.5 rounded-lg text-slate-500 transition hover:text-slate-800">Upload File</button>
       </div>
       <div id="sig-mode-draw" class="space-y-2">
-        <canvas id="signatureCanvas" width="340" height="150" class="w-full h-32 bg-slate-50 border border-slate-300 rounded-2xl cursor-crosshair"></canvas>
-        <div class="flex justify-between items-center text-[10px]"><span class="text-slate-400">Use finger, stylus, or mouse</span><button type="button" onclick="clearSignatureCanvas()" class="text-rose-600 font-bold hover:underline">Clear Canvas</button></div>
+        <canvas id="signatureCanvas" width="340" height="150" class="w-full h-32 bg-slate-50 border border-slate-200 rounded-2xl cursor-crosshair"></canvas>
+        <div class="flex justify-between items-center text-[10px]"><span class="text-slate-500">Use finger, stylus, or mouse</span><button type="button" onclick="clearSignatureCanvas()" class="text-rose-600 font-bold hover:underline">Clear Canvas</button></div>
       </div>
       <div id="sig-mode-upload" class="hidden space-y-3">
         <div class="bg-slate-50 p-4 rounded-2xl border border-dashed border-slate-300 text-center">
           <input type="file" id="sig-file-input" accept="image/*" onchange="handleSigFileUpload(event)" class="text-xs text-slate-500 file:mr-2 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:bg-blue-600 file:text-white file:font-bold cursor-pointer">
-          <p class="text-[10px] text-slate-400 mt-2">Upload PNG/JPG</p>
+          <p class="text-[10px] text-slate-500 mt-2">Upload PNG/JPG</p>
         </div>
         <div id="sig-upload-preview-box" class="hidden text-center"><img id="sig-upload-preview-img" src="" alt="Preview" class="max-h-20 mx-auto border p-1 rounded-xl bg-white"></div>
       </div>
       <div class="flex justify-end gap-2 pt-4 border-t border-slate-100 mt-3">
-        <button type="button" onclick="closeModal('modal-signature')" class="px-3.5 py-2 border border-slate-200 text-slate-600 rounded-xl font-bold">Cancel</button>
+        <button type="button" onclick="closeModal('modal-signature')" class="px-3.5 py-2 border border-slate-200 text-slate-600 rounded-xl font-bold hover:bg-slate-50">Cancel</button>
         <button type="button" onclick="saveAuthorisedSignature()" class="px-4 py-2 bg-blue-600 text-white rounded-xl font-bold active:scale-95 shadow-sm">Save Signature</button>
       </div>
     </div>
@@ -762,55 +764,55 @@
   <!-- FAB -->
   <div id="mobile-fab" class="no-print fixed right-5 bottom-20 z-40">
     <div id="fab-menu" class="hidden flex-col items-end gap-2.5 mb-3">
-      <button onclick="openDocEditor('INVOICE'); toggleFabMenu();" class="px-3.5 py-2 bg-blue-600 text-white font-bold rounded-2xl shadow-xl flex items-center gap-2 text-xs active:scale-95"><i class="fa-solid fa-file-invoice"></i> New Invoice</button>
-      <button onclick="openDocEditor('QUOTATION'); toggleFabMenu();" class="px-3.5 py-2 bg-indigo-600 text-white font-bold rounded-2xl shadow-xl flex items-center gap-2 text-xs active:scale-95"><i class="fa-solid fa-file-lines"></i> New Quote</button>
-      <button onclick="openDocEditor('CHALLAN'); toggleFabMenu();" class="px-3.5 py-2 bg-emerald-600 text-white font-bold rounded-2xl shadow-xl flex items-center gap-2 text-xs active:scale-95"><i class="fa-solid fa-truck-fast"></i> New Challan</button>
-      <button onclick="openCustomerModal(); toggleFabMenu();" class="px-3.5 py-2 bg-slate-800 text-white font-bold rounded-2xl shadow-xl flex items-center gap-2 text-xs active:scale-95"><i class="fa-solid fa-user-plus"></i> Add Client</button>
-      <button onclick="openItemModal(); toggleFabMenu();" class="px-3.5 py-2 bg-slate-800 text-white font-bold rounded-2xl shadow-xl flex items-center gap-2 text-xs active:scale-95"><i class="fa-solid fa-boxes-stacked"></i> Add Item</button>
+      <button onclick="openDocEditor('INVOICE'); toggleFabMenu();" class="px-3.5 py-2 bg-blue-600 text-white font-bold rounded-2xl shadow-xl shadow-blue-600/20 flex items-center gap-2 text-xs active:scale-95"><i class="fa-solid fa-file-invoice"></i> New Invoice</button>
+      <button onclick="openDocEditor('QUOTATION'); toggleFabMenu();" class="px-3.5 py-2 bg-indigo-600 text-white font-bold rounded-2xl shadow-xl shadow-indigo-600/20 flex items-center gap-2 text-xs active:scale-95"><i class="fa-solid fa-file-lines"></i> New Quote</button>
+      <button onclick="openDocEditor('CHALLAN'); toggleFabMenu();" class="px-3.5 py-2 bg-emerald-600 text-white font-bold rounded-2xl shadow-xl shadow-emerald-600/20 flex items-center gap-2 text-xs active:scale-95"><i class="fa-solid fa-truck-fast"></i> New Challan</button>
+      <button onclick="openCustomerModal(); toggleFabMenu();" class="px-3.5 py-2 bg-white border border-slate-200 text-slate-800 font-bold rounded-2xl shadow-xl shadow-slate-200/50 flex items-center gap-2 text-xs active:scale-95"><i class="fa-solid fa-user-plus"></i> Add Client</button>
+      <button onclick="openItemModal(); toggleFabMenu();" class="px-3.5 py-2 bg-white border border-slate-200 text-slate-800 font-bold rounded-2xl shadow-xl shadow-slate-200/50 flex items-center gap-2 text-xs active:scale-95"><i class="fa-solid fa-boxes-stacked"></i> Add Item</button>
     </div>
-    <button onclick="toggleFabMenu()" class="w-14 h-14 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center text-xl shadow-2xl shadow-blue-500/50 active:scale-90 transition"><i id="fab-icon" class="fa-solid fa-plus transition-transform duration-300"></i></button>
+    <button onclick="toggleFabMenu()" class="w-14 h-14 rounded-full bg-blue-600 text-white flex items-center justify-center text-xl shadow-xl shadow-blue-600/30 active:scale-90 transition"><i id="fab-icon" class="fa-solid fa-plus transition-transform duration-300"></i></button>
   </div>
 
   <!-- BOTTOM NAV -->
-  <nav id="bottom-nav" class="no-print fixed bottom-0 inset-x-0 bg-slate-900/90 backdrop-blur-xl border-t border-slate-800 z-30 px-2 py-2 flex items-center justify-around text-slate-400 text-[9px] font-bold">
-    <button onclick="navigate('dashboard')" id="bnav-dashboard" class="bnav-btn flex flex-col items-center gap-1 text-blue-500"><i class="fa-solid fa-chart-pie text-base"></i><span>Home</span></button>
-    <button onclick="navigate('invoices')" id="bnav-invoices" class="bnav-btn flex flex-col items-center gap-1 hover:text-white"><i class="fa-solid fa-file-invoice text-base"></i><span>Invoices</span></button>
-    <button onclick="navigate('quotes')" id="bnav-quotes" class="bnav-btn flex flex-col items-center gap-1 hover:text-white"><i class="fa-solid fa-file-lines text-base"></i><span>Quotes</span></button>
-    <button onclick="navigate('challans')" id="bnav-challans" class="bnav-btn flex flex-col items-center gap-1 hover:text-white"><i class="fa-solid fa-truck-fast text-base"></i><span>Challans</span></button>
-    <button onclick="navigate('tools')" id="bnav-tools" class="bnav-btn flex flex-col items-center gap-1 hover:text-white"><i class="fa-solid fa-toolbox text-base"></i><span>Tools</span></button>
-    <button onclick="navigate('customers')" id="bnav-customers" class="bnav-btn flex flex-col items-center gap-1 hover:text-white"><i class="fa-solid fa-users text-base"></i><span>Clients</span></button>
-    <button onclick="navigate('drafts')" id="bnav-drafts" class="bnav-btn flex flex-col items-center gap-1 hover:text-white relative"><i class="fa-solid fa-file-pen text-base"></i><span>Drafts</span><span id="bnav-draft-badge" class="hidden absolute -top-1 right-1 min-w-[14px] h-3.5 px-1 rounded-full draft-ribbon text-white text-[8px] font-black flex items-center justify-center">0</span></button>
+  <nav id="bottom-nav" class="no-print fixed bottom-0 inset-x-0 bg-white/90 backdrop-blur-xl border-t border-slate-200 z-30 px-2 py-2 flex items-center justify-around text-slate-500 text-[9px] font-bold">
+    <button onclick="navigate('dashboard')" id="bnav-dashboard" class="bnav-btn flex flex-col items-center gap-1 text-blue-600"><i class="fa-solid fa-chart-pie text-base"></i><span>Home</span></button>
+    <button onclick="navigate('invoices')" id="bnav-invoices" class="bnav-btn flex flex-col items-center gap-1 hover:text-slate-900"><i class="fa-solid fa-file-invoice text-base"></i><span>Invoices</span></button>
+    <button onclick="navigate('quotes')" id="bnav-quotes" class="bnav-btn flex flex-col items-center gap-1 hover:text-slate-900"><i class="fa-solid fa-file-lines text-base"></i><span>Quotes</span></button>
+    <button onclick="navigate('challans')" id="bnav-challans" class="bnav-btn flex flex-col items-center gap-1 hover:text-slate-900"><i class="fa-solid fa-truck-fast text-base"></i><span>Challans</span></button>
+    <button onclick="navigate('tools')" id="bnav-tools" class="bnav-btn flex flex-col items-center gap-1 hover:text-slate-900"><i class="fa-solid fa-toolbox text-base"></i><span>Tools</span></button>
+    <button onclick="navigate('items')" id="bnav-items" class="bnav-btn flex flex-col items-center gap-1 hover:text-slate-900"><i class="fa-solid fa-boxes-stacked text-base"></i><span>Catalog</span></button>
+    <button onclick="navigate('drafts')" id="bnav-drafts" class="bnav-btn flex flex-col items-center gap-1 hover:text-slate-900 relative"><i class="fa-solid fa-file-pen text-base"></i><span>Drafts</span><span id="bnav-draft-badge" class="hidden absolute -top-1 right-1 min-w-[14px] h-3.5 px-1 rounded-full draft-ribbon text-white text-[8px] font-black flex items-center justify-center">0</span></button>
   </nav>
 
   <!-- CUSTOMER MODAL -->
-  <div id="modal-customer" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4 z-50 overflow-y-auto">
-    <div class="bg-white text-slate-900 rounded-3xl max-w-sm w-full p-5 shadow-2xl text-xs my-auto modal-scroll no-scrollbar">
-      <div class="flex justify-between items-center pb-2 border-b border-slate-100"><h3 id="cust-modal-title" class="font-bold text-sm">Add Client Profile</h3><button onclick="closeModal('modal-customer')" class="text-slate-400"><i class="fa-solid fa-xmark"></i></button></div>
+  <div id="modal-customer" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50 overflow-y-auto">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-sm w-full p-5 shadow-2xl text-xs my-auto modal-scroll no-scrollbar border border-slate-200">
+      <div class="flex justify-between items-center pb-2 border-b border-slate-100"><h3 id="cust-modal-title" class="font-bold text-sm">Add Client Profile</h3><button onclick="closeModal('modal-customer')" class="text-slate-400 hover:text-slate-700"><i class="fa-solid fa-xmark"></i></button></div>
       <form onsubmit="handleSaveCustomer(event)" class="space-y-2.5 mt-3">
         <input type="hidden" id="cust-id" value="">
-        <input type="text" id="cust-name" required data-capitalize="words" placeholder="Contact Person Name *" class="w-full border border-slate-300 rounded-xl p-2.5">
-        <input type="text" id="cust-bizname" required data-capitalize="words" placeholder="Business Name (Entity) *" class="w-full border border-slate-300 rounded-xl p-2.5">
+        <input type="text" id="cust-name" required data-capitalize="words" placeholder="Contact Person Name *" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-slate-900 focus:outline-none focus:border-blue-500">
+        <input type="text" id="cust-bizname" required data-capitalize="words" placeholder="Business Name (Entity) *" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-slate-900 focus:outline-none focus:border-blue-500">
         <div class="grid grid-cols-2 gap-2">
-          <select id="cust-type" class="w-full border border-slate-300 rounded-xl p-2 bg-white"><option value="B2B">Business / B2B</option><option value="B2C">Individual / B2C</option></select>
-          <input type="text" id="cust-category" data-capitalize="words" placeholder="Category" class="w-full border border-slate-300 rounded-xl p-2">
+          <select id="cust-type" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 focus:outline-none focus:border-blue-500"><option value="B2B">Business / B2B</option><option value="B2C">Individual / B2C</option></select>
+          <input type="text" id="cust-category" data-capitalize="words" placeholder="Category" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 focus:outline-none focus:border-blue-500">
         </div>
         <div class="grid grid-cols-2 gap-2">
-          <input type="tel" id="cust-phone" placeholder="Phone #" class="w-full border border-slate-300 rounded-xl p-2">
-          <input type="email" id="cust-email" placeholder="Email" class="w-full border border-slate-300 rounded-xl p-2">
+          <input type="tel" id="cust-phone" placeholder="Phone #" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 focus:outline-none focus:border-blue-500">
+          <input type="email" id="cust-email" placeholder="Email" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 focus:outline-none focus:border-blue-500">
         </div>
-        <input type="text" id="cust-tax" data-uppercase="true" placeholder="GSTIN / Tax ID" class="w-full border border-slate-300 rounded-xl p-2 font-mono-code">
-        <textarea id="cust-address" rows="3" placeholder="Billing Address &amp; PIN" class="w-full border border-slate-300 rounded-xl p-2 resize-none"></textarea>
-        <button type="submit" class="w-full py-3 bg-blue-600 text-white font-bold rounded-xl active:scale-95">Save Customer</button>
+        <input type="text" id="cust-tax" data-uppercase="true" placeholder="GSTIN / Tax ID" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 font-mono-code text-slate-900 focus:outline-none focus:border-blue-500">
+        <textarea id="cust-address" rows="3" placeholder="Billing Address &amp; PIN" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 resize-none text-slate-900 focus:outline-none focus:border-blue-500"></textarea>
+        <button type="submit" class="w-full py-3 bg-blue-600 text-white font-bold rounded-xl active:scale-95 shadow-md">Save Customer</button>
       </form>
     </div>
   </div>
 
   <!-- ITEM MODAL -->
-  <div id="modal-item" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4 z-50 overflow-y-auto">
-    <div class="bg-white text-slate-900 rounded-3xl max-w-sm w-full p-5 shadow-2xl text-xs my-auto modal-scroll no-scrollbar">
+  <div id="modal-item" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50 overflow-y-auto">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-sm w-full p-5 shadow-2xl text-xs my-auto modal-scroll no-scrollbar border border-slate-200">
       <div class="flex justify-between items-center pb-2 border-b border-slate-100">
-        <div><h3 id="itm-modal-title" class="font-bold text-sm">Add Item</h3><p class="text-[10px] text-slate-400">Goods or Services with GST, unit, discount</p></div>
-        <button onclick="closeModal('modal-item')" class="text-slate-400"><i class="fa-solid fa-xmark"></i></button>
+        <div><h3 id="itm-modal-title" class="font-bold text-sm text-slate-900">Add Item</h3><p class="text-[10px] text-slate-500">Goods or Services with GST, unit, discount</p></div>
+        <button onclick="closeModal('modal-item')" class="text-slate-400 hover:text-slate-700"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <form onsubmit="handleSaveItem(event)" class="space-y-3 mt-3">
         <input type="hidden" id="item-id" value="">
@@ -823,84 +825,91 @@
           </div>
           <input type="hidden" id="item-type" value="GOOD">
         </div>
-        <input type="text" id="item-name" required data-capitalize="words" placeholder="Item Name *" class="w-full border border-slate-300 rounded-xl p-2.5">
+        <input type="text" id="item-name" required data-capitalize="words" placeholder="Item Name *" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-slate-900 font-bold focus:outline-none focus:border-blue-500">
         <div class="grid grid-cols-2 gap-2">
-          <select id="item-unit" class="w-full border border-slate-300 rounded-xl p-2.5 bg-white"></select>
-          <input type="text" id="item-category" data-capitalize="words" placeholder="Category" class="w-full border border-slate-300 rounded-xl p-2.5">
+          <select id="item-unit" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-slate-900 focus:outline-none focus:border-blue-500"></select>
+          <input type="text" id="item-category" data-capitalize="words" placeholder="Category" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-slate-900 focus:outline-none focus:border-blue-500">
         </div>
         <div class="grid grid-cols-2 gap-2">
-          <div><label class="font-bold text-slate-500 uppercase text-[9px] block mb-1" id="lbl-item-hsn">HSN Code</label><input type="text" id="item-hsn" data-uppercase="true" placeholder="998735" class="w-full border border-slate-300 rounded-xl p-2.5 font-mono-code"></div>
+          <div><label class="font-bold text-slate-500 uppercase text-[9px] block mb-1" id="lbl-item-hsn">HSN Code</label><input type="text" id="item-hsn" data-uppercase="true" placeholder="998735" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 font-mono-code text-slate-900 focus:outline-none focus:border-blue-500"></div>
           <div>
             <label class="font-bold text-slate-500 uppercase text-[9px] block mb-1">GST % *</label>
-            <select id="item-tax" class="w-full border border-slate-300 rounded-xl p-2.5 bg-white font-bold"><option value="0">0%</option><option value="5">5%</option><option value="12">12%</option><option value="18" selected>18%</option><option value="28">28%</option></select>
+            <select id="item-tax" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-slate-900 font-bold focus:outline-none focus:border-blue-500"><option value="0">0%</option><option value="5">5%</option><option value="12">12%</option><option value="18" selected>18%</option><option value="28">28%</option></select>
           </div>
         </div>
         <div class="grid grid-cols-2 gap-2">
-          <div><label class="font-bold text-slate-500 uppercase text-[9px] block mb-1">Rate *</label><input type="number" step="any" min="0" id="item-rate" required placeholder="0.00" class="w-full border border-slate-300 rounded-xl p-2.5 font-bold"></div>
-          <div><label class="font-bold text-slate-500 uppercase text-[9px] block mb-1">Discount %</label><input type="number" step="any" min="0" max="100" id="item-disc" placeholder="0" value="0" class="w-full border border-slate-300 rounded-xl p-2.5 font-bold text-rose-600"></div>
+          <div><label class="font-bold text-slate-500 uppercase text-[9px] block mb-1">Rate *</label><input type="number" step="any" min="0" id="item-rate" required placeholder="0.00" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 font-bold text-slate-900 focus:outline-none focus:border-blue-500"></div>
+          <div><label class="font-bold text-slate-500 uppercase text-[9px] block mb-1">Discount %</label><input type="number" step="any" min="0" max="100" id="item-disc" placeholder="0" value="0" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 font-bold text-rose-600 focus:outline-none focus:border-blue-500"></div>
         </div>
-        <div><label class="font-bold text-slate-500 uppercase text-[9px] block mb-1">Description / Spec</label><textarea id="item-desc" rows="3" placeholder="Appears under item name" class="w-full border border-slate-300 rounded-xl p-2.5 resize-none text-[11px]"></textarea></div>
+        <div id="item-duration-wrap"><label class="font-bold text-slate-500 uppercase text-[9px] block mb-1">Service duration (optional)</label><input type="text" id="item-duration" placeholder="None, 2 hours, 3 days, or project-based" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-slate-900 focus:outline-none focus:border-blue-500"></div>
+        <div><label class="font-bold text-slate-500 uppercase text-[9px] block mb-1">Description / Spec</label><textarea id="item-desc" rows="3" placeholder="Appears under item name" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 resize-none text-[11px] text-slate-900 focus:outline-none focus:border-blue-500"></textarea></div>
         <button type="submit" class="w-full py-3 bg-blue-600 text-white font-bold rounded-xl active:scale-95 shadow-md">Save Item</button>
       </form>
     </div>
   </div>
 
   <!-- INCOME MODAL -->
-  <div id="modal-income" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4 z-50">
-    <div class="bg-white text-slate-900 rounded-3xl max-w-sm w-full p-5 shadow-2xl text-xs">
-      <div class="flex justify-between items-center pb-2 border-b border-slate-100"><h3 class="font-bold text-sm">Record Income</h3><button onclick="closeModal('modal-income')" class="text-slate-400"><i class="fa-solid fa-xmark"></i></button></div>
+  <div id="modal-income" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-sm w-full p-5 shadow-2xl text-xs border border-slate-200">
+      <div class="flex justify-between items-center pb-2 border-b border-slate-100"><h3 class="font-bold text-sm">Record Income</h3><button onclick="closeModal('modal-income')" class="text-slate-400 hover:text-slate-700"><i class="fa-solid fa-xmark"></i></button></div>
       <form onsubmit="handleSaveIncome(event)" class="space-y-2.5 mt-3">
-        <div class="grid grid-cols-2 gap-2"><input type="date" id="inc-date" required class="w-full border border-slate-300 rounded-xl p-2"><input type="number" step="any" min="0" id="inc-amount" required placeholder="Amount *" class="w-full border border-slate-300 rounded-xl p-2 font-bold"></div>
-        <input type="text" id="inc-source" required data-capitalize="words" placeholder="Payer / Source *" class="w-full border border-slate-300 rounded-xl p-2">
+        <div class="grid grid-cols-2 gap-2"><input type="date" id="inc-date" required class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 focus:outline-none focus:border-blue-500"><input type="number" step="any" min="0" id="inc-amount" required placeholder="Amount *" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 font-bold text-slate-900 focus:outline-none focus:border-blue-500"></div>
+        <input type="text" id="inc-source" required data-capitalize="words" placeholder="Payer / Source *" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 focus:outline-none focus:border-blue-500">
         <div class="grid grid-cols-2 gap-2">
-          <input type="text" id="inc-ref" data-uppercase="true" placeholder="Ref / Invoice #" class="w-full border border-slate-300 rounded-xl p-2">
-          <select id="inc-mode" class="w-full border border-slate-300 rounded-xl p-2 bg-white"><option>UPI</option><option>Bank</option><option>Cash</option><option>Cheque</option></select>
+          <input type="text" id="inc-ref" data-uppercase="true" placeholder="Ref / Invoice #" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 focus:outline-none focus:border-blue-500">
+          <select id="inc-mode" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 focus:outline-none focus:border-blue-500"><option>UPI</option><option>Bank</option><option>Cash</option><option>Cheque</option></select>
         </div>
-        <button type="submit" class="w-full py-3 bg-emerald-600 text-white font-bold rounded-xl active:scale-95">Save Income</button>
+        <button type="submit" class="w-full py-3 bg-emerald-600 text-white font-bold rounded-xl active:scale-95 shadow-md">Save Income</button>
       </form>
     </div>
   </div>
 
   <!-- EXPENSE MODAL -->
-  <div id="modal-expense" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4 z-50">
-    <div class="bg-white text-slate-900 rounded-3xl max-w-sm w-full p-5 shadow-2xl text-xs">
-      <div class="flex justify-between items-center pb-2 border-b border-slate-100"><h3 class="font-bold text-sm">Record Expense</h3><button onclick="closeModal('modal-expense')" class="text-slate-400"><i class="fa-solid fa-xmark"></i></button></div>
+  <div id="modal-expense" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-sm w-full p-5 shadow-2xl text-xs border border-slate-200">
+      <div class="flex justify-between items-center pb-2 border-b border-slate-100"><h3 class="font-bold text-sm">Record Expense</h3><button onclick="closeModal('modal-expense')" class="text-slate-400 hover:text-slate-700"><i class="fa-solid fa-xmark"></i></button></div>
       <form onsubmit="handleSaveExpense(event)" class="space-y-2.5 mt-3">
-        <div class="grid grid-cols-2 gap-2"><input type="date" id="exp-date" required class="w-full border border-slate-300 rounded-xl p-2"><input type="number" step="any" min="0" id="exp-amount" required placeholder="Amount *" class="w-full border border-slate-300 rounded-xl p-2 font-bold"></div>
+        <div class="grid grid-cols-2 gap-2"><input type="date" id="exp-date" required class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 focus:outline-none focus:border-blue-500"><input type="number" step="any" min="0" id="exp-amount" required placeholder="Amount *" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 font-bold text-slate-900 focus:outline-none focus:border-blue-500"></div>
         <div class="grid grid-cols-2 gap-2">
-          <select id="exp-cat" class="w-full border border-slate-300 rounded-xl p-2 bg-white"><option>Software</option><option>Supplies</option><option>Salaries</option><option>Rent</option><option>Shipping</option><option>Other</option></select>
-          <select id="exp-method" class="w-full border border-slate-300 rounded-xl p-2 bg-white"><option>UPI</option><option>Bank</option><option>Cash</option></select>
+          <select id="exp-cat" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 focus:outline-none focus:border-blue-500"><option>Software</option><option>Supplies</option><option>Salaries</option><option>Rent</option><option>Shipping</option><option>Other</option></select>
+          <select id="exp-method" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 focus:outline-none focus:border-blue-500"><option>UPI</option><option>Bank</option><option>Cash</option></select>
         </div>
-        <input type="text" id="exp-vendor" data-capitalize="words" placeholder="Vendor / Payee" class="w-full border border-slate-300 rounded-xl p-2">
-        <button type="submit" class="w-full py-3 bg-rose-600 text-white font-bold rounded-xl active:scale-95">Save Expense</button>
+        <input type="text" id="exp-vendor" data-capitalize="words" placeholder="Vendor / Payee" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 focus:outline-none focus:border-blue-500">
+        <button type="submit" class="w-full py-3 bg-rose-600 text-white font-bold rounded-xl active:scale-95 shadow-md">Save Expense</button>
       </form>
     </div>
   </div>
 
   <!-- ORG MODAL -->
-  <div id="modal-org-setup" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4 z-50 overflow-y-auto">
-    <div class="bg-white text-slate-900 rounded-3xl max-w-sm w-full p-5 shadow-2xl text-xs my-auto modal-scroll no-scrollbar">
-      <div class="flex justify-between items-center pb-2 border-b border-slate-100"><h3 class="font-bold text-sm">Setup Enterprise Profile</h3><button onclick="closeOrgModal()" class="text-slate-400"><i class="fa-solid fa-xmark"></i></button></div>
+  <div id="modal-org-setup" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50 overflow-y-auto">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-sm w-full p-5 shadow-2xl text-xs my-auto modal-scroll no-scrollbar border border-slate-200">
+      <div class="flex justify-between items-center pb-2 border-b border-slate-100"><h3 class="font-bold text-sm">Setup Enterprise Profile</h3><button onclick="closeOrgModal()" class="text-slate-400 hover:text-slate-700"><i class="fa-solid fa-xmark"></i></button></div>
       <form onsubmit="handleSaveOrg(event)" class="space-y-3 mt-3">
         <div class="bg-slate-50 p-3 rounded-2xl border border-dashed border-slate-300">
           <label class="font-bold text-slate-700 block mb-1">Company Logo</label>
-          <input type="file" id="setup-org-logofile" accept="image/*" onchange="handleLogoFileSelect(event)" class="w-full text-[11px] text-slate-600 file:mr-2 file:py-1 file:px-2.5 file:rounded-lg file:border-0 file:bg-blue-600 file:text-white cursor-pointer">
+          <input type="file" id="setup-org-logofile" accept="image/*" onchange="handleLogoFileSelect(event)" class="w-full text-[11px] text-slate-500 file:mr-2 file:py-1 file:px-2.5 file:rounded-lg file:border-0 file:bg-blue-600 file:text-white cursor-pointer">
           <button type="button" id="btn-remove-logo" onclick="removeUploadedLogo()" class="hidden text-[10px] text-rose-600 font-bold hover:underline mt-1 block">Remove Logo</button>
         </div>
-        <input type="text" id="setup-org-name" required data-capitalize="words" placeholder="Business Name *" class="w-full border border-slate-300 rounded-xl p-2 font-bold">
+        <input type="text" id="setup-org-name" required data-capitalize="words" placeholder="Business Name *" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 font-bold text-slate-900 focus:outline-none focus:border-blue-500">
         <div class="grid grid-cols-2 gap-2">
-          <input type="tel" id="setup-org-phone" required placeholder="Phone *" class="w-full border border-slate-300 rounded-xl p-2">
-          <input type="email" id="setup-org-email" placeholder="Email" class="w-full border border-slate-300 rounded-xl p-2">
+          <input type="tel" id="setup-org-phone" required placeholder="Phone *" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 focus:outline-none focus:border-blue-500">
+          <input type="email" id="setup-org-email" placeholder="Email" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 focus:outline-none focus:border-blue-500">
         </div>
         <div class="grid grid-cols-2 gap-2">
-          <input type="text" id="setup-org-gstin" data-uppercase="true" placeholder="GSTIN" class="w-full border border-slate-300 rounded-xl p-2 font-mono-code">
-          <input type="text" id="setup-org-udyam" data-uppercase="true" placeholder="MSME / Udyam" class="w-full border border-slate-300 rounded-xl p-2 font-mono-code">
+          <input type="text" id="setup-org-gstin" data-uppercase="true" placeholder="GSTIN" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 font-mono-code text-slate-900 focus:outline-none focus:border-blue-500">
+          <input type="text" id="setup-org-udyam" data-uppercase="true" placeholder="MSME / Udyam" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 font-mono-code text-slate-900 focus:outline-none focus:border-blue-500">
         </div>
-        <textarea id="setup-org-street" rows="3" placeholder="Address" class="w-full border border-slate-300 rounded-xl p-2 resize-none"></textarea>
-        <div class="p-3 bg-blue-50/70 rounded-2xl border border-blue-200 space-y-2">
+        <textarea id="setup-org-street" rows="3" placeholder="Address" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 resize-none text-slate-900 focus:outline-none focus:border-blue-500"></textarea>
+        <div class="p-3 bg-blue-50 rounded-2xl border border-blue-200 space-y-2">
           <div class="flex items-center justify-between"><label class="font-bold text-blue-900 block text-xs">Enable UPI QR by Default</label><input type="checkbox" id="setup-org-qr-enabled" class="w-4 h-4 accent-blue-600 rounded cursor-pointer"></div>
-          <input type="text" id="setup-org-upi" placeholder="UPI ID" class="w-full border border-blue-200 rounded-xl p-2 bg-white font-bold text-blue-600">
-          <textarea id="setup-org-bank" rows="2" placeholder="Bank Name, A/C, IFSC" class="w-full border border-blue-200 rounded-xl p-2 bg-white text-[11px] resize-none"></textarea>
+          <input type="text" id="setup-org-upi" placeholder="UPI ID" class="w-full bg-white border border-blue-200 rounded-xl p-2 font-bold text-blue-700 focus:outline-none focus:border-blue-500">
+          <p class="text-[10px] font-extrabold uppercase tracking-wide text-blue-900">Bank transfer details (optional)</p>
+          <input id="setup-org-bank-name" type="text" placeholder="Bank name" class="w-full bg-white border border-blue-200 rounded-xl p-2 text-[11px] text-slate-900 focus:outline-none focus:border-blue-500">
+          <input id="setup-org-bank-holder" type="text" placeholder="Account holder name" class="w-full bg-white border border-blue-200 rounded-xl p-2 text-[11px] text-slate-900 focus:outline-none focus:border-blue-500">
+          <input id="setup-org-bank-account" type="text" inputmode="numeric" placeholder="Account number" autocomplete="off" class="w-full bg-white border border-blue-200 rounded-xl p-2 text-[11px] text-slate-900 focus:outline-none focus:border-blue-500">
+          <div class="grid grid-cols-2 gap-2"><input id="setup-org-bank-ifsc" type="text" data-uppercase="true" placeholder="IFSC code" autocomplete="off" class="min-w-0 w-full bg-white border border-blue-200 rounded-xl p-2 text-[11px] text-slate-900 focus:outline-none focus:border-blue-500"><input id="setup-org-bank-branch" type="text" placeholder="Branch (optional)" class="min-w-0 w-full bg-white border border-blue-200 rounded-xl p-2 text-[11px] text-slate-900 focus:outline-none focus:border-blue-500"></div>
+          <textarea id="setup-org-bank" rows="2" placeholder="Other bank/payment notes (optional)" class="w-full bg-white border border-blue-200 rounded-xl p-2 text-[11px] resize-none text-slate-900 focus:outline-none focus:border-blue-500"></textarea>
+          <p class="text-[9px] text-blue-700">Details are stored in this browser only. Avoid using this app on shared devices.</p>
         </div>
         <button type="submit" class="w-full py-3 bg-blue-600 text-white font-bold rounded-xl active:scale-95 shadow-md">Save Profile</button>
       </form>
@@ -909,8 +918,13 @@
 
   <!-- ================= CORE JS ================= -->
   <script>
-    const UNITS_GOOD = ['Nos','Pcs','Box','Set','Kg','Gram','Ltr','Mtr','Sq.ft','Sq.m','Roll','Bag','Dozen','Pair','Bundle','Carton','Packet','Bottle','Tin','Drum','Cylinder','Ton','Quintal','Sheet','Coil','SQFT','Running metre','square feet','no/s',"no's",'Running Metre'];
-    const UNITS_SERVICE = ['Hours','Days','Week','Month','Quarter','Year','Lumpsum','Project','Visit','Km','Page','Word','Shift','Trip','Session','Consultation','Licence','Subscription','Milestone'];
+    const UNITS_GOOD = [
+      'Nos','Pcs','Box','Set','Kg','Gram','Ltr','Mtr','Feet','ft','Inch','in','Yard','yd',
+      'Sq.ft','Sq.m','Sq.yd','Roll','Bag','Dozen','Pair','Bundle','Carton','Packet','Bottle',
+      'Tin','Drum','Cylinder','Ton','Quintal','Sheet','Coil','SQFT','Running metre','square feet',
+      'no/s',"no's",'Running Metre'
+    ];
+    const UNITS_SERVICE = ['None','Hours','Days','Week','Month','Quarter','Year','Lumpsum','Project','Visit','Km','Page','Word','Shift','Trip','Session','Consultation','Licence','Subscription','Milestone'];
     const UNITS_ALL = [...new Set([...UNITS_GOOD, ...UNITS_SERVICE])];
     const DEFAULT_NUMBERING = { invoice: { prefix: 'INV-', next: 1 }, quotation: { prefix: 'QT-', next: 1 }, challan: { prefix: 'DC-', next: 1 }, includeFY: false };
 
@@ -1000,9 +1014,9 @@
       views.forEach(v => { const el = document.getElementById('view-'+v); if (el) el.classList.add('hidden'); });
       const target = document.getElementById('view-'+viewName);
       if (target) target.classList.remove('hidden');
-      document.querySelectorAll('.bnav-btn').forEach(b => { b.classList.remove('text-blue-500'); b.classList.add('text-slate-400'); });
+      document.querySelectorAll('.bnav-btn').forEach(b => { b.classList.remove('text-blue-600'); b.classList.add('text-slate-500'); });
       const ab = document.getElementById('bnav-'+viewName);
-      if (ab) { ab.classList.add('text-blue-500'); ab.classList.remove('text-slate-400'); }
+      if (ab) { ab.classList.add('text-blue-600'); ab.classList.remove('text-slate-500'); }
       refreshAllViews();
       if (viewName === 'drafts') renderDraftsView();
       if (viewName === 'dashboard') checkDraftBanner();
@@ -1012,7 +1026,7 @@
       currentInvoiceFilter = f;
       document.querySelectorAll('.inv-filter-btn').forEach(b => {
         const isActive = b.dataset.invFilter === f;
-        b.className = 'inv-filter-btn px-3 py-1.5 rounded-full text-[10px] font-bold whitespace-nowrap ' + (isActive ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-300');
+        b.className = 'inv-filter-btn px-3 py-1.5 rounded-full text-[10px] font-bold whitespace-nowrap shadow-sm ' + (isActive ? 'bg-blue-600 text-white' : 'bg-white border border-slate-200 text-slate-600');
       });
       refreshAllViews();
     }
@@ -1260,7 +1274,7 @@
     function renderDraftsView() {
       const list = document.getElementById('drafts-card-list'); if (!list) return;
       if (state.drafts.length === 0) {
-        list.innerHTML = `<div class="text-center py-12"><div class="w-16 h-16 mx-auto rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-600 text-xl"><i class="fa-solid fa-file-pen"></i></div><p class="text-xs text-slate-500 italic mt-4">No drafts saved yet.</p></div>`;
+        list.innerHTML = `<div class="text-center py-12"><div class="w-16 h-16 mx-auto rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-400 text-xl"><i class="fa-solid fa-file-pen"></i></div><p class="text-xs text-slate-500 italic mt-4">No drafts saved yet.</p></div>`;
         return;
       }
       const s = [...state.drafts].sort((a,b)=>b.timestamp-a.timestamp);
@@ -1268,21 +1282,21 @@
         const isQ = d.type === 'QUOTATION', isC = d.type === 'CHALLAN';
         const lbl = isQ?'Quote':isC?'Challan':'Invoice';
         const ic = isQ?'fa-file-lines':isC?'fa-truck-fast':'fa-file-invoice';
-        const col = isQ?'text-indigo-400 bg-indigo-500/15 border-indigo-500/30':isC?'text-emerald-400 bg-emerald-500/15 border-emerald-500/30':'text-blue-400 bg-blue-500/15 border-blue-500/30';
+        const col = isQ?'text-indigo-600 bg-indigo-50 border-indigo-200':isC?'text-emerald-600 bg-emerald-50 border-emerald-200':'text-blue-600 bg-blue-50 border-blue-200';
         const cnt = (d.data?.items || []).filter(it => it.desc || parseFloat(it.qty) > 0).length;
-        return `<div class="p-3.5 bg-slate-900 border border-amber-500/25 rounded-2xl space-y-2.5 relative overflow-hidden">
+        return `<div class="p-3.5 bg-white border border-slate-200 shadow-sm rounded-2xl space-y-2.5 relative overflow-hidden">
           <div class="absolute top-0 left-0 w-1 h-full draft-ribbon"></div>
           <div class="flex items-start gap-2.5 min-w-0 pl-2">
             <div class="w-9 h-9 rounded-xl ${col} border flex items-center justify-center text-xs flex-shrink-0"><i class="fa-solid ${ic}"></i></div>
             <div class="min-w-0 flex-1">
-              <p class="font-black text-white text-xs truncate">${escapeHtml(d.title)}</p>
+              <p class="font-black text-slate-900 text-xs truncate">${escapeHtml(d.title)}</p>
               <p class="text-[10px] text-slate-500 font-mono-code">${lbl} draft • ${cnt} item${cnt===1?'':'s'}</p>
-              <p class="text-[9px] text-amber-400 font-mono-code mt-0.5"><i class="fa-solid fa-clock text-[8px]"></i> ${timeAgo(d.timestamp)}</p>
+              <p class="text-[9px] text-amber-600 font-mono-code mt-0.5"><i class="fa-solid fa-clock text-[8px]"></i> ${timeAgo(d.timestamp)}</p>
             </div>
           </div>
           <div class="flex gap-1.5 pl-2">
-            <button onclick="resumeDraft('${d.id}')" class="flex-1 py-2 bg-amber-500 text-white font-bold rounded-xl text-[11px] active:scale-95"><i class="fa-solid fa-play text-[9px]"></i> Resume</button>
-            <button onclick="deleteDraft('${d.id}')" class="px-3 py-2 bg-slate-800 text-rose-400 font-bold rounded-xl text-[11px] active:scale-95"><i class="fa-solid fa-trash text-[10px]"></i></button>
+            <button onclick="resumeDraft('${d.id}')" class="flex-1 py-2 bg-amber-100 border border-amber-200 text-amber-700 font-bold rounded-xl text-[11px] active:scale-95"><i class="fa-solid fa-play text-[9px]"></i> Resume</button>
+            <button onclick="deleteDraft('${d.id}')" class="px-3 py-2 bg-rose-50 border border-rose-200 text-rose-600 font-bold rounded-xl text-[11px] active:scale-95"><i class="fa-solid fa-trash text-[10px]"></i></button>
           </div>
         </div>`;
       }).join('');
@@ -1610,22 +1624,22 @@
       const pageCount = _cachedPageImages.length;
       const previewHTML = _cachedPageImages.length > 0
         ? _cachedPageImages.map((img, i) => `
-            <div style="position:relative;margin-bottom:14px;border-radius:8px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.5);background:#fff;">
+            <div style="position:relative;margin-bottom:14px;border-radius:8px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.1);border:1px solid #e2e8f0;background:#fff;">
               <div style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,.75);color:#fff;padding:3px 9px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.05em;">PAGE ${i + 1} / ${pageCount}</div>
               <img src="${img}" alt="Page ${i + 1}" style="display:block;width:100%;height:auto;">
             </div>
           `).join('')
-        : `<div style="text-align:center;color:#94a3b8;font-size:12px;padding:60px 20px;">No preview available. Tap Download to open the PDF.</div>`;
+        : `<div style="text-align:center;color:#64748b;font-size:12px;padding:60px 20px;">No preview available. Tap Download to open the PDF.</div>`;
 
       const modal = document.createElement('div');
       modal.id = 'pdf-viewer-modal';
-      modal.style.cssText = 'position:fixed;inset:0;background:rgba(2,6,23,.97);z-index:9999;display:flex;flex-direction:column;padding:10px;gap:8px;';
+      modal.style.cssText = 'position:fixed;inset:0;background:rgba(15,23,42,.6);backdrop-filter:blur(4px);z-index:9999;display:flex;flex-direction:column;padding:10px;gap:8px;';
 
       modal.innerHTML = `
-        <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 4px;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;flex-wrap:wrap;gap:6px;flex-shrink:0;">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 4px;color:#0f172a;font-family:'Plus Jakarta Sans',sans-serif;flex-wrap:wrap;gap:6px;flex-shrink:0;">
           <div style="min-width:0;flex:1;">
-            <div style="font-weight:900;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">📄 ${_cachedPdfName}</div>
-            <div style="font-size:10px;color:#94a3b8;font-family:'JetBrains Mono',monospace;margin-top:2px;">${(_cachedPdfBlob.size/1024).toFixed(1)} KB • A4 • HQ ${pageCount} page${pageCount === 1 ? '' : 's'}</div>
+            <div style="font-weight:900;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#fff;">📄 ${_cachedPdfName}</div>
+            <div style="font-size:10px;color:#cbd5e1;font-family:'JetBrains Mono',monospace;margin-top:2px;">${(_cachedPdfBlob.size/1024).toFixed(1)} KB • A4 • HQ ${pageCount} page${pageCount === 1 ? '' : 's'}</div>
           </div>
           <div style="display:flex;gap:6px;flex-wrap:wrap;">
             <button onclick="forceOpenPdf()" style="background:#6366f1;color:#fff;border:0;padding:10px 16px;border-radius:12px;font-weight:900;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;box-shadow:0 4px 14px rgba(99,102,241,.4);">
@@ -1640,13 +1654,13 @@
             <button onclick="sharePdfNativeFromViewer()" style="background:#25D366;color:#fff;border:0;padding:10px 14px;border-radius:12px;font-weight:800;font-size:12px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;">
               <i class="fa-brands fa-whatsapp"></i> Share
             </button>
-            <button onclick="closePdfViewer()" style="background:#334155;color:#fff;border:0;padding:10px 14px;border-radius:12px;font-weight:800;font-size:12px;cursor:pointer;white-space:nowrap;">✕ Close</button>
+            <button onclick="closePdfViewer()" style="background:#fff;color:#0f172a;border:0;padding:10px 14px;border-radius:12px;font-weight:800;font-size:12px;cursor:pointer;white-space:nowrap;">✕ Close</button>
           </div>
         </div>
-        <div style="flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:10px 4px;background:#0f172a;border-radius:12px;">
+        <div style="flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:10px 4px;background:#f8fafc;border-radius:12px;">
           ${previewHTML}
         </div>
-        <div style="text-align:center;font-size:10px;color:#64748b;padding:4px;flex-shrink:0;">
+        <div style="text-align:center;font-size:10px;color:#cbd5e1;padding:4px;flex-shrink:0;">
           💡 Tap <b>OPEN PDF</b> to launch your PDF app, or <b>Save</b> to save the file to Downloads.
         </div>
       `;
@@ -1745,7 +1759,12 @@
       document.getElementById('setup-org-udyam').value = state.org.udyam || '';
       document.getElementById('setup-org-street').value = state.org.street || '';
       document.getElementById('setup-org-upi').value = state.org.upi || '';
-      document.getElementById('setup-org-bank').value = state.org.bank || '';
+      document.getElementById('setup-org-bank').value = state.org.bankNotes || state.org.bank || '';
+      document.getElementById('setup-org-bank-name').value = state.org.bankName || '';
+      document.getElementById('setup-org-bank-holder').value = state.org.bankHolder || '';
+      document.getElementById('setup-org-bank-account').value = state.org.bankAccount || '';
+      document.getElementById('setup-org-bank-ifsc').value = state.org.bankIfsc || '';
+      document.getElementById('setup-org-bank-branch').value = state.org.bankBranch || ''; 
       document.getElementById('setup-org-qr-enabled').checked = state.org.enableQrByDefault !== false;
       if (state.org.logoBase64) document.getElementById('btn-remove-logo').classList.remove('hidden');
       document.getElementById('modal-org-setup').classList.remove('hidden');
@@ -1768,7 +1787,13 @@
         udyam: document.getElementById('setup-org-udyam').value.trim(),
         street: document.getElementById('setup-org-street').value.trim(),
         upi: document.getElementById('setup-org-upi').value.trim(),
-        bank: document.getElementById('setup-org-bank').value.trim(),
+        bankName: document.getElementById('setup-org-bank-name').value.trim(),
+        bankHolder: document.getElementById('setup-org-bank-holder').value.trim(),
+        bankAccount: document.getElementById('setup-org-bank-account').value.trim(),
+        bankIfsc: document.getElementById('setup-org-bank-ifsc').value.trim().toUpperCase(),
+        bankBranch: document.getElementById('setup-org-bank-branch').value.trim(),
+        bankNotes: document.getElementById('setup-org-bank').value.trim(),
+        bank: [document.getElementById('setup-org-bank-name').value.trim(), document.getElementById('setup-org-bank-holder').value.trim() ? 'A/C Name: ' + document.getElementById('setup-org-bank-holder').value.trim() : '', document.getElementById('setup-org-bank-account').value.trim() ? 'A/C No: ' + document.getElementById('setup-org-bank-account').value.trim() : '', document.getElementById('setup-org-bank-ifsc').value.trim() ? 'IFSC: ' + document.getElementById('setup-org-bank-ifsc').value.trim().toUpperCase() : '', document.getElementById('setup-org-bank-branch').value.trim() ? 'Branch: ' + document.getElementById('setup-org-bank-branch').value.trim() : '', document.getElementById('setup-org-bank').value.trim()].filter(Boolean).join('\n'),
         enableQrByDefault: document.getElementById('setup-org-qr-enabled').checked,
         logoBase64: tempUploadedLogoBase64 !== null ? tempUploadedLogoBase64 : (state.org.logoBase64 || ''),
         currency: '₹'
@@ -1837,17 +1862,26 @@
       document.getElementById('item-id').value = id || '';
       if (e) {
         const it = state.items.find(x => x.id === id); if (!it) return;
-        setItemType(it.type || 'GOOD');
+        
+        // FIXED: Correctly load the saved type
+        const savedType = it.type || 'GOOD';
+        setItemType(savedType); 
+        
         document.getElementById('item-name').value = it.name || '';
         document.getElementById('item-category').value = it.category || '';
         document.getElementById('item-hsn').value = it.hsn || '';
-        document.getElementById('item-unit').value = it.unit || 'Nos';
+        document.getElementById('item-unit').value = it.unit || (savedType === 'SERVICE' ? 'None' : 'Nos');
         document.getElementById('item-rate').value = it.rate || '';
         document.getElementById('item-disc').value = it.disc || 0;
         document.getElementById('item-tax').value = it.tax !== undefined ? it.tax : 18;
         document.getElementById('item-desc').value = it.desc || '';
+        document.getElementById('item-duration').value = it.duration || '';
+        document.getElementById('item-duration-wrap').classList.toggle('hidden', savedType !== 'SERVICE');
       } else {
         setItemType('GOOD');
+        document.getElementById('item-unit').value = 'Nos';
+        document.getElementById('item-duration').value = '';
+        document.getElementById('item-duration-wrap').classList.toggle('hidden', currentItemType !== 'SERVICE');
         ['item-name','item-category','item-hsn','item-rate','item-desc'].forEach(f => document.getElementById(f).value = '');
         document.getElementById('item-tax').value = '18';
         document.getElementById('item-disc').value = '0';
@@ -1856,7 +1890,7 @@
     }
     function setItemType(type) {
       currentItemType = type;
-      document.getElementById('item-type').value = type === 'EXEMPT' ? 'SERVICE' : type;
+      document.getElementById('item-type').value = type;
       
       const tg = document.getElementById('itm-tab-good');
       const ts = document.getElementById('itm-tab-service');
@@ -1879,6 +1913,8 @@
         document.getElementById('item-tax').disabled = true;
       }
       populateUnitSelect(document.getElementById('item-unit'), type === 'EXEMPT' ? 'SERVICE' : type);
+      document.getElementById('item-duration-wrap').classList.toggle('hidden', type !== 'SERVICE');
+      if (type === 'SERVICE' && !document.getElementById('item-unit').value) document.getElementById('item-unit').value = 'None';
     }
     function handleSaveItem(e) {
       e.preventDefault();
@@ -1893,7 +1929,8 @@
         rate: parseFloat(document.getElementById('item-rate').value) || 0,
         disc: parseFloat(document.getElementById('item-disc').value) || 0,
         tax: parseFloat(document.getElementById('item-tax').value) || 0,
-        desc: document.getElementById('item-desc').value.trim()
+        desc: document.getElementById('item-desc').value.trim(),
+        duration: document.getElementById('item-duration').value.trim()
       };
       if (id) { const i = state.items.findIndex(x => x.id === id); if (i > -1) state.items[i] = p; }
       else state.items.push(p);
@@ -1911,7 +1948,7 @@
     function quickAddCatalogItem(id) {
       if (!id) return;
       const it = state.items.find(x => x.id === id); if (!it) return;
-      addEditorLineRow(it.name, it.hsn, 1, it.rate, it.unit, it.tax, it.desc || '', it.disc || 0);
+      addEditorLineRow(it.name, it.hsn, it.unit === 'None' ? '' : 1, it.rate, it.unit, it.tax, [it.desc || '', it.duration ? 'Duration: ' + it.duration : ''].filter(Boolean).join('\n'), it.disc || 0);
       document.getElementById('editor-quickpick').value = ''; scheduleAutosave();
     }
     function autoFillRowFromCatalog(input) {
@@ -1923,7 +1960,8 @@
       row.querySelector('.row-disc').value = it.disc || 0;
       row.querySelector('.row-unit').value = it.unit || 'Nos';
       row.querySelector('.row-tax').value = (it.tax !== undefined ? it.tax : 18);
-      const d = row.querySelector('.row-longdesc'); if (d) d.value = it.desc || '';
+      const d = row.querySelector('.row-longdesc'); if (d) d.value = [it.desc || '', it.duration ? 'Duration: ' + it.duration : ''].filter(Boolean).join('\n');
+      if (it.unit === 'None') row.querySelector('.row-qty').value = ''; else if (!row.querySelector('.row-qty').value) row.querySelector('.row-qty').value = '1';
       row.dataset.productId = it.id;
       calculateEditorMath(); flashRow(row);
     }
@@ -1940,6 +1978,7 @@
         const a = b.dataset.taxmode === mode;
         b.classList.toggle('bg-blue-600', a); b.classList.toggle('text-white', a);
         b.classList.toggle('border-blue-600', a); b.classList.toggle('text-slate-400', !a);
+        if (a) b.classList.remove('bg-white'); else b.classList.add('bg-white');
       });
       calculateEditorMath();
     }
@@ -1947,8 +1986,8 @@
       currentDiscountMode = mode;
       document.getElementById('doc-discount-mode').value = mode;
       const p = document.getElementById('disc-tab-pct'), a = document.getElementById('disc-tab-amt');
-      if (mode === 'PERCENT') { p.className = "px-2.5 py-1 rounded-md bg-blue-600 text-white transition"; a.className = "px-2.5 py-1 rounded-md text-slate-400 transition"; document.getElementById('disc-suffix').innerText = '%'; }
-      else { a.className = "px-2.5 py-1 rounded-md bg-blue-600 text-white transition"; p.className = "px-2.5 py-1 rounded-md text-slate-400 transition"; document.getElementById('disc-suffix').innerText = '₹'; }
+      if (mode === 'PERCENT') { p.className = "px-2.5 py-1 rounded-md bg-blue-600 text-white transition shadow-sm"; a.className = "px-2.5 py-1 rounded-md text-slate-500 transition"; document.getElementById('disc-suffix').innerText = '%'; }
+      else { a.className = "px-2.5 py-1 rounded-md bg-blue-600 text-white transition shadow-sm"; p.className = "px-2.5 py-1 rounded-md text-slate-500 transition"; document.getElementById('disc-suffix').innerText = '₹'; }
       calculateEditorMath();
     }
     function toggleShippingField() {
@@ -2044,21 +2083,21 @@
       div.className = 'line-row';
       div.innerHTML = `
         <div class="desc-row">
-          <input type="text" list="catalog-namelist" value="${escapeAttr(desc)}" oninput="autoFillRowFromCatalog(this); scheduleAutosave();" data-capitalize="words" placeholder="Item name" class="row-desc bg-slate-900 border border-slate-800 rounded-xl p-2 text-white font-bold">
-          <button type="button" onclick="this.closest('.line-row').remove(); calculateEditorMath(); scheduleAutosave();" class="del-btn text-rose-500 flex items-center justify-center rounded-xl bg-slate-900 border border-slate-800 active:scale-95"><i class="fa-solid fa-trash text-[11px]"></i></button>
+          <input type="text" list="catalog-namelist" value="${escapeAttr(desc)}" oninput="autoFillRowFromCatalog(this); scheduleAutosave();" data-capitalize="words" placeholder="Item name" class="row-desc bg-white border border-slate-200 rounded-xl p-2 text-slate-900 font-bold focus:outline-none focus:border-blue-500">
+          <button type="button" onclick="this.closest('.line-row').remove(); calculateEditorMath(); scheduleAutosave();" class="del-btn text-rose-500 flex items-center justify-center rounded-xl bg-white border border-slate-200 shadow-sm active:scale-95"><i class="fa-solid fa-trash text-[11px]"></i></button>
         </div>
-        <textarea rows="2" placeholder="Description / spec" oninput="scheduleAutosave()" class="row-longdesc w-full bg-slate-900 border border-slate-800 rounded-xl p-2 text-slate-300 text-[11px] resize-none"></textarea>
+        <textarea rows="2" placeholder="Description / spec" oninput="scheduleAutosave()" class="row-longdesc w-full bg-white border border-slate-200 rounded-xl p-2 text-slate-600 text-[11px] resize-none focus:outline-none focus:border-blue-500"></textarea>
         <div class="meta-grid">
-          <div class="field field-hsn"><span class="field-lbl">HSN/SAC</span><input type="text" value="${escapeAttr(hsn)}" data-uppercase="true" placeholder="—" oninput="scheduleAutosave()" class="row-hsn bg-slate-900 border border-slate-800 rounded-lg p-1.5 text-center text-white font-mono-code text-[11px]"></div>
-          <div class="field field-qty"><span class="field-lbl">Qty</span><input type="number" min="0" step="any" value="${qty}" oninput="calculateEditorMath(); scheduleAutosave();" placeholder="0" class="row-qty bg-slate-900 border border-slate-800 rounded-lg p-1.5 text-right text-white font-bold text-[11px]"></div>
-          <div class="field field-unit"><span class="field-lbl">Unit</span><select class="row-unit bg-slate-900 border border-slate-800 rounded-lg p-1.5 text-white text-[11px]" onchange="scheduleAutosave()">${UNITS_ALL.map(u => `<option value="${u}" ${u === unit ? 'selected' : ''}>${u}</option>`).join('')}</select></div>
-          <div class="field field-rate"><span class="field-lbl">Rate ₹</span><input type="number" min="0" step="any" value="${rate}" oninput="calculateEditorMath(); scheduleAutosave();" placeholder="0.00" class="row-rate bg-slate-900 border border-slate-800 rounded-lg p-1.5 text-right text-white font-bold text-[11px]"></div>
-          <div class="field field-disc"><span class="field-lbl">Disc %</span><input type="number" min="0" max="100" step="any" value="${disc}" oninput="calculateEditorMath(); scheduleAutosave();" placeholder="0" class="row-disc bg-slate-900 border border-slate-800 rounded-lg p-1.5 text-right text-rose-400 font-bold text-[11px]"></div>
-          <div class="field field-gst"><span class="field-lbl">GST %</span><input type="number" min="0" max="100" step="any" value="${dT}" oninput="calculateEditorMath(); scheduleAutosave();" placeholder="0" class="row-tax bg-slate-900 border border-slate-800 rounded-lg p-1.5 text-right text-amber-300 font-bold text-[11px]"></div>
+          <div class="field field-hsn"><span class="field-lbl">HSN/SAC</span><input type="text" value="${escapeAttr(hsn)}" data-uppercase="true" placeholder="—" oninput="scheduleAutosave()" class="row-hsn bg-white border border-slate-200 rounded-lg p-1.5 text-center text-slate-900 font-mono-code text-[11px] focus:outline-none"></div>
+          <div class="field field-qty"><span class="field-lbl">Qty</span><input type="number" min="0" step="any" value="${qty}" oninput="calculateEditorMath(); scheduleAutosave();" placeholder="0" class="row-qty bg-white border border-slate-200 rounded-lg p-1.5 text-right text-slate-900 font-bold text-[11px] focus:outline-none"></div>
+          <div class="field field-unit"><span class="field-lbl">Unit</span><select class="row-unit bg-white border border-slate-200 rounded-lg p-1.5 text-slate-900 text-[11px] focus:outline-none" onchange="scheduleAutosave()">${UNITS_ALL.map(u => `<option value="${u}" ${u === unit ? 'selected' : ''}>${u}</option>`).join('')}</select></div>
+          <div class="field field-rate"><span class="field-lbl">Rate ₹</span><input type="number" min="0" step="any" value="${rate}" oninput="calculateEditorMath(); scheduleAutosave();" placeholder="0.00" class="row-rate bg-white border border-slate-200 rounded-lg p-1.5 text-right text-slate-900 font-bold text-[11px] focus:outline-none"></div>
+          <div class="field field-disc"><span class="field-lbl">Disc %</span><input type="number" min="0" max="100" step="any" value="${disc}" oninput="calculateEditorMath(); scheduleAutosave();" placeholder="0" class="row-disc bg-white border border-slate-200 rounded-lg p-1.5 text-right text-rose-600 font-bold text-[11px] focus:outline-none"></div>
+          <div class="field field-gst"><span class="field-lbl">GST %</span><input type="number" min="0" max="100" step="any" value="${dT}" oninput="calculateEditorMath(); scheduleAutosave();" placeholder="0" class="row-tax bg-white border border-slate-200 rounded-lg p-1.5 text-right text-amber-600 font-bold text-[11px] focus:outline-none"></div>
         </div>
-        <div class="flex justify-between items-center text-[10px] text-slate-500 font-mono-code pt-1 border-t border-slate-900">
-          <span class="row-disc-note text-rose-400"></span>
-          <div>Net total: <span class="row-amount text-slate-200 font-bold ml-1">₹0.00</span></div>
+        <div class="flex justify-between items-center text-[10px] text-slate-500 font-mono-code pt-1 border-t border-slate-200">
+          <span class="row-disc-note text-rose-500"></span>
+          <div>Net total: <span class="row-amount text-slate-900 font-bold ml-1">₹0.00</span></div>
         </div>`;
       const t = div.querySelector('.row-longdesc'); if (t) t.value = longDesc || '';
       c.appendChild(div); calculateEditorMath();
@@ -2070,7 +2109,9 @@
       const dI = parseFloat(document.getElementById('doc-discount').value) || 0;
       let sub = 0; const rD = [];
       document.querySelectorAll('#editor-items-container .line-row').forEach(r => {
-        const q = parseFloat(r.querySelector('.row-qty').value) || 0;
+        const rawQty = r.querySelector('.row-qty').value;
+        const unitValue = r.querySelector('.row-unit').value;
+        const q = unitValue === 'None' && rawQty === '' ? 1 : (parseFloat(rawQty) || 0);
         const ra = parseFloat(r.querySelector('.row-rate').value) || 0;
         const dp = parseFloat(r.querySelector('.row-disc')?.value) || 0;
         const rt = parseFloat(r.querySelector('.row-tax').value) || 0;
@@ -2114,7 +2155,7 @@
       document.getElementById('editor-lbl-discount').innerText = `- ₹${formatNum(dA)}`;
       document.getElementById('editor-lbl-discount-2').innerText = `- ₹${formatNum(dA)}`;
       const tb = document.getElementById('editor-tax-breakdown');
-      tb.innerHTML = tL.map(l => `<div class="flex justify-between text-slate-400"><span>${escapeHtml(l.label)}:</span><span class="font-semibold text-white font-mono-code">₹${formatNum(l.amount)}</span></div>`).join('');
+      tb.innerHTML = tL.map(l => `<div class="flex justify-between text-slate-500"><span>${escapeHtml(l.label)}:</span><span class="font-semibold text-slate-900 font-mono-code">₹${formatNum(l.amount)}</span></div>`).join('');
       const sr = document.getElementById('editor-shipping-row'), sn = document.getElementById('editor-lbl-shipping-name'), sl = document.getElementById('editor-lbl-shipping');
       if (se && sh > 0) {
         sr.classList.remove('hidden');
@@ -2135,12 +2176,13 @@
         const d = r.querySelector('.row-desc').value.trim();
         const ld = (r.querySelector('.row-longdesc')?.value || '').trim();
         const h = r.querySelector('.row-hsn').value.trim();
-        const q = parseFloat(r.querySelector('.row-qty').value) || 0;
+        const rawQty = r.querySelector('.row-qty').value;
+        const unitValue = r.querySelector('.row-unit').value;
+        const q = unitValue === 'None' && rawQty === '' ? 1 : (parseFloat(rawQty) || 0);
         const ra = parseFloat(r.querySelector('.row-rate').value) || 0;
         const di = parseFloat(r.querySelector('.row-disc')?.value) || 0;
-        const u = r.querySelector('.row-unit').value;
         const t = parseFloat(r.querySelector('.row-tax').value) || 0;
-        if (d || q > 0) items.push({ desc: d, longDesc: ld, hsn: h, qty: q, unit: u, rate: ra, disc: di, tax: t, amount: q * ra - q * ra * (di/100) });
+        if (d || q > 0) items.push({ desc: d, longDesc: ld, hsn: h, qty: q, unit: u, rate: ra, disc: di, tax: t, amount: q * ra - q * ra * (di/100), quantityMode: u === 'None' ? 'none' : 'specified' });
       });
       if (items.length === 0) { alert('Please add at least one line item.'); return; }
       const totals = calculateEditorMath();
@@ -2325,7 +2367,7 @@
         tr.innerHTML = `<td class="ctr">${idx}</td>
           <td class="desc-cell"><span class="item-name">${escapeHtml(item.desc)}</span>${item.longDesc ? `<span class="item-longdesc">${nl2br(item.longDesc)}</span>` : ''}</td>
           <td class="ctr">${escapeHtml(item.hsn)}</td>
-          <td class="num"><div class="qty-cell"><span class="qty-num">${formatNum(item.qty)}</span><span class="qty-unit">${escapeHtml(item.unit)}</span></div></td>
+          <td class="num"><div class="qty-cell"><span class="qty-num">${item.unit === 'None' ? '—' : formatNum(item.qty)}</span><span class="qty-unit">${item.unit === 'None' ? 'None' : escapeHtml(item.unit)}</span></div></td>
           <td class="num"><span>₹${formatNumPlain(item.rate)}</span>${item.disc > 0 ? `<div style="font-size:8px;color:#e11d48;font-weight:700;margin-top:2px;">(-${item.disc}%)</div>` : ''}</td>
           <td class="num" style="font-weight:900;color:#0f172a;">₹${formatNumPlain(a)}</td>`;
         tb.appendChild(tr); idx++;
@@ -2359,7 +2401,7 @@
       const qC = document.getElementById('live-qr-box-container'), qT = document.getElementById('real-qr-code-element');
       if (isQr && uI && dt !== 'CHALLAN') {
         qC.style.display = 'flex';
-        document.getElementById('live-bank-box').innerText = uI;
+        document.getElementById('live-bank-box').innerText = [uI, state.org.bank || ''].filter(Boolean).join('\n');
         const pN = encodeURIComponent(state.org.name || 'Merchant');
         const u = `upi://pay?pa=${uI}&pn=${pN}&am=${totals.grandTotal.toFixed(2)}&cu=INR&tn=Invoice%20Payment`;
         qT.innerHTML = '';
@@ -2417,15 +2459,15 @@
       const feed = document.getElementById('dash-recent-feed');
       const rD = state.docs.slice(-3).reverse();
       feed.innerHTML = rD.length === 0 ? '<p class="text-xs text-slate-500 italic p-3">No activity recorded yet</p>' : rD.map(d => `
-        <div onclick="previewSavedDoc('${d.id}')" class="p-3 bg-slate-900 border border-slate-800 rounded-2xl flex items-center justify-between cursor-pointer active:scale-95 transition">
+        <div onclick="previewSavedDoc('${d.id}')" class="p-3 bg-white border border-slate-200 shadow-sm rounded-2xl flex items-center justify-between cursor-pointer active:scale-95 transition hover:bg-slate-50">
           <div class="flex items-center gap-2.5 min-w-0 flex-1">
-            <div class="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xs flex-shrink-0"><i class="fa-solid fa-file"></i></div>
+            <div class="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xs flex-shrink-0"><i class="fa-solid fa-file"></i></div>
             <div class="min-w-0 flex-1">
-              <p class="font-bold text-white text-xs truncate">${escapeHtml(d.clientBiz || d.clientName)}</p>
+              <p class="font-bold text-slate-900 text-xs truncate">${escapeHtml(d.clientBiz || d.clientName)}</p>
               <p class="text-[10px] text-slate-500 font-mono-code truncate">${escapeHtml(d.docNumber)} • ${d.date}</p>
             </div>
           </div>
-          <span class="font-black text-white text-xs font-mono-code flex-shrink-0 ml-2">₹${d.grandTotal.toFixed(2)}</span>
+          <span class="font-black text-slate-900 text-xs font-mono-code flex-shrink-0 ml-2">₹${d.grandTotal.toFixed(2)}</span>
         </div>`).join('');
       renderDocList('invoices-card-list', 'INVOICE', 'invoice', document.getElementById('search-invoices')?.value || '');
       renderDocList('quotes-card-list', 'QUOTATION', 'quote', document.getElementById('search-quotes')?.value || '');
@@ -2434,16 +2476,16 @@
       const custList = document.getElementById('customers-card-list');
       const filteredCust = state.customers.filter(c => !custQ || (c.bizName || '').toLowerCase().includes(custQ.toLowerCase()) || (c.name || '').toLowerCase().includes(custQ.toLowerCase()) || (c.phone || '').includes(custQ));
       custList.innerHTML = filteredCust.length === 0 ? '<p class="text-xs text-slate-500 italic text-center p-6">No clients found.</p>' : filteredCust.map(c => `
-        <div class="p-3.5 bg-slate-900 border border-slate-800 rounded-2xl">
+        <div class="p-3.5 bg-white border border-slate-200 shadow-sm rounded-2xl">
           <div class="flex justify-between items-start gap-2">
             <div class="flex-1 min-w-0">
-              <p class="font-bold text-white text-xs truncate">${escapeHtml(c.bizName)}</p>
-              <p class="text-[10px] text-slate-400 truncate">${escapeHtml(c.name)} • ${escapeHtml(c.category || c.type)}</p>
-              ${c.phone ? `<a href="tel:${escapeAttr(c.phone)}" class="text-[10px] text-blue-400 font-mono-code block mt-0.5"><i class="fa-solid fa-phone text-[8px]"></i> ${escapeHtml(c.phone)}</a>` : ''}
+              <p class="font-bold text-slate-900 text-xs truncate">${escapeHtml(c.bizName)}</p>
+              <p class="text-[10px] text-slate-500 truncate">${escapeHtml(c.name)} • ${escapeHtml(c.category || c.type)}</p>
+              ${c.phone ? `<a href="tel:${escapeAttr(c.phone)}" class="text-[10px] text-blue-600 font-mono-code block mt-0.5"><i class="fa-solid fa-phone text-[8px]"></i> ${escapeHtml(c.phone)}</a>` : ''}
             </div>
             <div class="flex gap-1 flex-shrink-0">
-              <button onclick="editCustomer('${c.id}')" class="w-7 h-7 rounded-lg bg-slate-800 text-blue-400 flex items-center justify-center active:scale-95"><i class="fa-solid fa-pen text-[10px]"></i></button>
-              <button onclick="deleteCustomer('${c.id}')" class="w-7 h-7 rounded-lg bg-slate-800 text-rose-400 flex items-center justify-center active:scale-95"><i class="fa-solid fa-trash text-[10px]"></i></button>
+              <button onclick="editCustomer('${c.id}')" class="w-7 h-7 rounded-lg bg-slate-50 border border-slate-200 text-blue-600 flex items-center justify-center active:scale-95 shadow-sm"><i class="fa-solid fa-pen text-[10px]"></i></button>
+              <button onclick="deleteCustomer('${c.id}')" class="w-7 h-7 rounded-lg bg-slate-50 border border-slate-200 text-rose-500 flex items-center justify-center active:scale-95 shadow-sm"><i class="fa-solid fa-trash text-[10px]"></i></button>
             </div>
           </div>
         </div>`).join('');
@@ -2452,20 +2494,23 @@
       const fI = state.items.filter(it => !itQ || (it.name || '').toLowerCase().includes(itQ.toLowerCase()) || (it.hsn || '').includes(itQ) || (it.category || '').toLowerCase().includes(itQ.toLowerCase()));
       itL.innerHTML = fI.length === 0 ? '<p class="text-xs text-slate-500 italic text-center p-6">No products found.</p>' : fI.map(it => {
         const isS = it.type === 'SERVICE';
-        return `<div class="p-3 bg-slate-900 border border-slate-800 rounded-2xl text-xs">
+        const isE = it.type === 'EXEMPT';
+        const badgeClass = isE ? 'bg-amber-50 text-amber-700 border-amber-200' : isS ? 'bg-indigo-50 text-indigo-700 border-indigo-200' : 'bg-emerald-50 text-emerald-700 border-emerald-200';
+        const typeLabel = isE ? 'Exempt' : isS ? 'Service' : 'Good';
+        return `<div class="p-3 bg-white border border-slate-200 shadow-sm rounded-2xl text-xs">
           <div class="flex justify-between items-start gap-2">
             <div class="min-w-0 flex-1">
               <div class="flex items-center gap-1.5 flex-wrap">
-                <span class="px-1.5 py-0.5 rounded-md text-[8px] font-black uppercase ${isS ? 'bg-indigo-500/20 text-indigo-300' : 'bg-emerald-500/20 text-emerald-300'}">${isS ? 'Service' : 'Good'}</span>
-                <p class="font-bold text-white truncate">${escapeHtml(it.name)}</p>
-                ${(it.disc && it.disc > 0) ? `<span class="px-1.5 py-0.5 rounded-md text-[8px] font-black uppercase bg-rose-500/20 text-rose-300">${it.disc}% OFF</span>` : ''}
+                <span class="px-1.5 py-0.5 rounded-md text-[8px] font-black uppercase border ${badgeClass}">${typeLabel}</span>
+                <p class="font-bold text-slate-900 truncate">${escapeHtml(it.name)}</p>
+                ${(it.disc && it.disc > 0) ? `<span class="px-1.5 py-0.5 rounded-md text-[8px] font-black uppercase bg-rose-50 text-rose-700 border border-rose-200">${it.disc}% OFF</span>` : ''}
               </div>
               <p class="text-[10px] text-slate-500 font-mono-code mt-1">${isS ? 'SAC' : 'HSN'}: ${escapeHtml(it.hsn || '-')} • ${escapeHtml(it.unit || 'Nos')} • GST ${it.tax}%</p>
             </div>
             <div class="flex items-center gap-1.5 flex-shrink-0">
-              <span class="font-black text-white font-mono-code">₹${it.rate.toFixed(2)}</span>
-              <button onclick="editItem('${it.id}')" class="w-7 h-7 rounded-lg bg-slate-800 text-blue-400 flex items-center justify-center active:scale-95"><i class="fa-solid fa-pen text-[10px]"></i></button>
-              <button onclick="deleteItem('${it.id}')" class="w-7 h-7 rounded-lg bg-slate-800 text-rose-400 flex items-center justify-center active:scale-95"><i class="fa-solid fa-trash text-[10px]"></i></button>
+              <span class="font-black text-slate-900 font-mono-code">₹${it.rate.toFixed(2)}</span>
+              <button onclick="editItem('${it.id}')" class="w-7 h-7 rounded-lg bg-slate-50 border border-slate-200 text-blue-600 flex items-center justify-center active:scale-95 shadow-sm"><i class="fa-solid fa-pen text-[10px]"></i></button>
+              <button onclick="deleteItem('${it.id}')" class="w-7 h-7 rounded-lg bg-slate-50 border border-slate-200 text-rose-500 flex items-center justify-center active:scale-95 shadow-sm"><i class="fa-solid fa-trash text-[10px]"></i></button>
             </div>
           </div>
         </div>`;
@@ -2473,12 +2518,12 @@
       const txL = document.getElementById('transactions-card-list');
       const aT = [...state.incomes.map(x => ({ ...x, txType: 'INCOME' })), ...state.expenses.map(x => ({ ...x, txType: 'EXPENSE' }))].sort((a,b) => new Date(b.date) - new Date(a.date));
       txL.innerHTML = aT.length === 0 ? '<p class="text-xs text-slate-500 italic text-center p-6">No cashflow entries.</p>' : aT.map(t => `
-        <div class="p-3 bg-slate-900 border border-slate-800 rounded-2xl flex justify-between items-center text-xs gap-2">
+        <div class="p-3 bg-white border border-slate-200 shadow-sm rounded-2xl flex justify-between items-center text-xs gap-2">
           <div class="min-w-0 flex-1">
-            <p class="font-bold text-white truncate">${escapeHtml(t.source || t.vendor || t.category)}</p>
+            <p class="font-bold text-slate-900 truncate">${escapeHtml(t.source || t.vendor || t.category)}</p>
             <p class="text-[10px] text-slate-500 font-mono-code">${t.date} • ${escapeHtml(t.mode || t.method)}</p>
           </div>
-          <span class="font-black font-mono-code flex-shrink-0 ${t.txType === 'INCOME' ? 'text-emerald-400' : 'text-rose-400'}">${t.txType === 'INCOME' ? '+' : '-'} ₹${t.amount.toFixed(2)}</span>
+          <span class="font-black font-mono-code flex-shrink-0 ${t.txType === 'INCOME' ? 'text-emerald-600' : 'text-rose-600'}">${t.txType === 'INCOME' ? '+' : '-'} ₹${t.amount.toFixed(2)}</span>
         </div>`).join('');
     }
 
@@ -2494,7 +2539,7 @@
       if (searchQ) docs = docs.filter(d => matchesSearch(d, searchQ));
       if (docs.length === 0) { list.innerHTML = `<p class="text-xs text-slate-500 italic text-center p-6">No ${label}s found.</p>`; return; }
       list.innerHTML = docs.slice().reverse().map(d => {
-        const extra = type === 'CHALLAN' ? `<p class="text-[10px] text-amber-400 font-mono-code">Vehicle: ${escapeHtml(d.vehicle || '-')} • E-Way: ${escapeHtml(d.eway || '-')}</p>` : '';
+        const extra = type === 'CHALLAN' ? `<p class="text-[10px] text-amber-600 font-mono-code">Vehicle: ${escapeHtml(d.vehicle || '-')} • E-Way: ${escapeHtml(d.eway || '-')}</p>` : '';
         const dl = type === 'QUOTATION' ? 'Valid till' : type === 'CHALLAN' ? 'Delivery' : 'Due';
         const pStat = d.paymentStatus || 'unpaid';
         const bal = Math.max(0, d.grandTotal - (d.paidAmount || 0));
@@ -2507,24 +2552,24 @@
         }
         const showPayBtn = type === 'INVOICE' && pStat !== 'paid';
         const showViewPays = type === 'INVOICE' && (d.paidAmount || 0) > 0;
-        return `<div class="p-3.5 bg-slate-900 border border-slate-800 rounded-2xl space-y-2">
+        return `<div class="p-3.5 bg-white border border-slate-200 shadow-sm rounded-2xl space-y-2">
           <div class="flex justify-between items-start gap-2">
             <div class="min-w-0 flex-1">
               <div class="flex items-center gap-1.5 flex-wrap mb-0.5">${statusBadge}</div>
-              <p class="font-black text-white text-sm truncate">${escapeHtml(d.clientBiz || d.clientName)}</p>
+              <p class="font-black text-slate-900 text-sm truncate">${escapeHtml(d.clientBiz || d.clientName)}</p>
               <p class="text-[10px] text-slate-500 font-mono-code truncate">${escapeHtml(d.docNumber)} • ${dl}: ${d.dueDate || '-'}</p>
               ${extra}
-              ${type === 'INVOICE' && pStat === 'partial' ? `<p class="text-[10px] text-amber-400 font-mono-code">Balance: ₹${formatNum(bal)}</p>` : ''}
+              ${type === 'INVOICE' && pStat === 'partial' ? `<p class="text-[10px] text-amber-600 font-mono-code">Balance: ₹${formatNum(bal)}</p>` : ''}
             </div>
-            <span class="font-black text-white text-sm font-mono-code flex-shrink-0">₹${d.grandTotal.toFixed(2)}</span>
+            <span class="font-black text-slate-900 text-sm font-mono-code flex-shrink-0">₹${d.grandTotal.toFixed(2)}</span>
           </div>
-          <div class="flex flex-wrap justify-end gap-1.5 pt-2 border-t border-slate-800/80">
-            ${showPayBtn ? `<button onclick="openPaymentModal('${d.id}')" class="px-2.5 py-1 bg-emerald-600 text-white rounded-xl text-[10px] font-bold active:scale-95"><i class="fa-solid fa-rupee-sign text-[9px]"></i> Pay</button>` : ''}
-            ${showViewPays ? `<button onclick="viewPayments('${d.id}')" class="px-2.5 py-1 bg-slate-800 text-emerald-400 rounded-xl text-[10px] font-bold active:scale-95"><i class="fa-solid fa-list text-[9px]"></i> Payments</button>` : ''}
-            <button onclick="previewSavedDoc('${d.id}')" class="px-2.5 py-1 bg-slate-800 text-slate-300 rounded-xl text-[10px] font-bold active:scale-95"><i class="fa-solid fa-eye text-[9px]"></i> View</button>
-            <button onclick="editSavedDoc('${d.id}')" class="px-2.5 py-1 bg-blue-600 text-white rounded-xl text-[10px] font-bold active:scale-95"><i class="fa-solid fa-pen text-[9px]"></i> Edit</button>
-            ${type === 'QUOTATION' ? `<button onclick="convertQuoteToInvoice('${d.id}')" class="px-2.5 py-1 bg-indigo-600 text-white rounded-xl text-[10px] font-bold active:scale-95"><i class="fa-solid fa-arrow-right text-[9px]"></i> Invoice</button>` : ''}
-            <button onclick="deleteSavedDoc('${d.id}')" class="px-2.5 py-1 bg-slate-800 text-rose-400 rounded-xl text-[10px] font-bold active:scale-95"><i class="fa-solid fa-trash text-[9px]"></i></button>
+          <div class="flex flex-wrap justify-end gap-1.5 pt-2 border-t border-slate-100">
+            ${showPayBtn ? `<button onclick="openPaymentModal('${d.id}')" class="px-2.5 py-1 bg-emerald-50 border border-emerald-200 text-emerald-700 rounded-xl text-[10px] font-bold active:scale-95 shadow-sm"><i class="fa-solid fa-rupee-sign text-[9px]"></i> Pay</button>` : ''}
+            ${showViewPays ? `<button onclick="viewPayments('${d.id}')" class="px-2.5 py-1 bg-blue-50 border border-blue-200 text-blue-700 rounded-xl text-[10px] font-bold active:scale-95 shadow-sm"><i class="fa-solid fa-list text-[9px]"></i> Payments</button>` : ''}
+            <button onclick="previewSavedDoc('${d.id}')" class="px-2.5 py-1 bg-white border border-slate-200 text-slate-600 rounded-xl text-[10px] font-bold active:scale-95 shadow-sm hover:bg-slate-50"><i class="fa-solid fa-eye text-[9px]"></i> View</button>
+            <button onclick="editSavedDoc('${d.id}')" class="px-2.5 py-1 bg-blue-600 text-white rounded-xl text-[10px] font-bold active:scale-95 shadow-sm"><i class="fa-solid fa-pen text-[9px]"></i> Edit</button>
+            ${type === 'QUOTATION' ? `<button onclick="convertQuoteToInvoice('${d.id}')" class="px-2.5 py-1 bg-indigo-600 text-white rounded-xl text-[10px] font-bold active:scale-95 shadow-sm"><i class="fa-solid fa-arrow-right text-[9px]"></i> Invoice</button>` : ''}
+            <button onclick="deleteSavedDoc('${d.id}')" class="px-2.5 py-1 bg-white border border-slate-200 text-rose-500 rounded-xl text-[10px] font-bold active:scale-95 shadow-sm hover:bg-slate-50"><i class="fa-solid fa-trash text-[9px]"></i></button>
           </div>
         </div>`;
       }).join('');
@@ -2589,18 +2634,18 @@
       else if (name === 'quickcalc') p.innerHTML = toolQuickCalc();
     }
     function toolHeader(t, sub, icon, color) {
-      return `<div class="flex items-center gap-2 mb-3 pb-3 border-b border-slate-800"><div class="w-9 h-9 rounded-xl ${color} flex items-center justify-center"><i class="fa-solid ${icon}"></i></div><div><h3 class="font-black text-white text-sm">${t}</h3><p class="text-[10px] text-slate-500">${sub}</p></div></div>`;
+      return `<div class="flex items-center gap-2 mb-3 pb-3 border-b border-slate-100"><div class="w-9 h-9 rounded-xl ${color} flex items-center justify-center"><i class="fa-solid ${icon}"></i></div><div><h3 class="font-black text-slate-900 text-sm">${t}</h3><p class="text-[10px] text-slate-500">${sub}</p></div></div>`;
     }
     function toolGST() {
-      return toolHeader('GST Calculator','Add or remove GST from amounts','fa-percent','bg-emerald-500/20 text-emerald-400') + `
+      return toolHeader('GST Calculator','Add or remove GST from amounts','fa-percent','bg-emerald-50 text-emerald-600') + `
         <div class="space-y-3">
           <div class="grid grid-cols-2 gap-2">
             <div><label class="text-[9px] font-bold text-slate-500 uppercase block mb-1">Amount (₹)</label><input type="number" id="gst-amt" value="1000" step="any" class="tool-input" oninput="calcGST()"></div>
             <div><label class="text-[9px] font-bold text-slate-500 uppercase block mb-1">GST Rate (%)</label><select id="gst-rate" onchange="calcGST()" class="tool-input"><option value="5">5%</option><option value="12">12%</option><option value="18" selected>18%</option><option value="28">28%</option></select></div>
           </div>
           <div class="flex gap-2">
-            <button onclick="document.getElementById('gst-mode').value='add';calcGST()" class="flex-1 py-2 rounded-xl text-[11px] font-bold border border-slate-700 bg-blue-600 text-white" id="gst-add-btn">Add GST</button>
-            <button onclick="document.getElementById('gst-mode').value='rem';calcGST()" class="flex-1 py-2 rounded-xl text-[11px] font-bold border border-slate-700 bg-slate-800 text-slate-300" id="gst-rem-btn">Remove GST</button>
+            <button onclick="document.getElementById('gst-mode').value='add';calcGST()" class="flex-1 py-2 rounded-xl text-[11px] font-bold border border-slate-200 bg-blue-600 text-white shadow-sm" id="gst-add-btn">Add GST</button>
+            <button onclick="document.getElementById('gst-mode').value='rem';calcGST()" class="flex-1 py-2 rounded-xl text-[11px] font-bold border border-slate-200 bg-white text-slate-600 shadow-sm" id="gst-rem-btn">Remove GST</button>
           </div>
           <input type="hidden" id="gst-mode" value="add">
           <div id="gst-result" class="tool-result"></div>
@@ -2614,12 +2659,12 @@
       if (m === 'add') { base = a; gst = a * r / 100; total = a + gst; }
       else { base = a * 100 / (100 + r); gst = a - base; total = a; }
       const b1 = document.getElementById('gst-add-btn'), b2 = document.getElementById('gst-rem-btn');
-      if (m === 'add') { b1.className = 'flex-1 py-2 rounded-xl text-[11px] font-bold border border-slate-700 bg-blue-600 text-white'; b2.className = 'flex-1 py-2 rounded-xl text-[11px] font-bold border border-slate-700 bg-slate-800 text-slate-300'; }
-      else { b2.className = 'flex-1 py-2 rounded-xl text-[11px] font-bold border border-slate-700 bg-blue-600 text-white'; b1.className = 'flex-1 py-2 rounded-xl text-[11px] font-bold border border-slate-700 bg-slate-800 text-slate-300'; }
-      document.getElementById('gst-result').innerHTML = `<div class="grid grid-cols-3 gap-2 text-center"><div><div class="text-[9px] text-slate-500 font-bold uppercase">Base</div><div class="val text-sm">₹${formatNum(base)}</div></div><div><div class="text-[9px] text-slate-500 font-bold uppercase">GST</div><div class="val text-sm" style="color:#f59e0b">₹${formatNum(gst)}</div></div><div><div class="text-[9px] text-slate-500 font-bold uppercase">Total</div><div class="val text-sm">₹${formatNum(total)}</div></div></div>`;
+      if (m === 'add') { b1.className = 'flex-1 py-2 rounded-xl text-[11px] font-bold border border-slate-200 bg-blue-600 text-white shadow-sm'; b2.className = 'flex-1 py-2 rounded-xl text-[11px] font-bold border border-slate-200 bg-white text-slate-600 shadow-sm'; }
+      else { b2.className = 'flex-1 py-2 rounded-xl text-[11px] font-bold border border-slate-200 bg-blue-600 text-white shadow-sm'; b1.className = 'flex-1 py-2 rounded-xl text-[11px] font-bold border border-slate-200 bg-white text-slate-600 shadow-sm'; }
+      document.getElementById('gst-result').innerHTML = `<div class="grid grid-cols-3 gap-2 text-center"><div><div class="text-[9px] text-slate-500 font-bold uppercase">Base</div><div class="val text-sm">₹${formatNum(base)}</div></div><div><div class="text-[9px] text-slate-500 font-bold uppercase">GST</div><div class="val text-sm" style="color:#d97706">₹${formatNum(gst)}</div></div><div><div class="text-[9px] text-slate-500 font-bold uppercase">Total</div><div class="val text-sm">₹${formatNum(total)}</div></div></div>`;
     }
     function toolEMI() {
-      return toolHeader('EMI Calculator','Loan EMI','fa-building-columns','bg-blue-500/20 text-blue-400') + `
+      return toolHeader('EMI Calculator','Loan EMI','fa-building-columns','bg-blue-50 text-blue-600') + `
         <div class="space-y-3">
           <div><label class="text-[9px] font-bold text-slate-500 uppercase block mb-1">Loan Amount (₹)</label><input type="number" id="emi-p" value="100000" step="any" class="tool-input" oninput="calcEMI()"></div>
           <div class="grid grid-cols-2 gap-2">
@@ -2636,10 +2681,10 @@
       let emi;
       if (r === 0) emi = p / n; else emi = p * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
       const total = emi * n, interest = total - p;
-      document.getElementById('emi-result').innerHTML = `<div class="grid grid-cols-3 gap-2 text-center"><div><div class="text-[9px] text-slate-500 font-bold uppercase">Monthly EMI</div><div class="val text-sm">₹${formatNum(emi)}</div></div><div><div class="text-[9px] text-slate-500 font-bold uppercase">Interest</div><div class="val text-sm" style="color:#f59e0b">₹${formatNum(interest)}</div></div><div><div class="text-[9px] text-slate-500 font-bold uppercase">Total</div><div class="val text-sm">₹${formatNum(total)}</div></div></div>`;
+      document.getElementById('emi-result').innerHTML = `<div class="grid grid-cols-3 gap-2 text-center"><div><div class="text-[9px] text-slate-500 font-bold uppercase">Monthly EMI</div><div class="val text-sm">₹${formatNum(emi)}</div></div><div><div class="text-[9px] text-slate-500 font-bold uppercase">Interest</div><div class="val text-sm" style="color:#d97706">₹${formatNum(interest)}</div></div><div><div class="text-[9px] text-slate-500 font-bold uppercase">Total</div><div class="val text-sm">₹${formatNum(total)}</div></div></div>`;
     }
     function toolDiscount() {
-      return toolHeader('Discount Calculator','Final price after discount','fa-tag','bg-rose-500/20 text-rose-400') + `
+      return toolHeader('Discount Calculator','Final price after discount','fa-tag','bg-rose-50 text-rose-600') + `
         <div class="space-y-3">
           <div class="grid grid-cols-2 gap-2">
             <div><label class="text-[9px] font-bold text-slate-500 uppercase block mb-1">Original Price (₹)</label><input type="number" id="dis-p" value="1000" step="any" class="tool-input" oninput="calcDiscount()"></div>
@@ -2654,13 +2699,13 @@
       const r = parseFloat(document.getElementById('dis-r').value) || 0;
       const x = parseFloat(document.getElementById('dis-x').value) || 0;
       const d = p * r / 100, f = Math.max(0, p - d - x);
-      document.getElementById('dis-result').innerHTML = `<div class="grid grid-cols-3 gap-2 text-center"><div><div class="text-[9px] text-slate-500 font-bold uppercase">You Save</div><div class="val text-sm" style="color:#ef4444">₹${formatNum(d + x)}</div></div><div><div class="text-[9px] text-slate-500 font-bold uppercase">You Pay</div><div class="val text-sm">₹${formatNum(f)}</div></div><div><div class="text-[9px] text-slate-500 font-bold uppercase">Eff. Disc</div><div class="val text-sm">${p > 0 ? ((d + x) / p * 100).toFixed(2) : '0.00'}%</div></div></div>`;
+      document.getElementById('dis-result').innerHTML = `<div class="grid grid-cols-3 gap-2 text-center"><div><div class="text-[9px] text-slate-500 font-bold uppercase">You Save</div><div class="val text-sm" style="color:#e11d48">₹${formatNum(d + x)}</div></div><div><div class="text-[9px] text-slate-500 font-bold uppercase">You Pay</div><div class="val text-sm">₹${formatNum(f)}</div></div><div><div class="text-[9px] text-slate-500 font-bold uppercase">Eff. Disc</div><div class="val text-sm">${p > 0 ? ((d + x) / p * 100).toFixed(2) : '0.00'}%</div></div></div>`;
     }
     function toolWords() {
-      return toolHeader('Number to Words','Indian numbering','fa-font','bg-amber-500/20 text-amber-400') + `
+      return toolHeader('Number to Words','Indian numbering','fa-font','bg-amber-50 text-amber-600') + `
         <div class="space-y-3">
           <input type="number" id="words-in" value="12345.67" step="any" class="tool-input" oninput="calcWords()">
-          <div class="tool-result min-h-[60px]"><div class="text-xs text-slate-300 italic" id="words-out">—</div></div>
+          <div class="tool-result min-h-[60px]"><div class="text-xs text-slate-700 italic font-bold" id="words-out">—</div></div>
         </div>`;
     }
     function calcWords() {
@@ -2668,7 +2713,7 @@
       document.getElementById('words-out').innerText = convertNumberToWords(n);
     }
     function toolInterest() {
-      return toolHeader('Simple Interest','SI on principal','fa-chart-line','bg-purple-500/20 text-purple-400') + `
+      return toolHeader('Simple Interest','SI on principal','fa-chart-line','bg-purple-50 text-purple-600') + `
         <div class="space-y-3">
           <div><label class="text-[9px] font-bold text-slate-500 uppercase block mb-1">Principal (₹)</label><input type="number" id="si-p" value="10000" step="any" class="tool-input" oninput="calcSI()"></div>
           <div class="grid grid-cols-2 gap-2">
@@ -2683,10 +2728,10 @@
       const r = parseFloat(document.getElementById('si-r').value) || 0;
       const t = parseFloat(document.getElementById('si-t').value) || 0;
       const si = p * r * t / 100;
-      document.getElementById('si-result').innerHTML = `<div class="grid grid-cols-3 gap-2 text-center"><div><div class="text-[9px] text-slate-500 font-bold uppercase">Interest</div><div class="val text-sm" style="color:#a855f7">₹${formatNum(si)}</div></div><div><div class="text-[9px] text-slate-500 font-bold uppercase">Total</div><div class="val text-sm">₹${formatNum(p + si)}</div></div><div><div class="text-[9px] text-slate-500 font-bold uppercase">Per Month</div><div class="val text-sm">₹${formatNum(si / (t * 12 || 1))}</div></div></div>`;
+      document.getElementById('si-result').innerHTML = `<div class="grid grid-cols-3 gap-2 text-center"><div><div class="text-[9px] text-slate-500 font-bold uppercase">Interest</div><div class="val text-sm" style="color:#9333ea">₹${formatNum(si)}</div></div><div><div class="text-[9px] text-slate-500 font-bold uppercase">Total</div><div class="val text-sm">₹${formatNum(p + si)}</div></div><div><div class="text-[9px] text-slate-500 font-bold uppercase">Per Month</div><div class="val text-sm">₹${formatNum(si / (t * 12 || 1))}</div></div></div>`;
     }
     function toolAge() {
-      return toolHeader('Age / Date Difference','Time between dates','fa-cake-candles','bg-pink-500/20 text-pink-400') + `
+      return toolHeader('Age / Date Difference','Time between dates','fa-cake-candles','bg-pink-50 text-pink-600') + `
         <div class="space-y-3">
           <div class="grid grid-cols-2 gap-2">
             <div><label class="text-[9px] font-bold text-slate-500 uppercase block mb-1">From Date</label><input type="date" id="ag-from" class="tool-input" oninput="calcAge()"></div>
@@ -2706,7 +2751,7 @@
       document.getElementById('ag-result').innerHTML = `<div class="grid grid-cols-4 gap-2 text-center"><div><div class="text-[9px] text-slate-500 font-bold uppercase">Days</div><div class="val text-sm">${days}</div></div><div><div class="text-[9px] text-slate-500 font-bold uppercase">Weeks</div><div class="val text-sm">${weeks}</div></div><div><div class="text-[9px] text-slate-500 font-bold uppercase">Months</div><div class="val text-sm">${months}</div></div><div><div class="text-[9px] text-slate-500 font-bold uppercase">Years</div><div class="val text-sm">${years}</div></div></div>`;
     }
     function toolUnit() {
-      return toolHeader('Unit Converter','Length, Weight, Area, Volume','fa-ruler-combined','bg-cyan-500/20 text-cyan-400') + `
+      return toolHeader('Unit Converter','Length, Weight, Area, Volume','fa-ruler-combined','bg-cyan-50 text-cyan-600') + `
         <div class="space-y-3">
           <select id="un-cat" onchange="populateUnitOptions()" class="tool-input"><option value="length">Length</option><option value="weight">Weight</option><option value="area">Area</option><option value="volume">Volume</option></select>
           <div class="grid grid-cols-2 gap-2">
@@ -2743,23 +2788,23 @@
     function toolBackup() {
       const total = JSON.stringify(state).length;
       const docs = state.docs.length, cust = state.customers.length, items = state.items.length;
-      return toolHeader('Backup & Restore','Save or load all data','fa-database','bg-slate-500/20 text-slate-300') + `
+      return toolHeader('Backup & Restore','Save or load all data','fa-database','bg-slate-100 text-slate-600') + `
         <div class="space-y-3">
           <div class="grid grid-cols-3 gap-2 text-center">
-            <div class="bg-slate-950 rounded-xl p-2"><div class="text-blue-400 font-black text-sm">${docs}</div><div class="text-[9px] text-slate-500 uppercase">Docs</div></div>
-            <div class="bg-slate-950 rounded-xl p-2"><div class="text-emerald-400 font-black text-sm">${cust}</div><div class="text-[9px] text-slate-500 uppercase">Clients</div></div>
-            <div class="bg-slate-950 rounded-xl p-2"><div class="text-amber-400 font-black text-sm">${items}</div><div class="text-[9px] text-slate-500 uppercase">Items</div></div>
+            <div class="bg-white border border-slate-200 shadow-sm rounded-xl p-2"><div class="text-blue-600 font-black text-sm">${docs}</div><div class="text-[9px] text-slate-500 uppercase">Docs</div></div>
+            <div class="bg-white border border-slate-200 shadow-sm rounded-xl p-2"><div class="text-emerald-600 font-black text-sm">${cust}</div><div class="text-[9px] text-slate-500 uppercase">Clients</div></div>
+            <div class="bg-white border border-slate-200 shadow-sm rounded-xl p-2"><div class="text-amber-600 font-black text-sm">${items}</div><div class="text-[9px] text-slate-500 uppercase">Items</div></div>
           </div>
           <p class="text-[10px] text-slate-500 text-center">Data size: ${(total / 1024).toFixed(1)} KB</p>
-          <button onclick="exportBackup()" class="w-full py-3 bg-blue-600 text-white font-bold rounded-xl active:scale-95"><i class="fa-solid fa-download text-xs"></i> Download Backup JSON</button>
-          <div class="bg-slate-950 border border-slate-800 rounded-xl p-3">
+          <button onclick="exportBackup()" class="w-full py-3 bg-blue-600 text-white font-bold rounded-xl active:scale-95 shadow-md"><i class="fa-solid fa-download text-xs"></i> Download Backup JSON</button>
+          <div class="bg-white border border-slate-200 shadow-sm rounded-xl p-3">
             <label class="text-[9px] font-bold text-slate-500 uppercase block mb-2">Restore from file</label>
-            <input type="file" id="restore-file" accept=".json" class="w-full text-[11px] text-slate-400 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:bg-emerald-600 file:text-white cursor-pointer">
-            <button onclick="importBackup()" class="w-full mt-2 py-2 bg-emerald-600 text-white font-bold rounded-xl active:scale-95 text-[11px]"><i class="fa-solid fa-upload text-[10px]"></i> Restore Data</button>
+            <input type="file" id="restore-file" accept=".json" class="w-full text-[11px] text-slate-500 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:bg-emerald-600 file:text-white cursor-pointer">
+            <button onclick="importBackup()" class="w-full mt-2 py-2 bg-emerald-50 border border-emerald-200 text-emerald-700 font-bold rounded-xl active:scale-95 text-[11px] shadow-sm"><i class="fa-solid fa-upload text-[10px]"></i> Restore Data</button>
           </div>
-          <div class="bg-rose-950/40 border border-rose-900/60 rounded-xl p-3">
-            <p class="text-[10px] text-rose-300 font-bold mb-2"><i class="fa-solid fa-triangle-exclamation"></i> Danger zone</p>
-            <button onclick="wipeAllData()" class="w-full py-2 bg-rose-600 text-white font-bold rounded-xl active:scale-95 text-[11px]">Wipe ALL Data</button>
+          <div class="bg-rose-50 border border-rose-200 rounded-xl p-3">
+            <p class="text-[10px] text-rose-700 font-bold mb-2"><i class="fa-solid fa-triangle-exclamation"></i> Danger zone</p>
+            <button onclick="wipeAllData()" class="w-full py-2 bg-rose-600 text-white font-bold rounded-xl active:scale-95 text-[11px] shadow-sm">Wipe ALL Data</button>
           </div>
         </div>`;
     }
@@ -2796,16 +2841,16 @@
       localStorage.clear(); location.reload();
     }
     function toolQuickCalc() {
-      return toolHeader('Quick Calculator','Basic arithmetic','fa-calculator','bg-lime-500/20 text-lime-400') + `
+      return toolHeader('Quick Calculator','Basic arithmetic','fa-calculator','bg-lime-50 text-lime-600') + `
         <div class="space-y-3">
           <input type="text" id="qc-expr" class="tool-input text-base text-center" placeholder="e.g. 12*45+30" oninput="calcQuick()">
           <div class="grid grid-cols-4 gap-1.5 text-xs font-bold">
             ${['7','8','9','/','4','5','6','*','1','2','3','-','0','.','=','+'].map(k => {
               const isOp = ['/','*','-','+','='].includes(k); const isEq = k === '=';
-              return `<button onclick="qcPress('${k}')" class="py-3 rounded-xl ${isEq ? 'bg-blue-600 text-white' : isOp ? 'bg-slate-800 text-slate-300' : 'bg-slate-950 text-white border border-slate-800'} active:scale-95">${k}</button>`;
+              return `<button onclick="qcPress('${k}')" class="py-3 rounded-xl ${isEq ? 'bg-blue-600 text-white shadow-sm' : isOp ? 'bg-slate-100 text-slate-600 border border-slate-200' : 'bg-white text-slate-900 border border-slate-200 shadow-sm'} active:scale-95">${k}</button>`;
             }).join('')}
-            <button onclick="qcPress('C')" class="col-span-2 py-3 rounded-xl bg-rose-600 text-white active:scale-95">Clear</button>
-            <button onclick="qcPress('back')" class="col-span-2 py-3 rounded-xl bg-slate-800 text-white active:scale-95">⌫ Back</button>
+            <button onclick="qcPress('C')" class="col-span-2 py-3 rounded-xl bg-rose-50 text-rose-600 border border-rose-200 active:scale-95 shadow-sm">Clear</button>
+            <button onclick="qcPress('back')" class="col-span-2 py-3 rounded-xl bg-slate-100 text-slate-600 border border-slate-200 active:scale-95 shadow-sm">⌫ Back</button>
           </div>
           <div id="qc-result" class="tool-result text-center"><div class="text-[9px] text-slate-500 uppercase font-bold mb-1">Result</div><div class="val text-2xl">0</div></div>
         </div>`;
